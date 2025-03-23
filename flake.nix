@@ -28,11 +28,15 @@
     };
   };
   
-  outputs = { nixpkgs, self, ... }@inputs : {
-    nixosConfigurations.yukari = nixpkgs.lib.nixosSystem {
+  outputs = { nixpkgs, self, ... }@inputs : let
+    forAllHosts = nixpkgs.lib.genAttrs [ "yukari" ];
+  in {
+    nixosConfigurations = forAllHosts (host: nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
         ./modules/nixos
+        # ./modules/nixos/hosts/common
+        # ./modules/nixos/hosts/${host}
         inputs.home-manager.nixosModules.home-manager
         {
           home-manager.useGlobalPkgs = true;
@@ -47,7 +51,7 @@
         inherit inputs;
         outputs = self;
       };
-    };
+    });
 
     
     
