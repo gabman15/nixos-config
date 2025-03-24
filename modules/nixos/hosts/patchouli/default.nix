@@ -16,7 +16,17 @@
   wsl = {
     enable = true;
     defaultUser = "lord_gabem";
+    wslConf = {
+      network.generateHosts = false;
+      network.generateResolvConf = false;
+      interop.appendWindowsPath = false;
+    };
+    
   };
+
+  networking.nameservers = [
+    "1.1.1.1"
+  ];
   
   system.stateVersion = "24.11";
 }
