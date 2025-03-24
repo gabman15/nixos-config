@@ -31,6 +31,10 @@ in
           ''
           PS1='[\[\033[1;36m\]\u@\h \[\033[33m\]\W\[\033[00m\]]\$ '
           ${spriteCat}
+          export PF_COL1=6
+          export PF_COL3=3
+          export PF_INFO="title os host kernel uptime pkgs memory"
+          ${pkgs.pfetch}/bin/pfetch
           '';
       };
     };
