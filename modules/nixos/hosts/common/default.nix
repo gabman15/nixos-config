@@ -24,6 +24,9 @@
 
   networking.networkmanager.enable = true;
 
+  # Enable the OpenSSH daemon.
+  custom.nixos.programs.ssh.enable = true;
+
   services.pipewire = {
     enable = true;
     pulse.enable = true;

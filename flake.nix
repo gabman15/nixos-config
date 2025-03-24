@@ -38,12 +38,14 @@
         ./modules/nixos/hosts/${host}
         inputs.home-manager.nixosModules.home-manager
         {
+          networking.hostName = host;
           home-manager.useGlobalPkgs = true;
           home-manager.users.lord_gabem = {
             imports = [
               ./modules/home/hosts/common
               ./modules/home/hosts/${host}
             ];
+            custom.home.opts.hostname = host;
           };
           home-manager.extraSpecialArgs = {
             inherit inputs;
