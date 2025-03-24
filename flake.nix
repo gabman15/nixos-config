@@ -34,13 +34,17 @@
     nixosConfigurations = forAllHosts (host: nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
-        ./modules/nixos
-        # ./modules/nixos/hosts/common
-        # ./modules/nixos/hosts/${host}
+        ./modules/nixos/hosts/common
+        ./modules/nixos/hosts/${host}
         inputs.home-manager.nixosModules.home-manager
         {
           home-manager.useGlobalPkgs = true;
-          home-manager.users.lord_gabem = import ./modules/home;
+          home-manager.users.lord_gabem = {
+            imports = [
+              ./modules/home/hosts/common
+              ./modules/home/hosts/${host}
+            ];
+          };
           home-manager.extraSpecialArgs = {
             inherit inputs;
             outputs = self;
