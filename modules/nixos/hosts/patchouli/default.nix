@@ -18,15 +18,15 @@
     defaultUser = "lord_gabem";
     wslConf = {
       network.generateHosts = false;
-      network.generateResolvConf = false;
+      network.generateResolvConf = true;
       interop.appendWindowsPath = false;
     };
     
   };
 
-  networking.nameservers = [
-    "1.1.1.1"
-  ];
+  # networking.nameservers = [
+  #   "1.1.1.1"
+  # ];
   
   system.stateVersion = "24.11";
 }
