@@ -8,6 +8,9 @@
   :ensure t)
 (use-package rust-mode
   :ensure t)
+(use-package clipetty
+  :ensure t
+  :hook (after-init . global-clipetty-mode))
 
 (use-package flycheck
   :ensure t)
