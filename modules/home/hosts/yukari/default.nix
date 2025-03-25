@@ -5,6 +5,7 @@
     librewolf
     signal-desktop
     vesktop
+    pulsemixer
   ];
   
   custom.home.programs.sway.enable = true;

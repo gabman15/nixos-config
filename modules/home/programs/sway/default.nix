@@ -28,6 +28,22 @@ in
               scale = "1";
             };
           };
+
+          window.hideEdgeBorders = "smart";
+          window.border = 2;
+          floating.border = 2;
+          window.titlebar = false;
+          floating.criteria = [
+            { app_id = "mpv"; }
+            { app_id = "feh"; }
+            { window_role = "pop-up"; }
+            { window_role = "bubble"; }
+          ];
+
+          # bars = [{
+          #   "command" = mkIf waybar.enable "${pkgs.waybar}/bin/waybar";
+          # }];
+
           keybindings = let
             modifier = config.wayland.windowManager.sway.config.modifier;
           in lib.mkOptionDefault {
@@ -38,6 +54,8 @@ in
             "XF86AudioMute" = "exec ${pkgs.pulseaudio}/bin/pactl set-sink-mute @DEFAULT_SINK@ toggle";
           };
         };
+        # extraConfig = ''
+        # '';
       };
       programs.swaylock = {
         enable = true;
