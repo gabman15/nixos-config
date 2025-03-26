@@ -2,6 +2,7 @@
 
 {
   home.packages = with pkgs; [
+    ranger
   ];
 
   custom.home.programs.bash.enable = true;
