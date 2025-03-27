@@ -11,6 +11,7 @@
   users.users.lord_gabem = {
     isNormalUser = true;
     extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+    linger = true;
   };
 
   wsl = {
