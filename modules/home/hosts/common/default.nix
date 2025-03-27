@@ -11,6 +11,7 @@
     fastfetch
     noto-fonts
     hack-font
+    # nerdfonts.override { fonts = [ "Hack" ]; }
     git
     outputs.packages.${pkgs.system}.emacs
     inputs.agenix.packages.${pkgs.system}.default

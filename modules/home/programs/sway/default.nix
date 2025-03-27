@@ -40,9 +40,9 @@ in
             { window_role = "bubble"; }
           ];
 
-          # bars = [{
-          #   "command" = mkIf waybar.enable "${pkgs.waybar}/bin/waybar";
-          # }];
+          bars = [{
+            "command" = mkIf config.custom.home.programs.waybar.enable "${pkgs.waybar}/bin/waybar";
+          }];
 
           keybindings = let
             modifier = config.wayland.windowManager.sway.config.modifier;

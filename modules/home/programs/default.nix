@@ -7,5 +7,6 @@ with lib; {
     ./kitty
     ./bash
     ./mpv
+    ./waybar
   ];
 }
