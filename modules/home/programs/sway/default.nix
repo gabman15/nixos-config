@@ -48,7 +48,7 @@ in
             modifier = config.wayland.windowManager.sway.config.modifier;
           in lib.mkOptionDefault {
             "${modifier}+Shift+x" = "exec ${pkgs.swaylock}/bin/swaylock";
-
+            "${modifier}+p" = "exec ${pkgs.rofi-pass}/bin/rofi-pass";
             "XF86AudioRaiseVolume" = "exec ${pkgs.pulseaudio}/bin/pactl set-sink-volume @DEFAULT_SINK@ +10%";
             "XF86AudioLowerVolume" = "exec ${pkgs.pulseaudio}/bin/pactl set-sink-volume @DEFAULT_SINK@ -10%";
             "XF86AudioMute" = "exec ${pkgs.pulseaudio}/bin/pactl set-sink-mute @DEFAULT_SINK@ toggle";

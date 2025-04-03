@@ -6,8 +6,12 @@
     signal-desktop
     vesktop
     pulsemixer
+    pass
+    rsync
+    gnupg
   ];
-  
+
+
   custom.home.programs.sway.enable = true;
   custom.home.programs.waybar.enable = true;
   custom.home.programs.backgrounder.enable = true;

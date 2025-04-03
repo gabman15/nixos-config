@@ -14,5 +14,21 @@ in
         ${inputs.gabe-backgrounder.packages.${pkgs.system}.default}/bin/gabe-backgrounder -c ${config.age.secrets.backgrounder-config.path}
         '')
       ];
+      systemd.user.timers.backgrounder = {
+        Install = {
+          WantedBy = [ "timers.target" ];
+        };
+        Timer = {
+          OnCalendar = "*-*-* *:0,15,30,45:00";
+          Unit = "backgrounder.service";
+        };
+      };
+      systemd.user.services.backgrounder = {
+        Service = {
+          ExecStart = ''
+            ${inputs.gabe-backgrounder.packages.${pkgs.system}.default}/bin/gabe-backgrounder -c ${config.age.secrets.backgrounder-config.path}
+          '';
+        };
+      };
     };
   }

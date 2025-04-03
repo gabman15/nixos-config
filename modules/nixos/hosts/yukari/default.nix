@@ -15,6 +15,7 @@
   users.users.lord_gabem = {
     isNormalUser = true;
     extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+    linger = true;
   };
 
   environment.systemPackages = with pkgs; [
@@ -22,7 +23,7 @@
   ];
 
   services.tailscale.enable = true;
-
+  custom.nixos.programs.gnupg.enable = true;
   custom.nixos.hardware.framework-13.enable = true;
 
   custom.nixos.suites.graphical.enable = true;
