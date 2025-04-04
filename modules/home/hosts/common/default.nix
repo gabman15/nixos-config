@@ -10,6 +10,7 @@
   home.packages = with pkgs; [
     fastfetch
     noto-fonts
+    noto-fonts-cjk-sans
     hack-font
     # nerdfonts.override { fonts = [ "Hack" ]; }
     git
