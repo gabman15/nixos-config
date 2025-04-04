@@ -24,8 +24,11 @@
 (add-hook 'nix-mode-hook #'lsp)
 (add-hook 'json-mode-hook #'lsp)
 (add-hook 'php-mode-hook #'lsp)
-(add-hook 'c-mode-hook #'lsp)
-(add-hook 'ruby-mode-hook #'lsp)
+
+(use-package ccls
+  :ensure t
+  :hook ((c-mode c++-mode objc-mode cuda-mode) .
+         (lambda () (require 'ccls) (lsp))))
 
 (use-package lsp-pyright
   :ensure t
