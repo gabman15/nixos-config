@@ -1,4 +1,4 @@
-{ pkgs, lib, config, ... }:
+{ inputs, pkgs, lib, config, ... }:
 
 with lib; let
   cfg = config.custom.home.programs.sway;
@@ -85,7 +85,12 @@ in
             ];
 
             bars = [];
-
+            startup = mkIf config.custom.home.programs.backgrounder.enable [
+              {
+                command = "${inputs.gabe-backgrounder.packages.${pkgs.system}.default}/bin/gabe-backgrounder -c ${config.age.secrets.backgrounder-config.path}";
+                always = true;
+              }
+            ];
             keybindings = let
               screenshot-script = (import ./scripts/screenshot.nix) pkgs config;
               modifier = config.wayland.windowManager.sway.config.modifier;
