@@ -39,16 +39,16 @@ in
             { window_role = "pop-up"; }
             { window_role = "bubble"; }
           ];
-
-          bars = [{
-            "command" = mkIf config.custom.home.programs.waybar.enable "${pkgs.waybar}/bin/waybar";
-          }];
+          
+          bars = [];
 
           keybindings = let
+            scrdir = "/home/${config.home.username}/pictures/grim";
             modifier = config.wayland.windowManager.sway.config.modifier;
           in lib.mkOptionDefault {
             "${modifier}+Shift+x" = "exec ${pkgs.swaylock}/bin/swaylock";
             "${modifier}+p" = "exec ${pkgs.rofi-pass-wayland}/bin/rofi-pass";
+            "${modifier}+Shift+s" = "exec ${pkgs.grim}/bin/grim -g $(${pkgs.slurp}/bin/slurp -o -w 0) - | tee $scrdir/$(${pkgs.coreutils}/bin/date +%s).png | ${pkgs.wl-clipboard}/bin/wl-copy -t image/png";
             "XF86AudioRaiseVolume" = "exec ${pkgs.pulseaudio}/bin/pactl set-sink-volume @DEFAULT_SINK@ +10%";
             "XF86AudioLowerVolume" = "exec ${pkgs.pulseaudio}/bin/pactl set-sink-volume @DEFAULT_SINK@ -10%";
             "XF86AudioMute" = "exec ${pkgs.pulseaudio}/bin/pactl set-sink-mute @DEFAULT_SINK@ toggle";

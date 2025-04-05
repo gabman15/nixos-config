@@ -18,6 +18,7 @@
   custom.home.programs.kitty.enable = true;
   custom.home.programs.bash.enable = true;
   custom.home.programs.mpv.enable = true;
+  custom.home.programs.gnupg.enable = true;
 
   age.secrets.backgrounder-config.file = ../../../../secrets/backgrounder-config.age;
 
