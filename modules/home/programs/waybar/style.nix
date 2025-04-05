@@ -23,14 +23,13 @@ tooltip label {
 
 #workspaces button {
     padding: 0 5px;
-    background: transparent;
     color: white;
     border-bottom: 3px solid transparent;
 }
 
-#workspaces button.focused {
-    background: #64727D;
-    border-bottom: 3px solid green;
+#workspaces button.focused
+#workspaces button.active {
+    border-bottom: 3px solid #0000ff;
 }
 
 #mode, #clock, #battery, #network, #memory, #cpu, #pulseaudio {
@@ -40,10 +39,6 @@ tooltip label {
 #mode {
     background: #64727D;
     border-bottom: 3px solid white;
-}
-
-#clock {
-    background-color: #64727D;
 }
 
 #battery {

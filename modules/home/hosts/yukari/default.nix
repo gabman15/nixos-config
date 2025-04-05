@@ -19,6 +19,14 @@
   custom.home.programs.bash.enable = true;
   custom.home.programs.mpv.enable = true;
   custom.home.programs.gnupg.enable = true;
+  custom.home.programs.rofi.enable = true;
+
+  # stylix.enable = true;
+  
+  # stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-hard.yaml";
+  stylix.targets = {
+    rofi.enable = true;
+  };
 
   age.secrets.backgrounder-config.file = ../../../../secrets/backgrounder-config.age;
 

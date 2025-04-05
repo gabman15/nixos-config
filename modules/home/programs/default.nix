@@ -10,5 +10,6 @@ with lib; {
     ./waybar
     ./direnv
     ./gnupg
+    ./rofi
   ];
 }

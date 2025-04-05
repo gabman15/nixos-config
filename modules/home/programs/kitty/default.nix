@@ -13,12 +13,6 @@ in
       programs.kitty = {
         enable = true;
 
-        font = {
-          name = "Hack Regular";
-          package = pkgs.hack-font;
-          size = 18;
-        };
-
         settings = {
           wayland_enable_ime = "yes"; # req version>=0.35.0
 

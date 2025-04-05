@@ -14,7 +14,7 @@ in
         xwayland = true;
         config = {
           terminal = "${pkgs.kitty}/bin/kitty";
-          menu = "${pkgs.rofi-wayland}/bin/rofi run -show drun -font 'Hack 12'";
+          menu = "${pkgs.rofi-wayland}/bin/rofi run -show drun";
           modifier = "Mod4";
           input = {
             "type:touchpad" = {
@@ -43,12 +43,12 @@ in
           bars = [];
 
           keybindings = let
-            scrdir = "/home/${config.home.username}/pictures/grim";
+            screenshot-script = (import ./scripts/screenshot.nix) pkgs config;
             modifier = config.wayland.windowManager.sway.config.modifier;
           in lib.mkOptionDefault {
             "${modifier}+Shift+x" = "exec ${pkgs.swaylock}/bin/swaylock";
             "${modifier}+p" = "exec ${pkgs.rofi-pass-wayland}/bin/rofi-pass";
-            "${modifier}+Shift+s" = "exec ${pkgs.grim}/bin/grim -g $(${pkgs.slurp}/bin/slurp -o -w 0) - | tee $scrdir/$(${pkgs.coreutils}/bin/date +%s).png | ${pkgs.wl-clipboard}/bin/wl-copy -t image/png";
+            "${modifier}+Shift+s" = "exec ${screenshot-script}";
             "XF86AudioRaiseVolume" = "exec ${pkgs.pulseaudio}/bin/pactl set-sink-volume @DEFAULT_SINK@ +10%";
             "XF86AudioLowerVolume" = "exec ${pkgs.pulseaudio}/bin/pactl set-sink-volume @DEFAULT_SINK@ -10%";
             "XF86AudioMute" = "exec ${pkgs.pulseaudio}/bin/pactl set-sink-mute @DEFAULT_SINK@ toggle";
