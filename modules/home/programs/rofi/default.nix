@@ -11,6 +11,13 @@ in
     config = mkIf cfg.enable {
       programs.rofi = {
         enable = true;
+        pass = {
+          enable = true;
+          extraConfig = ''
+            default_user='gabman15'
+            USERNAME_field='user'
+          '';
+        };
       };
     };
   }
