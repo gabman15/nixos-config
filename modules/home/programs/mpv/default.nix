@@ -6,14 +6,18 @@ in
   {
     options.custom.home.programs.mpv = {
       enable = mkEnableOption "mpv video player";
+      remote = mkEnableOption "mpv remote node";
     };
 
     config = mkIf cfg.enable {
       programs.mpv = {
         enable = true;
 
-        scripts = [
-          inputs.mpv-remote-node.packages.${pkgs.system}.mpv-remote-script
+        scripts = mkMerge [
+          (mkIf cfg.remote [
+            inputs.mpv-remote-node.packages.${pkgs.system}.mpv-remote-script
+          ])
+          []
         ];
         config = {
           # script-opts = "mpvremote.";

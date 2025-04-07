@@ -19,6 +19,7 @@
   custom.home.programs.kitty.enable = true;
   custom.home.programs.bash.enable = true;
   custom.home.programs.mpv.enable = true;
+  custom.home.programs.mpv.remote = true;
   custom.home.programs.gnupg.enable = true;
   custom.home.programs.rofi.enable = true;
 

@@ -14,6 +14,11 @@ in
     };
 
     config = mkIf cfg.enable {
+      home.packages = [
+        (pkgs.writeShellScriptBin "albumart" ''
+          ${pkgs.feh}/bin/feh -g 500x500 --auto-zoom /tmp/album.png
+        '')
+      ];
       systemd.user.services.albumart = {
         Unit = {
           Description = "Grabs album art from running mpd daemon";
