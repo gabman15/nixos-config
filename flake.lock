@@ -345,6 +345,26 @@
         "type": "github"
       }
     },
+    "mpd-albumart": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1743897715,
+        "narHash": "sha256-rTMHs/g8TqoNnT0TQCg48XEXysiEEw19K1jCD+v9iBw=",
+        "owner": "gabman15",
+        "repo": "mpd-albumart",
+        "rev": "106cbf67c2f7275deaeb511355bd082f5e293123",
+        "type": "github"
+      },
+      "original": {
+        "owner": "gabman15",
+        "repo": "mpd-albumart",
+        "type": "github"
+      }
+    },
     "mpv-remote-node": {
       "inputs": {
         "nixpkgs": [
@@ -471,6 +491,7 @@
         "emacs-overlay": "emacs-overlay",
         "gabe-backgrounder": "gabe-backgrounder",
         "home-manager": "home-manager",
+        "mpd-albumart": "mpd-albumart",
         "mpv-remote-node": "mpv-remote-node",
         "nixos-wsl": "nixos-wsl",
         "nixpkgs": "nixpkgs_3",
