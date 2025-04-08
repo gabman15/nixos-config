@@ -5,11 +5,10 @@
     ranger
   ];
 
-  custom.home.programs.bash.enable = true;
   custom.home.programs.direnv.enable = true;
-  custom.home.programs.albumart.enable = true;
-  custom.home.programs.albumart.mpd-host = "nitori";
-  custom.home.programs.mpv.enable = true;
+
+  custom.home.suites.mpd.enable = true;
+  custom.home.suites.mpd.mpd-host = "nitori";
 
   home.stateVersion = "24.11";
 }
