@@ -17,7 +17,9 @@ in
           (mkIf cfg.remote [
             inputs.mpv-remote-node.packages.${pkgs.system}.mpv-remote-script
           ])
-          []
+          [
+            inputs.jbwar22-mpv-scripts.packages.${pkgs.system}.downmix
+          ]
         ];
         config = {
           # script-opts = "mpvremote.";

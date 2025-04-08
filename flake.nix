@@ -30,6 +30,10 @@
       url = "github:gabman15/mpv-remote-node";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    jbwar22-mpv-scripts = {
+      url = "github:jbwar22/mpv-scripts";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
     stylix = {
       url = "github:danth/stylix/release-24.11";
