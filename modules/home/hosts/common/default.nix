@@ -6,13 +6,13 @@
     ../../programs
     ../../behavior
     ../../opts
+    ../../suites
   ];
   home.packages = with pkgs; [
     fastfetch
     noto-fonts
     noto-fonts-cjk-sans
     hack-font
-    # nerdfonts.override { fonts = [ "Hack" ]; }
     git
     outputs.packages.${pkgs.system}.emacs
     inputs.agenix.packages.${pkgs.system}.default

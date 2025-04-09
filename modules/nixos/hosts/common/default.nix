@@ -17,6 +17,7 @@
     emacs
     wget
     curl
+    rsync
   ];
 }
 
