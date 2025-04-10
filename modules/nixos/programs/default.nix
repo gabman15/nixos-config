@@ -3,5 +3,6 @@
 with lib; {
   imports = [
     ./ssh
+    ./docker
   ];
 }
