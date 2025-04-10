@@ -27,6 +27,11 @@
     };
   };
 
+  fileSystems."/mnt/anime" = {
+    device = "nitori:/anime";
+    fsType = "nfs";
+  };
+
   environment.systemPackages = with pkgs; [
     tailscale
   ];
