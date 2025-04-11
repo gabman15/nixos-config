@@ -32,10 +32,29 @@
     };
   };
 
-  fileSystems."/mnt/anime" = {
-    device = "nitori:/anime";
-    fsType = "nfs";
-  };
+  # fileSystems."/mnt/anime" = {
+  #   device = "nitori:/anime";
+  #   fsType = "nfs";
+  # };
+
+  systemd.mounts = [
+    {
+      description = "nitori anime";
+      what = "nitori:/anime";
+      type = "nfs";
+      where = "/mnt/anime";
+      after = [ "tailscaled.service" ];
+    }
+  ];
+
+  systemd.automounts = [
+    {
+      description = "Automount for nitori anime";
+      where = "/mnt/anime";
+      after = [ "tailscaled.service" ];
+      wantedBy = [ "multi-user.target" ];
+    }
+  ];
 
   boot.supportedFilesystems = [ "nfs" ];
 
