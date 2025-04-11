@@ -9,7 +9,6 @@ in
     };
 
     config = mkIf cfg.enable {
-        custom.home.opts.stylix = true;
-        stylix = ((import ./yukari) pkgs); #TEMP
-      };
+      stylix = ((import ./${config.networking.hostName}) pkgs);
+    };
   }

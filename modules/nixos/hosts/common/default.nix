@@ -7,7 +7,6 @@
       ../../programs
       ../../suites
       ../../themes
-      ../../../home/opts
     ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
