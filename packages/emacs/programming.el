@@ -24,6 +24,16 @@
 (add-hook 'nix-mode-hook #'lsp)
 (add-hook 'json-mode-hook #'lsp)
 (add-hook 'php-mode-hook #'lsp)
+(add-hook 'nxml-mode-hook #'lsp)
+
+(add-to-list 'auto-mode-alist '("\\.xaml\\'" . xml-mode))
+(add-to-list 'auto-mode-alist '("\\.axaml\\'" . xml-mode))
+(add-to-list 'auto-mode-alist '("\\.dashboard\\'" . json-mode))
+
+(lsp-register-client (make-lsp-client
+                      :new-connection (lsp-stdio-connection "lemminx")
+                      :activation-fn (lsp-activate-on "xml")
+                      :server-id 'lemminx))
 
 (use-package ccls
   :ensure t

@@ -27,6 +27,7 @@ pkgs: let
       pkgs.vscode-langservers-extracted
       pkgs.nixd
       pkgs.intelephense
+      pkgs.lemminx
       pkgs.ccls
       pkgs.emacs-all-the-icons-fonts
       pkgs.hack-font
