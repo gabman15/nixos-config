@@ -22,6 +22,15 @@
 
   custom.nixos.programs.docker.enable = true;
 
+  virtualisation.docker.daemon.settings = {
+    "default-address-pools" = [
+      {
+        "base" = "192.168.0.1/16";
+        "size" = 24;
+      }
+    ];
+  };
+
   wsl = {
     enable = true;
     defaultUser = "lord_gabem";
