@@ -65,6 +65,6 @@ in
           enable = true;
         };
       })
-      (mkIf config.custom.home.opts.stylix ((import ./stylix.nix) cfg))
+      (mkIf config.custom.home.opts.stylix ((import ./stylix.nix) config))
     ];
   }

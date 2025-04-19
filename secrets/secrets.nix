@@ -10,5 +10,6 @@ in
 {
   "backgrounder-config.age".publicKeys = keys;
   "yukari.age".publicKeys = keys;
+  "suwako.age".publicKeys = keys;
   "patchouli.age".publicKeys = workkeys ++ keys;
 }
