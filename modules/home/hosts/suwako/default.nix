@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ lib, config, pkgs, ... }:
 
 {
   home.packages = with pkgs; [
@@ -12,9 +12,14 @@
 
   age.secrets.backgrounder-config.file = ../../../../secrets/backgrounder-config.age;
 
-  wayland.windowManager.sway.config.output = {
-    eDP-1-1 = {
+  wayland.windowManager.sway.config = {
+    output.eDP-1 = {
       disable = "";
+    };
+    seat = {
+      "*" = {
+        hide_cursor = "100";
+      };
     };
   };
 
@@ -26,9 +31,17 @@
       WantedBy = [ "graphical-session.target" ];
     };
     Service = {
-      ExecStart = ''
-        ${pkgs.mpv}/bin/mpv --idle --fullscreen
-      '';
+      ExecStart = let
+        app = pkgs.writeShellApplication {
+          name = "mpv-remote-daemon";
+          runtimeInputs = with pkgs; [ busybox ];
+          text =
+            ''
+              ${config.programs.mpv.finalPackage}/bin/mpv --idle --fullscreen
+            '';
+        };
+      in
+        lib.getExe app;
     };
   };
 

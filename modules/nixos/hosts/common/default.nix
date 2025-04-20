@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ lib, pkgs, ... }:
 
 {
   imports =
@@ -14,6 +14,13 @@
   # Enable the OpenSSH daemon.
   custom.nixos.programs.ssh.enable = true;
 
+  nixpkgs.config.allowUnfreePredicate = pkg:
+    builtins.elem (lib.getName pkg) [
+      "nvidia-x11"
+      "nvidia-settings"
+      "nvidia-persistenced"
+    ];
+
   environment.systemPackages = with pkgs; [
     emacs
     wget
@@ -21,4 +28,3 @@
     rsync
   ];
 }
-

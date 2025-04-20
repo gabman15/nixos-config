@@ -39,10 +39,14 @@
       url = "github:danth/stylix/release-24.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    disko = {
+      url = "github:nix-community/disko";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
   
   outputs = { nixpkgs, self, ... }@inputs : let
-    forAllHosts = nixpkgs.lib.genAttrs [ "yukari" "patchouli" ];
+    forAllHosts = nixpkgs.lib.genAttrs [ "yukari" "patchouli" "suwako" ];
   in {
     nixosConfigurations = forAllHosts (host: nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
@@ -51,6 +55,7 @@
         ./modules/nixos/hosts/${host}
         inputs.stylix.nixosModules.stylix
         inputs.home-manager.nixosModules.home-manager
+        inputs.disko.nixosModules.disko
         {
           networking.hostName = host;
           home-manager.useGlobalPkgs = true;
