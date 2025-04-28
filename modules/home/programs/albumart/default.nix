@@ -16,7 +16,7 @@ in
     config = mkIf cfg.enable {
       home.packages = [
         (pkgs.writeShellScriptBin "albumart" ''
-          ${pkgs.feh}/bin/feh -g 500x500 --auto-zoom /tmp/album.png
+          ${pkgs.feh}/bin/feh -g 500x500 --auto-zoom --scale-down /tmp/album.png
         '')
       ];
       systemd.user.services.albumart = {
