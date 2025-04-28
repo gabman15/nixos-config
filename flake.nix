@@ -90,6 +90,9 @@
         modules = [
           ./modules/home/hosts/common
           ./modules/home/hosts/${host}
+          {
+            home.username = "lord_gabem";
+          }
         ];
         custom.home.opts.hostname = host;
         specialArgs = {
