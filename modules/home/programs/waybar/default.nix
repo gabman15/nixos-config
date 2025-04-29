@@ -66,7 +66,7 @@ in
     };
 
     config = mkIf cfg.enable {
-      stylix.targets.waybar = {
+      stylix.targets.waybar = mkIf config.custom.home.opts.stylix {
         enableLeftBackColors = false;
         enableRightBackColors = false;
         enableCenterBackColors = false;
