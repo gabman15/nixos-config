@@ -11,7 +11,10 @@
 (use-package clipetty
   :ensure t
   :hook (after-init . global-clipetty-mode))
-
+(use-package fzf
+  :ensure t)
+(use-package rg
+  :ensure t)
 (use-package flycheck
   :ensure t)
 (use-package lsp-mode
