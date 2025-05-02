@@ -16,6 +16,7 @@
     git
     outputs.packages.${pkgs.system}.emacs
     inputs.agenix.packages.${pkgs.system}.default
+    inputs.home-manager.packages.${pkgs.system}.default
   ];
 
   fonts.fontconfig = {
