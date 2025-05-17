@@ -10,6 +10,7 @@ in
 
     
     config = mkIf cfg.enable {
+      programs.gpg.enable = true;
       services.gpg-agent = {
         enable = true;
         pinentryPackage = with pkgs; pinentry-gtk2;
