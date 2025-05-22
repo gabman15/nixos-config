@@ -2,10 +2,10 @@
   description = "My Flake";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.11";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
     home-manager = {
-      url = "github:nix-community/home-manager/release-24.11";
+      url = "github:nix-community/home-manager/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     emacs-overlay = {
@@ -40,7 +40,7 @@
     };
     nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
     stylix = {
-      url = "github:danth/stylix/release-24.11";
+      url = "github:danth/stylix/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     disko = {
@@ -92,7 +92,7 @@
       forAllHomeMgrHosts (host: inputs.home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         modules = [
-          stylix.homeManagerModules.stylix
+          stylix.homeModules.stylix
           ./modules/home/hosts/common
           ./modules/home/hosts/${host}
           {
