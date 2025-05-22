@@ -1,4 +1,4 @@
-{ config, inputs, pkgs, outputs, ... }:
+{ lib, config, inputs, pkgs, outputs, ... }:
 
 {
   imports = [
@@ -23,6 +23,11 @@
       monospace = [ "Hack" ];
     };
   };
+
+  nixpkgs.config.allowUnfreePredicate = pkg:
+    builtins.elem (lib.getName pkg) [
+      "posy-cursors"
+    ];
 
   custom.home.behavior.xdg.enable = true;
   custom.home.programs.bash.enable = true;
