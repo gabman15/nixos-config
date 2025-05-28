@@ -20,6 +20,7 @@ in
         '')
         pkgs.ncmpc
         pkgs.mpc
+        pkgs.rmpc
       ];
 
       home.sessionVariables = {

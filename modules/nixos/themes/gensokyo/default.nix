@@ -36,6 +36,12 @@ pkgs:
     package = pkgs.posy-cursors;
     size = 40;
   };
+  iconTheme = {
+    enable = true;
+    package = pkgs.gruvbox-dark-icons-gtk;
+    light = "oomox-gruvbox-dark";
+    dark = "oomox-gruvbox-dark";
+  };
   targets.qt = {
     enable = true;
     platform = "qtct";
