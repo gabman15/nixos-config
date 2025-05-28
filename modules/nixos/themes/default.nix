@@ -10,5 +10,6 @@ in
 
     config = mkIf cfg.enable {
       stylix = ((import ./${config.networking.hostName}) pkgs);
+      #((import ./common) pkgs) //
     };
   }
