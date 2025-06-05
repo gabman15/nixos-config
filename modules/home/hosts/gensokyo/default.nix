@@ -5,6 +5,7 @@
     antimicrox
     cantata
     ymuse
+    ludusavi
   ];
 
   custom.home.suites.graphical.enable = true;
