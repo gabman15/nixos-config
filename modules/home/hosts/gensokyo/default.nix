@@ -27,7 +27,7 @@
   };
   custom.home.programs.rofi.enable = true;
 
-  stylix = ((import ../../../nixos/themes/gensokyo) pkgs);
+  stylix = lib.recursiveUpdate ((import ../../../nixos/themes/common) pkgs) ((import ../../../nixos/themes/${config.custom.home.opts.hostname}) pkgs);
 
   home.stateVersion = "24.11";
 }

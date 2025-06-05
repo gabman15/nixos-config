@@ -19,6 +19,7 @@
       "nvidia-x11"
       "nvidia-settings"
       "nvidia-persistenced"
+      "posy-cursors"
     ];
 
   nix.settings.trusted-users = [ "@wheel" ];
