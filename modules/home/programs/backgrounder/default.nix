@@ -9,6 +9,7 @@ in
     };
 
     config = mkIf cfg.enable {
+      age.secrets.backgrounder-config.file = ../../../../secrets/backgrounder-config.age;
       home.packages = [
         (pkgs.writeShellScriptBin "backgrounder" ''
         ${inputs.gabe-backgrounder.packages.${pkgs.system}.default}/bin/gabe-backgrounder -c ${config.age.secrets.backgrounder-config.path}
