@@ -54,6 +54,14 @@
     homemgrhosts = [ "gensokyo" ];
     forAllNixOsHosts = nixpkgs.lib.genAttrs nixoshosts;
     forAllHomeMgrHosts = nixpkgs.lib.genAttrs homemgrhosts;
+    nixosUnfreePkgs = [
+      "nvidia-x11"
+      "nvidia-settings"
+      "nvidia-persistenced"
+    ];
+    homeUnfreePkgs = [
+      "posy-cursors"
+    ];
   in {
     nixosConfigurations = forAllNixOsHosts (host: nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
@@ -77,6 +85,8 @@
             inherit inputs;
             outputs = self;
           };
+          nixpkgs.config.allowUnfreePredicate = pkg:
+            builtins.elem (nixpkgs.lib.getName pkg) (nixosUnfreePkgs ++ homeUnfreePkgs);
         }
       ];
       specialArgs = {
@@ -99,9 +109,10 @@
             home.username = "lord_gabem";
             custom.home.opts.hostname = host;
             home.homeDirectory = "/home/lord_gabem";
+            nixpkgs.config.allowUnfreePredicate = pkg:
+              builtins.elem (nixpkgs.lib.getName pkg) homeUnfreePkgs;
           }
         ];
-
         extraSpecialArgs = {
           inherit inputs;
           outputs = self;

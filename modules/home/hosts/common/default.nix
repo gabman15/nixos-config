@@ -24,11 +24,6 @@
     };
   };
 
-  nixpkgs.config.allowUnfreePredicate = pkg:
-    builtins.elem (lib.getName pkg) [
-      "posy-cursors"
-    ];
-
   custom.home.behavior.xdg.enable = true;
   custom.home.programs.bash.enable = true;
   
