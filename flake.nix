@@ -51,7 +51,7 @@
 
   outputs = { nixpkgs, home-manager, stylix, self, ... }@inputs : let
     nixoshosts = [ "yukari" "patchouli" "suwako" ];
-    homemgrhosts = [ "gensokyo" ];
+    homemgrhosts = [ "gensokyo" "nitori" ];
     forAllNixOsHosts = nixpkgs.lib.genAttrs nixoshosts;
     forAllHomeMgrHosts = nixpkgs.lib.genAttrs homemgrhosts;
   in {
