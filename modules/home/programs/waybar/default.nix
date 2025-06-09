@@ -72,7 +72,7 @@ in
         enableCenterBackColors = false;
       };
       home.packages = [
-        (pkgs.nerdfonts.override { fonts =  [ "Hack" ]; })
+        (pkgs.nerd-fonts.hack)
       ];
       programs.waybar = {
         enable = true;
