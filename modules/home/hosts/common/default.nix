@@ -17,6 +17,8 @@
     inputs.home-manager.packages.${pkgs.system}.default
   ];
 
+  home.sessionVariables.EDITOR = "emacs";
+
   fonts.fontconfig = {
     enable = true;
     defaultFonts = {
