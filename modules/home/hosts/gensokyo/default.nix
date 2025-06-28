@@ -6,6 +6,7 @@
     cantata
     ymuse
     ludusavi
+    vesktop
   ];
 
   custom.home.suites.graphical.enable = true;

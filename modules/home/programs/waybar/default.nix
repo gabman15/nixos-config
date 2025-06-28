@@ -39,6 +39,24 @@ with lib; let
         "󰤥"
         "󰤨"
       ];
+      format-ethernet = " {ipaddr}";
+    };
+    "custom/mpd-button" = let
+      mpd-button-script = (import ./scripts/mpd-button.nix) pkgs config;
+    in {
+      exec = "${mpd-button-script}";
+      on-click = "mpc toggle";
+      restart-interval = 1;
+      tooltip = false;
+    };
+    "mpd" = {
+      tooltip = false;
+      format = "{artist} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S})";
+      cursor = false;
+      # state-icons = {
+      #   paused = "";
+      #   playing = "";
+      # };
     };
     "pulseaudio" = {
       format = "audio: {volume}%";
