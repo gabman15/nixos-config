@@ -47,6 +47,8 @@
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nix-index-database.url = "github:nix-community/nix-index-database";
+    nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = { nixpkgs, home-manager, stylix, self, ... }@inputs : let
@@ -78,6 +80,7 @@
             imports = [
               ./modules/home/hosts/common
               ./modules/home/hosts/${host}
+              inputs.nix-index-database.hmModules.nix-index
             ];
             custom.home.opts.hostname = host;
           };
@@ -103,6 +106,7 @@
         inherit pkgs;
         modules = [
           stylix.homeModules.stylix
+          inputs.nix-index-database.hmModules.nix-index
           ./modules/home/hosts/common
           ./modules/home/hosts/${host}
           {
