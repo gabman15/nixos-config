@@ -2,10 +2,16 @@
 
 with lib; let
   cfg = config.custom.home.programs.sway;
+  mkIfElse = p: yes: no: mkMerge [
+    (mkIf p yes)
+    (mkIf (!p) no)
+  ];
 in
   {
     options.custom.home.programs.sway = {
       enable = mkEnableOption "sway wm";
+      sys-swaylock = mkEnableOption "use system swaylock";
+      sys-kitty = mkEnableOption "use system kitty";
     };
 
     config = mkMerge [
@@ -15,8 +21,10 @@ in
             enable = true;
             xwayland = true;
 
-            config = {
-              terminal = "${pkgs.kitty}/bin/kitty";
+            config = let
+              exit = "exit: [p]oweroff, [r]eboot, [l]ogout";
+            in {
+              terminal = mkIfElse cfg.sys-kitty "kitty" "${pkgs.kitty}/bin/kitty";
               menu = "${pkgs.rofi-wayland}/bin/rofi run -show drun -display-drun 'drun: '";
               modifier = "Mod4";
               input = {
@@ -26,9 +34,16 @@ in
                   scroll_factor = "0.5";
                 };
               };
-              output."*" = {
-                scale = "1";
-              };
+              # Thanks jbwar22 for the screens opt handling code
+              output = foldl' (accum: screen: accum // (let
+                screen-def = screen.value.sway;
+              in {
+                "${screen.name}" = screen-def;
+              })) {
+                "*" = {
+                  scale = "1";
+                };
+              } (attrsToList config.custom.home.opts.screens);
 
               window.hideEdgeBorders = "smart";
               window.border = 2;
@@ -40,7 +55,23 @@ in
                 { window_role = "pop-up"; }
                 { window_role = "bubble"; }
               ];
-
+              modes = {
+                ${exit} = {
+                  p = "exec systemctl poweroff";
+                  r = "exec systemctl reboot";
+                  l = "exec swaymsg exit";
+                  Return = "mode default";
+                  Escape = "mode default";
+                };
+                resize = {
+                  Down = "resize grow height 30 px";
+                  Left = "resize shrink width 30 px";
+                  Right = "resize grow width 30 px";
+                  Up = "resize shrink height 30 px";
+                  Return = "mode default";
+                  Escape = "mode default";
+                };
+              };
               bars = [];
               startup = mkIf config.custom.home.programs.backgrounder.enable [
                 {
@@ -51,10 +82,13 @@ in
               keybindings = let
                 screenshot-script = (import ./scripts/screenshot.nix) pkgs config;
                 modifier = config.wayland.windowManager.sway.config.modifier;
+                swaylock = mkIfElse cfg.sys-swaylock "exec swaylock" "exec ${pkgs.swaylock}/bin/swaylock";
               in lib.mkOptionDefault {
-                "${modifier}+Shift+x" = "exec ${pkgs.swaylock}/bin/swaylock";
+                "${modifier}+Shift+x" = swaylock;
                 "${modifier}+p" = "exec ${pkgs.rofi-pass-wayland}/bin/rofi-pass";
                 "${modifier}+Shift+s" = "exec ${screenshot-script}";
+                "${modifier}+Shift+t" = "exec transformers_ocr recognize";
+                "${modifier}+Mod1+e" = "mode \"${exit}\"";
                 "XF86AudioRaiseVolume" = "exec ${pkgs.pulseaudio}/bin/pactl set-sink-volume @DEFAULT_SINK@ +10%";
                 "XF86AudioLowerVolume" = "exec ${pkgs.pulseaudio}/bin/pactl set-sink-volume @DEFAULT_SINK@ -10%";
                 "XF86AudioMute" = "exec ${pkgs.pulseaudio}/bin/pactl set-sink-mute @DEFAULT_SINK@ toggle";
@@ -63,6 +97,7 @@ in
           };
         programs.swaylock = {
           enable = true;
+          package = mkIf cfg.sys-swaylock null;
         };
       })
       (mkIf config.custom.home.opts.stylix ((import ./stylix.nix) config))

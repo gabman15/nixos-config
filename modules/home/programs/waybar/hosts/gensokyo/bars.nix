@@ -5,7 +5,7 @@
     height = 40;
     output = "DP-4";
     modules-left = [ "pulseaudio" "memory" "cpu" "temperature" ];
-    modules-center = [ "clock" ];
+    modules-center = [ "clock" "custom/weather" ];
     modules-right = [ "disk" "disk#games" "disk#anime" ]; # + weather + package update?
   };
   bar_top_right = {
@@ -22,6 +22,6 @@
     height = 40;
     modules-left = [ "network" "backgrounder" ];
     modules-center = [ "sway/workspaces" ];
-    modules-right = [];
+    modules-right = [ "sway/mode" ];
   };
 }

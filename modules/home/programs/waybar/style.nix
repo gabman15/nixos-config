@@ -40,11 +40,6 @@ tooltip label {
     margin-left: 15px;
 }
 
-#mode {
-    background: #64727D;
-    border-bottom: 3px solid white;
-}
-
 #battery {
     background-color: #ffffff;
     color: black;

@@ -58,6 +58,13 @@ with lib; let
       #   playing = "";
       # };
     };
+    "custom/weather" ={
+      format = "{}°";
+      tooltip = true;
+      interval = 3600;
+      exec = "${pkgs.wttrbar}/bin/wttrbar --fahrenheit";
+      return-type =  "json";
+    };
     "pulseaudio" = {
       format = "audio: {volume}%";
       format-muted = "audio: muted";
