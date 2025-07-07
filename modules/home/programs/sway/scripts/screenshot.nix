@@ -15,17 +15,17 @@ pkgs.writeShellScript "sway-screenshot" ''
     esac
   done
   home=/home/${config.home.username}
-  scrdir=$XDG_PICTURES_DIR/screenshots/grim
+  srcdir="$XDG_PICTURES_DIR/screenshots/grim"
 
   ${pkgs.wayfreeze}/bin/wayfreeze --hide-cursor & PID=$!
   ${pkgs.coreutils}/bin/sleep 0.02
-  area="$(${pkgs.slurp}/bin/slurp -o -w 0)"
+  area="$(${pkgs.slurp}/bin/slurp -o)"
   if [ $translation = true ]; then
-    mkdir -p /tmp/translation
+    mkdir -p "/tmp/translation"
     outputfile="/tmp/translation/img.png"
   else
-    mkdir -p $srcdir
-    outputfile="$(${pkgs.coreutils}/bin/date +$scrdir/%s.png)"
+    mkdir -p "$srcdir"
+    outputfile="$(${pkgs.coreutils}/bin/date +$srcdir/%s.png)"
   fi
 
   ${pkgs.grim}/bin/grim -g "$area" - | \
