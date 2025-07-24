@@ -80,9 +80,11 @@
             imports = [
               ./modules/home/hosts/common
               ./modules/home/hosts/${host}
-              inputs.nix-index-database.hmModules.nix-index
+              inputs.nix-index-database.homeModules.nix-index
+              inputs.stylix.homeModules.stylix
             ];
             custom.home.opts.hostname = host;
+            stylix.overlays.enable = false;
           };
           home-manager.extraSpecialArgs = {
             inherit inputs;
@@ -106,7 +108,7 @@
         inherit pkgs;
         modules = [
           stylix.homeModules.stylix
-          inputs.nix-index-database.hmModules.nix-index
+          inputs.nix-index-database.homeModules.nix-index
           ./modules/home/hosts/common
           ./modules/home/hosts/${host}
           {
