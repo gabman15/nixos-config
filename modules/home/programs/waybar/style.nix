@@ -1,17 +1,4 @@
 ''
-* {
-    border: none;
-    border-radius: 0;
-    font-family: Hack Nerd Font;
-    font-size: 20px;
-    min-height: 0;
-}
-
-window#waybar {
-    background: rgba(43, 48, 59, 0.5);
-/*    border-bottom: 3px solid rgba(100, 114, 125, 0.5);*/
-    color: white;
-}
 
 tooltip {
   background: rgba(43, 48, 59, 0.5);
