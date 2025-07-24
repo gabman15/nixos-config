@@ -25,14 +25,9 @@
   custom.home.suites.mpd.mpd-host = "nitori";
 
   custom.home.opts.stylix = true;
-  
-  # stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-hard.yaml";
+
   stylix.targets = {
     rofi.enable = true;
-  };
-
-  home.sessionVariables = {
-    QT_QPA_PLATFORMTHEME = "gtk3";
   };
 
   age.secrets.backgrounder-config.file = ../../../../secrets/backgrounder-config.age;
