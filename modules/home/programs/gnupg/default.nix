@@ -13,7 +13,7 @@ in
       programs.gpg.enable = true;
       services.gpg-agent = {
         enable = true;
-        pinentryPackage = with pkgs; pinentry-gtk2;
+        pinentry.package = with pkgs; pinentry-gtk2;
         enableSshSupport = true;
         defaultCacheTtl = 86400;
         defaultCacheTtlSsh = 86400;
