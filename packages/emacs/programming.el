@@ -8,6 +8,8 @@
   :ensure t)
 (use-package rust-mode
   :ensure t)
+(use-package yaml-mode
+  :ensure t)
 (use-package clipetty
   :ensure t
   :hook (after-init . global-clipetty-mode))
@@ -49,6 +51,16 @@
   :hook (python-mode . (lambda ()
                           (require 'lsp-pyright)
                           (lsp))))  ; or lsp-deferred
+
+(use-package dap-mode
+  :ensure t
+  :bind*
+  (("<f5>" . dap-next)
+   ("<f6>" . dap-step-in)))
+(require 'dap-python)
+(setopt dap-auto-configure-mode t)
+(setq dap-python-debugger 'debugpy)
+(setq dap-ui-variable-length 200)
 
 (defun my-locate-python-virtualenv ()
   "Find the Python executable based on the VIRTUAL_ENV environment variable."

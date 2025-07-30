@@ -30,3 +30,11 @@
 ;; put backup files in a new place
 (setq backup-directory-alist `(("." . "~/.saves")))
 (setq backup-by-copying t)
+
+(use-package windmove
+  :ensure nil
+  :bind*
+  (("M-<left>" . windmove-left)
+   ("M-<right>" . windmove-right)
+   ("M-<up>" . windmove-up)
+   ("M-<down>" . windmove-down)))
