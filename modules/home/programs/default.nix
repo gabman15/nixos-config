@@ -13,5 +13,6 @@ with lib; {
     ./rofi
     ./albumart
     ./rmpc
+    ./emacs
   ];
 }

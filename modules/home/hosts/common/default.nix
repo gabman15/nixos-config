@@ -12,7 +12,6 @@
     fastfetch
     git
     ranger
-    outputs.packages.${pkgs.system}.emacs
     inputs.agenix.packages.${pkgs.system}.default
     inputs.home-manager.packages.${pkgs.system}.default
   ];
@@ -28,6 +27,7 @@
   programs.nix-index-database.comma.enable = true;
   custom.home.behavior.xdg.enable = true;
   custom.home.programs.bash.enable = true;
+  custom.home.programs.emacs.enable = true;
   
   age.secrets.${config.custom.home.opts.hostname} = {
     file = ../../../../secrets/${config.custom.home.opts.hostname}.age;
