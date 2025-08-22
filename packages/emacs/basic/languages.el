@@ -1,0 +1,12 @@
+(use-package php-mode
+  :ensure t)
+(use-package markdown-mode
+  :ensure t)
+(use-package nix-mode
+  :ensure t)
+(use-package json-mode
+  :ensure t)
+(use-package rust-mode
+  :ensure t)
+(use-package yaml-mode
+  :ensure t)
