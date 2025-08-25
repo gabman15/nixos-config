@@ -136,8 +136,8 @@
       };
     in
       {
-        emacs = import ./packages/emacs.nix pkgs "dev";
-        emacs-minimal = import ./packages/emacs.nix pkgs "minimal";
+        emacs-dev = import ./packages/emacs.nix pkgs "dev";
+        emacs = import ./packages/emacs.nix pkgs "minimal";
       };
   };
 }

@@ -9,11 +9,7 @@ in
     };
 
     config = mkIf cfg.enable {
-      home.packages = with pkgs; [
-        ripgrep
-        fzf
-      ];
-
+      custom.home.programs.emacs.dev = true;
       custom.home.programs.direnv.enable = true;
     };
   }

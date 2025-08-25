@@ -12,6 +12,8 @@
     fastfetch
     git
     ranger
+    ripgrep
+    fzf
     inputs.agenix.packages.${pkgs.system}.default
     inputs.home-manager.packages.${pkgs.system}.default
   ];

@@ -10,13 +10,13 @@ in
   {
     options.custom.home.programs.emacs = {
       enable = mkEnableOption "emacs";
-      minimal = mkEnableOption "minimal emacs config";
+      dev = mkEnableOption "developer emacs config";
     };
 
     config = mkIf cfg.enable {
       
-      home.packages = mkIfElse cfg.minimal
-        [ outputs.packages.${pkgs.system}.emacs-minimal ]
+      home.packages = mkIfElse cfg.dev
+        [ outputs.packages.${pkgs.system}.emacs-dev ]
         [ outputs.packages.${pkgs.system}.emacs ];
     };
   }
