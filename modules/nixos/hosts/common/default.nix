@@ -6,7 +6,6 @@
       ../../hardware
       ../../programs
       ../../suites
-      ../../themes
     ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];

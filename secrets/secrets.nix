@@ -13,6 +13,7 @@ in
   "backgrounder-config.age".publicKeys = keys;
   "yukari.age".publicKeys = keys;
   "gensokyo.age".publicKeys = keys;
+  "koishi.age".publicKeys = keys;
   "suwako.age".publicKeys = keys;
   "nitori.age".publicKeys = keys;
   "patchouli.age".publicKeys = workkeys ++ keys;

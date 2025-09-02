@@ -7,32 +7,24 @@
     ymuse
     ludusavi
     vesktop
+    discord
+    librewolf
+    signal-desktop
+    pass
   ];
 
   custom.home.suites.graphical.enable = true;
   custom.home.suites.mpd.enable = true;
   custom.home.suites.dev.enable = true;
-  custom.home.behavior.xdg.enable = lib.mkForce false;
-  xdg.enable = true;
-  xdg.userDirs = {
-    enable = true;
-    desktop = null;
-    documents = "${config.home.homeDirectory}/Documents";
-    download = "${config.home.homeDirectory}/Downloads";
-    music = null;
-    pictures = "${config.home.homeDirectory}/Pictures";
-    publicShare = null;
-    templates = null;
-    videos = "${config.home.homeDirectory}/Videos";
-    createDirectories = true;
-  };
+
   custom.home.programs.rofi.enable = true;
   custom.home.programs.backgrounder.enable = true;
   custom.home.programs.sway.enable = true;
-  custom.home.programs.sway.sys-swaylock = true;
-  custom.home.programs.sway.sys-kitty = true;
-  wayland.windowManager.sway.package = null;
   custom.home.programs.waybar.enable = true;
+  custom.home.programs.mpv.enable = true;
+  custom.home.programs.gnupg.enable = true;
+  custom.home.programs.kitty.enable = true;
+  custom.home.programs.mpd.enable = true;
 
   custom.themes.enable = true;
   custom.home.opts.stylix = true;
@@ -61,5 +53,5 @@
     };
   };
 
-  home.stateVersion = "24.11";
+  home.stateVersion = "25.05";
 }

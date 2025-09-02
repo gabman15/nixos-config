@@ -24,6 +24,7 @@
   custom.home.suites.mpd.enable = true;
   custom.home.suites.mpd.mpd-host = "nitori";
 
+  custom.themes.enable = true;
   custom.home.opts.stylix = true;
   custom.home.opts.screens = {
     "BOE 0x095F Unknown" = {

@@ -82,8 +82,8 @@ with lib; let
     };
   };
 
-  host_modules = import ./hosts/${config.custom.home.opts.hostname}/modules.nix;
-  host_bars = import ./hosts/${config.custom.home.opts.hostname}/bars.nix;
+  host_modules = import ./hosts/${config.custom.opts.hostname}/modules.nix;
+  host_bars = import ./hosts/${config.custom.opts.hostname}/bars.nix;
 in
   {
     options.custom.home.programs.waybar = {

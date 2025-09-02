@@ -4,9 +4,6 @@
   # Set your time zone.
   time.timeZone = "America/New_York";
 
-  # Enable touchpad support (enabled default in most desktopManager).
-  services.libinput.enable = true;
-
   # For swaylock
   security.pam.services.swaylock = { };
   security.polkit.enable = true;
@@ -26,25 +23,36 @@
     enable = true;
     settings = {
       default_session = {
-        command = "${pkgs.sway}/bin/sway";
+        command = "${pkgs.sway}/bin/sway --unsupported-gpu";
         user = "lord_gabem";
       };
     };
   };
 
-  # fileSystems."/mnt/anime" = {
-  #   device = "nitori:/anime";
-  #   fsType = "nfs";
-  # };
-
-  systemd.mounts = [
-    {
+  systemd.mounts = let
+    commonOpts = {
+      type = "nfs";
+      mountConfig = {
+        Options = "noatime";
+      };
+      after = [ "tailscaled.service" ];
+    };
+  in [
+    (commonOpts // {
       description = "nitori anime";
       what = "nitori:/anime";
-      type = "nfs";
       where = "/mnt/anime";
-      after = [ "tailscaled.service" ];
-    }
+    })
+    (commonOpts // {
+      description = "nitori music";
+      what = "nitori:/music";
+      where = "/mnt/music";
+    })
+    (commonOpts // {
+      description = "nitori archive";
+      what = "nitori:/archive";
+      where = "/mnt/archive";
+    })
   ];
 
   systemd.automounts = [
@@ -54,21 +62,29 @@
       after = [ "tailscaled.service" ];
       wantedBy = [ "multi-user.target" ];
     }
+    {
+      description = "Automount for nitori music";
+      where = "/mnt/music";
+      after = [ "tailscaled.service" ];
+      wantedBy = [ "multi-user.target" ];
+    }
+    {
+      description = "Automount for nitori archive";
+      where = "/mnt/archive";
+      after = [ "tailscaled.service" ];
+      wantedBy = [ "multi-user.target" ];
+    }
   ];
-
-  hardware.bluetooth.enable = true; # enables support for Bluetooth
-  hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot
-  services.blueman.enable = true;
 
   boot.supportedFilesystems = [ "nfs" ];
 
   custom.themes.enable = true;
 
   services.tailscale.enable = true;
-  # custom.nixos.programs.gnupg.enable = true;
-  custom.nixos.hardware.framework-13.enable = true;
+
+  custom.nixos.hardware.gigabyte-b650.enable = true;
 
   custom.nixos.suites.graphical.enable = true;
 
-  system.stateVersion = "24.11";
+  system.stateVersion = "25.05";
 }
