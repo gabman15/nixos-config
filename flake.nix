@@ -64,6 +64,8 @@
     homeUnfreePkgs = [
       "posy-cursors"
       "discord"
+      "steam"
+      "steam-unwrapped"
     ];
   in {
     nixosConfigurations = forAllNixOsHosts (host: nixpkgs.lib.nixosSystem {
