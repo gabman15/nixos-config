@@ -3,7 +3,7 @@ pkgs:
 {
   fonts.sizes = {
     applications = 12;
-    terminal = 13;
+    terminal = 12;
     desktop = 12;
     popups = 12;
   };
