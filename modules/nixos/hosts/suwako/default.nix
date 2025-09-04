@@ -65,37 +65,13 @@
   custom.nixos.hardware.dell-inspiron-15-7000.enable = true;
 
   custom.nixos.suites.graphical.enable = true;
-
-  services.xserver.videoDrivers = ["nvidia"];
-
-  hardware.nvidia = {
-    # Modesetting is required.
-    modesetting.enable = true;
-    # Nvidia power management. Experimental, and can cause sleep/suspend to fail.
-    # Enable this if you have graphical corruption issues or application crashes after waking
-    # up from sleep. This fixes it by saving the entire VRAM memory to /tmp/ instead
-    # of just the bare essentials.
-    powerManagement.enable = false;
-    powerManagement.finegrained = false;
-    open = false;
-    nvidiaSettings = true;
-    package = config.boot.kernelPackages.nvidiaPackages.stable;
-  };
+  custom.nixos.suites.nvidia.enable = true;
 
   boot = {
     kernelParams = [
-      "nvidia-drm.fbdev=1"
       "module_blacklist=i915"
     ];
-    extraModprobeConfig = "options nvidia-drm";
-    blacklistedKernelModules = [ "nouveau" ];
   };
-
-  # hardware.nvidia.prime = {
-  #   # Make sure to use the correct Bus ID values for your system!
-  #   nvidiaBusId = "PCI:1:0:0";
-  #   intelBusId = "PCI:0:2:0";
-  # };
 
   system.stateVersion = "24.11";
 }
