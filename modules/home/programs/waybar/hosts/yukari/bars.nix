@@ -14,6 +14,6 @@
     height = 40;
     modules-left = [ "battery" "network" "backgrounder" ];
     modules-center = [ "sway/workspaces" ];
-    modules-right = [];
+    modules-right = [ "sway/mode" ];
   };
 }
