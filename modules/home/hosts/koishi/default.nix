@@ -12,6 +12,8 @@
     signal-desktop
     pass
     steam
+    gamemode
+    gamescope
   ];
 
   custom.home.suites.graphical.enable = true;
