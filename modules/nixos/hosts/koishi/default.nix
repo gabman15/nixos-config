@@ -88,6 +88,7 @@
 
   boot.supportedFilesystems = [ "nfs" ];
 
+  hardware.opentabletdriver.enable = true;
   custom.themes.enable = true;
 
   services.tailscale.enable = true;
