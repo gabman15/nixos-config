@@ -7,7 +7,6 @@
     ymuse
     ludusavi
     vesktop
-    discord
     librewolf
     signal-desktop
     pass
@@ -31,6 +30,7 @@
   custom.home.programs.gnupg.enable = true;
   custom.home.programs.kitty.enable = true;
   custom.home.programs.mpd.enable = true;
+  custom.home.programs.discord.enable = true;
 
   custom.themes.enable = true;
   custom.home.opts.stylix = true;

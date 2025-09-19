@@ -33,6 +33,9 @@ in
                   click_method = "clickfinger";
                   scroll_factor = "0.5";
                 };
+                "type:pointer" = {
+                  accel_profile = "flat";
+                };
               };
               # Thanks jbwar22 for the screens opt handling code
               output = foldl' (accum: screen: accum // (let
@@ -101,6 +104,9 @@ in
           enable = true;
           package = mkIf cfg.sys-swaylock null;
         };
+        home.packages = [
+          pkgs.wl-clipboard
+        ];
       })
       (mkIf config.custom.home.opts.stylix ((import ./stylix.nix) config))
     ];
