@@ -84,6 +84,7 @@
         inputs.stylix.nixosModules.stylix
         inputs.home-manager.nixosModules.home-manager
         inputs.disko.nixosModules.disko
+        inputs.agenix.nixosModules.default
         {
           stylix.homeManagerIntegration.autoImport = false;
           networking.hostName = host;
@@ -97,6 +98,7 @@
               ./modules/opts
               inputs.nix-index-database.homeModules.nix-index
               inputs.stylix.homeModules.stylix
+              inputs.agenix.homeManagerModules.default
             ];
             custom.opts.hostname = host;
             stylix.overlays.enable = false;
@@ -124,6 +126,7 @@
         modules = [
           stylix.homeModules.stylix
           inputs.nix-index-database.homeModules.nix-index
+          inputs.agenix.homeManagerModules.default
           ./modules/home/hosts/common
           ./modules/home/hosts/${host}
           ./modules/themes

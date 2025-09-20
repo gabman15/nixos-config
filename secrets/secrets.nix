@@ -5,6 +5,7 @@ let
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIF4N+2FLSeJizagrRTQEcK7GaDP1dfDFTR0BsHH75KEY"
     "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDdT8hdAtLbAY47m5IVtoeOqesx1qbM3ji396CcnqmE0z9geGSkUeqpTnB1aOre7cIqxXnzGsZu04NhcTGWHdslPEp9d2xz1votTNhA6TNzkhC3JxDYqtxlpFpYPuv4o+3xFFu6w5tyTRFD/62dEbuefdJ9GzK+yiw9DdIwpkQyYSYMSMtrAGl8fF3okRFMZ3Qg6BZi8WGsbbYU5MPoizf0ZtQ9RJv86BwfQanaIEwgWnsUJRKQM6HwmXriUuebK2yJXY1lDPhlogGmz8yRC8rrI2ib010+c7wBadoPk/mjslZRQqU6oNR+w/WyMDiknT/l6FYFaNNMJUzqawCxEFfStDjSvEtHFj1CXyZ7nEaovwMG9xXUlERpCs1zylEZLTRds4KKlX4CgkHA+Ax8c1JFxzHY/iKMNDYtcgNEG/5eCN+smjYOfWb4+uteva2dSnCJD38DgidWBGi4zD7suyh5spMQC7wisQp7kUbj4+5WU3UXqNqTeQdFl1+m5NCV9gU="
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIK5CF7yPpjRvVjbo9K1ZrbVFXC7GUP2GNIH1fHUnAbTa"
+    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHMkbwi8QFWCYr7WMEwnCRlE67PVoo9jsSVvrI08VPh7"
   ];
   workkeys = [
     "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC12Ig0vdqUScUdFNy8RKFn2NNOrM9O/TCvQ6RSbHm0q9iGziZbjYe83BBJ8rcfTYVRnW8/kCV106w570jKsQyt0OWvgqtSjfnhp/RuB6VVIsuZKJiJR7yvsNnM99BrCnMJDCTUq1MeWMdi6X1B48vS+JJPexutn8VxVsxN/cICi9hDYTXk4zp/7yAuE/NTVqnizSTRdyFAP1t1dJndVQfy8pbTTSZDl88qODixNY1s3w42ZpYwphaY31sl9tvcwL/Adbnr4N+NO5OIfUBu8COYCWayqGi0hKLE9EoeMepMqDq732EFn7n1vXGpXxfORLhJr4qAFQZueAztdeBbQGS24nUt4JRt9iI8M/VkI7e3yr6EpdMN1b3/cMSiwafVWIJemcOJoBnFWn1RgQPEHGesoezDdKRmM8SQXsos2hbILzeBuPRVLhx4qZhFIal3kPu+DOZzvHL7wl5YA5455AQTQNgAIX0u7uA/ZjB+b7nsZMTX4FbIzmEjiVmC5FWJpnk="
@@ -18,4 +19,6 @@ in
   "suwako.age".publicKeys = keys;
   "nitori.age".publicKeys = keys;
   "patchouli.age".publicKeys = workkeys ++ keys;
+  "vpn-namespace-wg.age".publicKeys = keys;
+  "vpn-namespace-ipv4.age".publicKeys = keys;
 }

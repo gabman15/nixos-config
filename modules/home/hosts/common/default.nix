@@ -2,7 +2,6 @@
 
 {
   imports = [
-    inputs.agenix.homeManagerModules.default
     ../../programs
     ../../behavior
     ../../opts
