@@ -13,6 +13,7 @@
     steam
     gamemode
     gamescope
+    r2modman
     (inputs.nix-gaming.packages.${pkgs.system}.osu-stable.override {
        location = "/games/pc/osu/prefix";
     })
