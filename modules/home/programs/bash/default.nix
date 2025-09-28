@@ -23,7 +23,7 @@ in
           rb = "sudo nixos-rebuild switch";
         };
         
-        bashrcExtra = let
+        initExtra = let
           spriteCat = if cfg.sprite == null then "" else ''
             ${pkgs.coreutils}/bin/cat ${cfg.sprite}
           '';

@@ -2,6 +2,7 @@
 
 with lib; {
   imports = [
+    ./gnupg
     ./ssh
   ];
 }
