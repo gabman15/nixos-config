@@ -21,6 +21,8 @@
       "nvidia-persistenced"
     ];
 
+  nix.settings.trusted-users = [ "@wheel" ];
+
   environment.systemPackages = with pkgs; [
     emacs
     wget
