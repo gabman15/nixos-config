@@ -21,7 +21,7 @@ pkgs:
     };
 
     emoji = {
-      package = (pkgs.nerdfonts.override { fonts =  [ "Hack" ]; });
+      package = pkgs.nerd-fonts.hack;
       name = "Hack";
     };
     sizes = {
