@@ -49,7 +49,15 @@
       };
     };
   };
-
+  xdg.portal = {
+    enable = true;
+    extraPortals = [ pkgs.xdg-desktop-portal-wlr pkgs.xdg-desktop-portal-gtk ];
+    config = {
+      common = {
+        default = [ "wlr" ];
+      };
+    };
+  };
   stylix = lib.recursiveUpdate ((import ../../../nixos/themes/common) pkgs) ((import ../../../nixos/themes/${config.custom.home.opts.hostname}) pkgs);
 
   home.stateVersion = "24.11";
