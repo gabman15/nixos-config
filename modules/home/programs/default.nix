@@ -9,5 +9,6 @@ with lib; {
     ./mpv
     ./waybar
     ./direnv
+    ./gnupg
   ];
 }

@@ -71,6 +71,8 @@ in
       ];
       programs.waybar = {
         enable = true;
+        systemd.enable = true;
+        systemd.target = "sway-session.target";
         style = import ./style.nix;
         settings = mapAttrs (name: value: value // host_modules // base_modules) host_bars;
       };
