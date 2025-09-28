@@ -26,6 +26,8 @@
 
   custom.home.behavior.xdg.enable = true;
   
-  age.secrets.${config.custom.home.opts.hostname}.file = ../../../../secrets/${config.custom.home.opts.hostname}.age;
+  age.secrets.${config.custom.home.opts.hostname} = {
+    file = ../../../../secrets/${config.custom.home.opts.hostname}.age;
+  };
   custom.home.programs.bash.sprite = config.age.secrets.${config.custom.home.opts.hostname}.path;
 }
