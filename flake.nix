@@ -45,7 +45,7 @@
     };
   };
 
-  outputs = { nixpkgs, home-manager, self, ... }@inputs : let
+  outputs = { nixpkgs, home-manager, stylix, self, ... }@inputs : let
     nixoshosts = [ "yukari" "patchouli" "suwako" ];
     homemgrhosts = [ "gensokyo" ];
     forAllNixOsHosts = nixpkgs.lib.genAttrs nixoshosts;
@@ -85,17 +85,20 @@
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
     in
-      forAllHomeMgrHosts (host: home-manager.lib.homeManagerConfiguration {
+      forAllHomeMgrHosts (host: inputs.home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         modules = [
+          stylix.homeManagerModules.stylix
           ./modules/home/hosts/common
           ./modules/home/hosts/${host}
           {
             home.username = "lord_gabem";
+            custom.home.opts.hostname = host;
+            home.homeDirectory = "/home/lord_gabem";
           }
         ];
-        custom.home.opts.hostname = host;
-        specialArgs = {
+
+        extraSpecialArgs = {
           inherit inputs;
           outputs = self;
         };
