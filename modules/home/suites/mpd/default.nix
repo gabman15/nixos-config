@@ -1,4 +1,4 @@
-{ lib, config, ... }:
+{ pkgs, lib, config, ... }:
 
 with lib; let
   cfg = config.custom.home.suites.mpd;
@@ -16,11 +16,17 @@ in
     config = mkIf cfg.enable {
       home.packages = [
         (pkgs.writeShellScriptBin "mpv-mpd" ''
-          ${pkgs.mpv}/bin/mpv --no-cache http://${mpd-host}:8001
+          ${pkgs.mpv}/bin/mpv --no-cache http://${cfg.mpd-host}:8001
         '')
+        pkgs.ncmpc
+        pkgs.mpc
       ];
 
+      home.sessionVariables = {
+        MPD_HOST = cfg.mpd-host;
+      };
+
       custom.home.programs.albumart.enable = true;
-      custom.home.programs.albumart.mpd-host = mpd-host;
+      custom.home.programs.albumart.mpd-host = cfg.mpd-host;
     };
   }

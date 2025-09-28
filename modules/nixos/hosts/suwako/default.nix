@@ -10,11 +10,21 @@
   # For swaylock
   security.pam.services.swaylock = { };
   security.polkit.enable = true;
-  
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.lord_gabem = {
     isNormalUser = true;
     extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+  };
+
+  services.greetd = {
+    enable = true;
+    settings = {
+      default_session = {
+        command = "${pkgs.sway}/bin/sway";
+        user = "lord_gabem";
+      };
+    };
   };
 
   environment.systemPackages = with pkgs; [

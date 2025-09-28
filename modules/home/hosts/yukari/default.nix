@@ -7,9 +7,9 @@
     vesktop
     pulsemixer
     pass
-    rsync
     gnupg
     cantata
+    ranger
   ];
 
 
