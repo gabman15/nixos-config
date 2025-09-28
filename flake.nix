@@ -30,27 +30,27 @@
 
     
     
-  #   packages."x86_64-linux" = let
-  #     pkgs = import inputs.nixpkgs-unstable {
-  #       system = "x86_64-linux";
-  #       overlays = [ inputs.emacs-overlay.overlays.default ];
-  #     };
-  #     emacs = pkgs.emacsWithPackagesFromUsePackage {
-  #       config = ./init.el;
-  #       defaultInitFile = true;
-  #     };		  
-  #   in
-  #     {
-  #       emacs = pkgs.symlinkJoin {  
-	#         inherit (emacs) name meta passthru;
-  #         paths = [ emacs ];
-  #         nativeBuildInputs = [ pkgs.makeWrapper ];
-	#         postBuild = ''
-  #           ls
-  #         	echo cp -r "./emacs-test/"* "$out/share/emacs/site-lisp/"
-  #           exit 1
-  #         '';
-	#       };
-  #     };
+    packages."x86_64-linux" = let
+      pkgs = import inputs.nixpkgs-unstable {
+        system = "x86_64-linux";
+        overlays = [ inputs.emacs-overlay.overlays.default ];
+      };
+      myEmacsConfig = ./emacs;
+    in
+      {
+        emacs = pkgs.emacsWithPackagesFromUsePackage {
+          config = "${myEmacsConfig}/init.el";
+          defaultInitFile = true;
+          override = epkgs: epkgs // {
+            my-config = (pkgs.runCommand "init.el" {} ''
+              mkdir -p $out/share/emacs/site-lisp
+              cp -r ${myEmacsConfig}/* $out/share/emacs/site-lisp/
+            '');
+          };
+          extraEmacsPackages = epkgs: with epkgs; [
+            my-config
+          ];
+        };
+      };
   };
 }
