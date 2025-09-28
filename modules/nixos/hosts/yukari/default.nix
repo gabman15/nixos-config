@@ -1,7 +1,6 @@
 { pkgs, ... }:
 
 {
-  networking.hostName = "yukari"; # Define your hostname.
   # Set your time zone.
   time.timeZone = "America/New_York";
 
@@ -23,8 +22,6 @@
   ];
 
   services.tailscale.enable = true;
-  # Enable the OpenSSH daemon.
-  custom.nixos.programs.ssh.enable = true;
 
   custom.nixos.hardware.framework-13.enable = true;
 
