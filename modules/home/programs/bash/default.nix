@@ -21,6 +21,7 @@ in
         shellAliases = {
           ls = "ls -lha --color=auto";
           rb = "sudo nixos-rebuild switch";
+          hrb = "home-manager switch --flake .#${config.custom.home.opts.hostname}";
         };
 
         initExtra = let
@@ -33,7 +34,7 @@ in
         in
           ''
           PS1='[\[\033[1;36m\]\u@\h \[\033[33m\]\W\[\033[00m\]]\$ '
-
+          export PATH="$HOME/.local/bin:$PATH"
           ${spriteCat}
           ${quote}
           export PF_COL1=6
