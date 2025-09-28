@@ -1,14 +1,14 @@
-{ lib, config, ... }
+{ lib, config, ... }:
 
-  let
-    cfg = config.nixos.programs.ssh
-  in
-    {
-      options = opt {
-        enable = mkEnableOption "ssh server";
-      };
-
-      config = lib.mkIf cfg.enable {
-        services.openssh.enable = true;
-      }
+with lib; let
+  cfg = config.custom.nixos.programs.ssh;
+in
+  {
+    options.custom.nixos.programs.ssh = {
+      enable = mkEnableOption "ssh server";
     };
+    
+    config = mkIf cfg.enable {
+      services.openssh.enable = true;
+    };
+  }

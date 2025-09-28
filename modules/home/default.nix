@@ -34,6 +34,12 @@
   programs.swaylock = {
     enable = true;
   };
+
+  home.file.".emacs.d" = {
+    source = ./configs/emacs/.emacs.d;
+    recursive=true;
+  };
+  
   fonts.fontconfig = {
     enable = true;
     defaultFonts = {
