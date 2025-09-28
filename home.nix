@@ -15,6 +15,7 @@
     xwayland = true;
     config = {
       terminal = "${pkgs.kitty}/bin/kitty";
+      menu = "${pkgs.rofi-wayland}/bin/rofi run -show drun -font 'Hack 12'";
       modifier = "Mod4";
       input = {
         "type:touchpad" = {
@@ -27,7 +28,6 @@
         modifier = config.wayland.windowManager.sway.config.modifier;
       in lib.mkOptionDefault {
         "${modifier}+Shift+x" = "exec ${pkgs.swaylock}/bin/swaylock";
-        "${modifier}+d" = "exec ${pkgs.rofi-wayland}/bin/rofi run -show drun -font 'Hack 12'";
       };
     };
   };
