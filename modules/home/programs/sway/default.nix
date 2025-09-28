@@ -23,10 +23,19 @@ in
 	            scroll_factor = "0.5";
 	          };
           };
+          output = {
+            eDP-1 = {
+              scale = 1;
+            };
+          };
           keybindings = let
             modifier = config.wayland.windowManager.sway.config.modifier;
           in lib.mkOptionDefault {
             "${modifier}+Shift+x" = "exec ${pkgs.swaylock}/bin/swaylock";
+
+            "XF86AudioRaiseVolume" = "exec pactl set-sink-volume @DEFAULT_SINK@ +10%";
+            "XF86AudioLowerVolume" = "exec pactl set-sink-volume @DEFAULT_SINK@ -10%";
+            "XF86AudioMute" = "exec pactl set-sink-mute @DEFAULT_SINK@ toggle";
           };
         };
       };
