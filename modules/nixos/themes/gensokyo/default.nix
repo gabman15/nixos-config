@@ -31,4 +31,13 @@ pkgs:
       popups = 12;
     };
   };
+  cursor = {
+    name = "Posy_Cursor_Black_125_175";
+    package = pkgs.posy-cursors;
+    size = 40;
+  };
+  targets.qt = {
+    enable = true;
+    platform = "qtct";
+  };
 }
