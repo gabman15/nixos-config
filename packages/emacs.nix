@@ -24,7 +24,7 @@ pkgs: let
       epkgs.spinner
       epkgs.my-config
       pkgs.basedpyright
-      pkgs.nodePackages.vscode-json-languageserver
+      pkgs.vscode-langservers-extracted
       pkgs.nixd
       pkgs.intelephense
       pkgs.emacs-all-the-icons-fonts
