@@ -5,8 +5,7 @@
     ranger
   ];
 
-  custom.home.programs.direnv.enable = true;
-
+  custom.home.suites.dev.enable = true;
   custom.home.suites.mpd.enable = true;
   custom.home.suites.mpd.mpd-host = "nitori";
 
