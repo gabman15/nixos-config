@@ -3,6 +3,10 @@ pkgs:
 {
   enable = true;
   base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-medium.yaml";
+  override = {
+    base0C = "689d6a";
+    base0A = "d79921";
+  };
   # image = ./../img.jpg;
   fonts = {
     serif = {
