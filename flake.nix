@@ -1,6 +1,6 @@
 {
   description = "My Flake";
-  
+
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.11";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
@@ -44,11 +44,14 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
-  
-  outputs = { nixpkgs, self, ... }@inputs : let
-    forAllHosts = nixpkgs.lib.genAttrs [ "yukari" "patchouli" "suwako" ];
+
+  outputs = { nixpkgs, home-manager, self, ... }@inputs : let
+    nixoshosts = [ "yukari" "patchouli" "suwako" ];
+    homemgrhosts = [ "gensokyo" ];
+    forAllNixOsHosts = nixpkgs.lib.genAttrs nixoshosts;
+    forAllHomeMgrHosts = nixpkgs.lib.genAttrs homemgrhosts;
   in {
-    nixosConfigurations = forAllHosts (host: nixpkgs.lib.nixosSystem {
+    nixosConfigurations = forAllNixOsHosts (host: nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
         ./modules/nixos/hosts/common
@@ -78,8 +81,23 @@
       };
     });
 
-    
-    
+    homeConfigurations = let
+      system = "x86_64-linux";
+      pkgs = nixpkgs.legacyPackages.${system};
+    in
+      forAllHomeMgrHosts (host: home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
+        modules = [
+          ./modules/home/hosts/common
+          ./modules/home/hosts/${host}
+        ];
+        custom.home.opts.hostname = host;
+        specialArgs = {
+          inherit inputs;
+          outputs = self;
+        };
+      });
+
     packages."x86_64-linux" = let
       pkgs = import inputs.nixpkgs-unstable {
         system = "x86_64-linux";
