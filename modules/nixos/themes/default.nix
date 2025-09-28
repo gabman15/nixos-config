@@ -9,7 +9,7 @@ in
     };
 
     config = mkIf cfg.enable {
-      stylix = ((import ./${config.networking.hostName}) pkgs);
-      #((import ./common) pkgs) //
+      stylix = lib.recursiveUpdate ((import ./common) pkgs)
+        ((import ./${config.networking.hostName}) pkgs);
     };
   }
