@@ -26,6 +26,7 @@
     createDirectories = true;
   };
   custom.home.programs.rofi.enable = true;
+  custom.home.programs.backgrounder.enable = true;
 
   stylix = lib.recursiveUpdate ((import ../../../nixos/themes/common) pkgs) ((import ../../../nixos/themes/${config.custom.home.opts.hostname}) pkgs);
 
