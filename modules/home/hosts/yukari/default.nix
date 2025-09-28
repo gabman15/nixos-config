@@ -25,7 +25,7 @@
   custom.home.suites.mpd.enable = true;
   custom.home.suites.mpd.mpd-host = "nitori";
 
-  # stylix.enable = true;
+  custom.home.opts.stylix = true;
   
   # stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-hard.yaml";
   stylix.targets = {
