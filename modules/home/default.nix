@@ -7,6 +7,8 @@
     ./programs/backgrounder
     ./programs/kitty
     ./programs/bash
+    ./programs/mpv
+    ./behavior/xdg
   ];
   home.packages = with pkgs; [
     fastfetch
@@ -25,6 +27,8 @@
   custom.home.programs.backgrounder.enable = true;
   custom.home.programs.kitty.enable = true;
   custom.home.programs.bash.enable = true;
+  custom.home.programs.mpv.enable = true;
+  custom.home.behavior.xdg.enable = true;
   
   fonts.fontconfig = {
     enable = true;

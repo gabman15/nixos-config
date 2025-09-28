@@ -22,6 +22,10 @@
       url = "github:gabman15/gabe-backgrounder";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    mpv-remote-node = {
+      url = "github:gabman15/mpv-remote-node";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
   
   outputs = { nixpkgs, self, ... }@inputs : {

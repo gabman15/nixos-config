@@ -107,6 +107,26 @@
         "type": "github"
       }
     },
+    "mpv-remote-node": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1742754078,
+        "narHash": "sha256-7R0aqLw7bAbvV0DS+K6a/86xkaKHefxNHpGZNHOx18E=",
+        "owner": "gabman15",
+        "repo": "mpv-remote-node",
+        "rev": "3afd938639dc9d40a09dbe0527878be118a84470",
+        "type": "github"
+      },
+      "original": {
+        "owner": "gabman15",
+        "repo": "mpv-remote-node",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1742069588,
@@ -177,6 +197,7 @@
         "emacs-overlay": "emacs-overlay",
         "gabe-backgrounder": "gabe-backgrounder",
         "home-manager": "home-manager",
+        "mpv-remote-node": "mpv-remote-node",
         "nixpkgs": "nixpkgs_2",
         "nixpkgs-unstable": "nixpkgs-unstable"
       }
