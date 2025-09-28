@@ -93,6 +93,8 @@
 
   services.tailscale.enable = true;
 
+  custom.nixos.programs.vpn-namespace.enable = true;
+
   custom.nixos.hardware.gigabyte-b650.enable = true;
   custom.nixos.suites.graphical.enable = true;
   custom.nixos.suites.nvidia.enable = true;
