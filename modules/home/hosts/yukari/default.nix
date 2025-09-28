@@ -25,7 +25,14 @@
   custom.home.suites.mpd.mpd-host = "nitori";
 
   custom.home.opts.stylix = true;
-
+  custom.home.opts.screens = {
+    "BOE 0x095F Unknown" = {
+      sway = {
+        position = "0 0";
+        resolution = "2256x1504@59.999Hz";
+      };
+    };
+  };
   stylix.targets = {
     rofi.enable = true;
   };
