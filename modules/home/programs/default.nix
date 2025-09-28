@@ -8,5 +8,6 @@ with lib; {
     ./bash
     ./mpv
     ./waybar
+    ./direnv
   ];
 }
