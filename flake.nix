@@ -10,8 +10,8 @@
     };
     emacs-overlay = {
       url = "github:nix-community/emacs-overlay";
-      inputs.nixpkgs.follows = "nixpkgs-unstable";
-      inputs.nixpkgs-stable.follows = "nixpkgs";
+      # inputs.nixpkgs.follows = "nixpkgs-unstable";
+      # inputs.nixpkgs-stable.follows = "nixpkgs";
     };
     agenix = {
       url = "github:ryantm/agenix";
