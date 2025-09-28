@@ -4,7 +4,3 @@
 (load "theme.el")
 (load "style.el")
 (load "programming.el")
-
-
-(setq initial-scratch-message nil)
-(setq inhibit-startup-message t)
