@@ -12,6 +12,12 @@
 
   age.secrets.backgrounder-config.file = ../../../../secrets/backgrounder-config.age;
 
+  wayland.windowManager.sway.config.output = {
+    eDP-1-1 = {
+      disable = "";
+    };
+  };
+
   systemd.user.services.mpv = {
     Unit = {
       Description = "Start up mpv on boot";
