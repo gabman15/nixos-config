@@ -17,10 +17,12 @@
 ;; All the icons
 
 (use-package all-the-icons
-             :if (display-graphic-p))
+  :ensure t
+  :if (display-graphic-p))
 
 (use-package all-the-icons-dired
-             :if (display-graphic-p))
+  :ensure t
+  :if (display-graphic-p))
 
 (when (display-graphic-p)
   (add-hook 'dired-mode-hook 'all-the-icons-dired-mode))
