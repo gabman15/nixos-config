@@ -88,6 +88,7 @@ in
                 "${modifier}+p" = "exec ${pkgs.rofi-pass-wayland}/bin/rofi-pass";
                 "${modifier}+Shift+s" = "exec ${scripts.screenshot}";
                 "${modifier}+Shift+t" = "exec ${scripts.translate-screenshot}";
+                "${modifier}+g" = "exec ${pkgs.rofi-wayland}/bin/rofi run -show drun -drun-categories Game -show-icons -display-drun 'games: '";
                 "${modifier}+Mod1+t" = "exec ${scripts.translate}";
                 "${modifier}+Mod1+e" = "mode \"${exit}\"";
                 "XF86AudioRaiseVolume" = "exec ${pkgs.pulseaudio}/bin/pactl set-sink-volume @DEFAULT_SINK@ +10%";
