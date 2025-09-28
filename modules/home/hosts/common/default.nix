@@ -11,7 +11,6 @@
   home.packages = with pkgs; [
     fastfetch
     git
-    ranger
     ripgrep
     fzf
     inputs.agenix.packages.${pkgs.system}.default
@@ -24,6 +23,7 @@
   custom.home.behavior.xdg.enable = true;
   custom.home.programs.bash.enable = true;
   custom.home.programs.emacs.enable = true;
+  custom.home.programs.ranger.enable = true;
   
   age.secrets.${config.custom.opts.hostname} = {
     file = ../../../../secrets/${config.custom.opts.hostname}.age;

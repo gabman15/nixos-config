@@ -15,5 +15,7 @@ with lib; {
     ./rmpc
     ./emacs
     ./mpd
+    ./ranger
+    ./discord
   ];
 }
