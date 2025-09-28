@@ -9,6 +9,7 @@
   ];
   
   custom.home.programs.sway.enable = true;
+  custom.home.programs.waybar.enable = true;
   custom.home.programs.backgrounder.enable = true;
   custom.home.programs.kitty.enable = true;
   custom.home.programs.bash.enable = true;
