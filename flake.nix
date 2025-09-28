@@ -24,8 +24,14 @@
 	      {
 	        home-manager.useGlobalPkgs = true;
 	        home-manager.users.lord_gabem = import ./modules/home;
+          home-manager.extraSpecialArgs = {
+            outputs = self;
+          };
 	      }
       ];
+      specialArgs = {
+        outputs = self;
+      };
     };
 
     

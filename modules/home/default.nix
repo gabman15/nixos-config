@@ -1,8 +1,7 @@
-{ pkgs, ... }:
+{ pkgs, outputs, ... }:
 
 {
   imports = [
-    ./programs/emacs
     ./programs/sway
   ];
   home.packages = with pkgs; [
@@ -13,10 +12,10 @@
     signal-desktop
     git
     vesktop
+    outputs.packages.${pkgs.system}.emacs
   ];
   
   custom.home.programs.sway.enable = true;
-  custom.home.programs.emacs.enable = true;
   
   fonts.fontconfig = {
     enable = true;

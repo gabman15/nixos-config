@@ -49,6 +49,6 @@ pkgs.symlinkJoin {
   buildInputs = with pkgs; [ makeWrapper ];
   postBuild = ''
     mkdir $out/emptyConfig
-    wrapProgram $out/bin/emacs --add-flags "--init-directory=$out/emptyConfig"
+    wrapProgram $out/bin/emacs --add-flags "--init-directory=/tmp/emacsConfig"
   '';
 }
