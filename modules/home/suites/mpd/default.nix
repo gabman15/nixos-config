@@ -20,7 +20,6 @@ in
         '')
         pkgs.ncmpc
         pkgs.mpc
-        pkgs.rmpc
       ];
 
       home.sessionVariables = {
@@ -29,5 +28,6 @@ in
 
       custom.home.programs.albumart.enable = true;
       custom.home.programs.albumart.mpd-host = cfg.mpd-host;
+      custom.home.programs.rmpc.enable = true;
     };
   }

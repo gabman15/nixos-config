@@ -12,5 +12,6 @@ with lib; {
     ./gnupg
     ./rofi
     ./albumart
+    ./rmpc
   ];
 }
