@@ -26,6 +26,7 @@
   };
 
   custom.home.behavior.xdg.enable = true;
+  custom.home.programs.bash.enable = true;
   
   age.secrets.${config.custom.home.opts.hostname} = {
     file = ../../../../secrets/${config.custom.home.opts.hostname}.age;
