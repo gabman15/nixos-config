@@ -38,3 +38,12 @@
    ("M-<right>" . windmove-right)
    ("M-<up>" . windmove-up)
    ("M-<down>" . windmove-down)))
+
+(use-package clipetty
+  :ensure t
+  :hook (after-init . global-clipetty-mode))
+
+(use-package fzf
+  :ensure t)
+(use-package rg
+  :ensure t)

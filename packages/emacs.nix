@@ -1,9 +1,11 @@
-pkgs: let
+pkgs: profile: let
+  getConfigs = (config: lib.mapAttrsToList (fname: _: "${config}/${fname}") (
+    lib.filterAttrs (_: type: type == "regular") (builtins.readDir "${config}/")
+  ));
   lib = pkgs.lib;
-  myEmacsConfig = ./emacs;
-  emacsConfigs = lib.mapAttrsToList (fname: _: "${myEmacsConfig}/${fname}") (
-    lib.filterAttrs (_: type: type == "regular") (builtins.readDir "${myEmacsConfig}/")
-  );
+  baseConfig = ./emacs/basic;
+  profileConfig = lib.path.append ./emacs profile;
+  emacsConfigs = (getConfigs baseConfig) ++ (getConfigs profileConfig);
   emacsPkg = pkgs.emacsWithPackagesFromUsePackage {
     package = pkgs.emacs-nox;
     config = lib.concatMapStringsSep "\n" builtins.readFile emacsConfigs;
@@ -12,7 +14,8 @@ pkgs: let
     override = epkgs: epkgs // {
       my-config = (pkgs.runCommand "default.el" {} ''
                 mkdir -p $out/share/emacs/site-lisp
-                cp -r ${myEmacsConfig}/* $out/share/emacs/site-lisp/
+                cp -r ${baseConfig}/* $out/share/emacs/site-lisp/
+                cp -r ${profileConfig}/* $out/share/emacs/site-lisp/
               '');
     };
     extraEmacsPackages = epkgs: [

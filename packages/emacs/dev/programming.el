@@ -1,22 +1,3 @@
-(use-package php-mode
-  :ensure t)
-(use-package markdown-mode
-  :ensure t)
-(use-package nix-mode
-  :ensure t)
-(use-package json-mode
-  :ensure t)
-(use-package rust-mode
-  :ensure t)
-(use-package yaml-mode
-  :ensure t)
-(use-package clipetty
-  :ensure t
-  :hook (after-init . global-clipetty-mode))
-(use-package fzf
-  :ensure t)
-(use-package rg
-  :ensure t)
 (use-package flycheck
   :ensure t)
 (use-package lsp-mode
