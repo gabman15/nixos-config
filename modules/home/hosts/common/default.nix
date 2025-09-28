@@ -20,12 +20,6 @@
 
   home.sessionVariables.EDITOR = "emacs";
 
-  fonts.fontconfig = {
-    enable = true;
-    defaultFonts = {
-      monospace = [ "Hack" ];
-    };
-  };
   programs.nix-index-database.comma.enable = true;
   custom.home.behavior.xdg.enable = true;
   custom.home.programs.bash.enable = true;

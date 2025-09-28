@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+{ inputs, config, pkgs, lib, ... }:
 
 {
   home.packages = with pkgs; [
@@ -14,6 +14,9 @@
     steam
     gamemode
     gamescope
+    (inputs.nix-gaming.packages.${pkgs.system}.osu-stable.override {
+       location = "/games/pc/osu/prefix";
+    })
   ];
 
   custom.home.suites.graphical.enable = true;
