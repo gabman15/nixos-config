@@ -258,6 +258,26 @@
         "type": "github"
       }
     },
+    "gensoquote": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1747003105,
+        "narHash": "sha256-jH1Lv4F6/l9QuXYpFVcWNzdSG2WI1NuETbGW9AA+b00=",
+        "owner": "gabman15",
+        "repo": "gensoquote",
+        "rev": "4f95bf9df49f728aa7a1879b38f8c21bb3e923eb",
+        "type": "github"
+      },
+      "original": {
+        "owner": "gabman15",
+        "repo": "gensoquote",
+        "type": "github"
+      }
+    },
     "git-hooks": {
       "inputs": {
         "flake-compat": [
@@ -532,6 +552,7 @@
         "disko": "disko",
         "emacs-overlay": "emacs-overlay",
         "gabe-backgrounder": "gabe-backgrounder",
+        "gensoquote": "gensoquote",
         "home-manager": "home-manager",
         "jbwar22-mpv-scripts": "jbwar22-mpv-scripts",
         "mpd-albumart": "mpd-albumart",

@@ -30,6 +30,10 @@
       url = "github:gabman15/mpv-remote-node";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    gensoquote = {
+      url = "github:gabman15/gensoquote";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     jbwar22-mpv-scripts = {
       url = "github:jbwar22/mpv-scripts";
       inputs.nixpkgs.follows = "nixpkgs";
