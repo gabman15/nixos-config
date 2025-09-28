@@ -20,6 +20,8 @@
 
   services.tailscale.enable = true;
 
+  custom.nixos.programs.docker.enable = true;
+
   wsl = {
     enable = true;
     defaultUser = "lord_gabem";
