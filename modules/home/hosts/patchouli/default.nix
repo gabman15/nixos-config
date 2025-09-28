@@ -2,7 +2,7 @@
 
 {
   home.packages = with pkgs; [
-    ranger
+    pulsemixer
   ];
 
   custom.home.suites.dev.enable = true;

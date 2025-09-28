@@ -1,9 +1,7 @@
 { lib, config, pkgs, ... }:
 
 {
-  home.packages = with pkgs; [
-    pulsemixer
-  ];
+  custom.home.suites.graphical.enable = true;
 
   custom.home.programs.sway.enable = true;
   custom.home.programs.backgrounder.enable = true;

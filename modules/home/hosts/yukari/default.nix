@@ -5,11 +5,8 @@
     librewolf
     signal-desktop
     vesktop
-    pulsemixer
     pass
-    gnupg
-    cantata
-    ranger
+    ymuse
   ];
 
 
@@ -23,6 +20,7 @@
   custom.home.programs.rofi.enable = true;
 
   custom.home.suites.dev.enable = true;
+  custom.home.suites.graphical.enable = true;
   custom.home.suites.mpd.enable = true;
   custom.home.suites.mpd.mpd-host = "nitori";
 
