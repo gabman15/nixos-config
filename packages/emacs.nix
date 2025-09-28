@@ -12,7 +12,19 @@ pkgs.emacsWithPackagesFromUsePackage {
               cp -r ${myEmacsConfig}/* $out/share/emacs/site-lisp/
             '');
   };
-  extraEmacsPackages = epkgs: with epkgs; [
-    my-config
+  extraEmacsPackages = epkgs: [
+    epkgs.my-config
+    epkgs.nix-mode
+    epkgs.flycheck
+    epkgs.json-mode
+    epkgs.python-mode
+    epkgs.autothemer
+    epkgs.lsp-mode
+    epkgs.lsp-pyright
+    epkgs.all-the-icons-dired
+    epkgs.all-the-icons
+    pkgs.basedpyright
+    pkgs.nodePackages.vscode-json-languageserver
+    pkgs.emacs-all-the-icons-fonts
   ];
 }
