@@ -19,15 +19,15 @@ in
       boot.extraModulePackages = [ ];
 
       fileSystems."/" =
-        { device = "/dev/mapper/root";
+        { device = "/dev/disk/by-label/NIXROOT";
           fsType = "btrfs";
-          options = [ "subvol=@root" ];
+          options = [ "subvol=@root" "noatime" "compress=lzo" "space_cache=v2" "subvolid=256" ];
         };
 
       fileSystems."/home" =
-        { device = "/dev/mapper/root";
+        { device = "/dev/disk/by-label/NIXROOT";
           fsType = "btrfs";
-          options = [ "subvol=@home" ];
+          options = [ "subvol=@home" "noatime" "compress=lzo" "space_cache=v2" "subvolid=257" ];
         };
 
       fileSystems."/boot/efi" =
