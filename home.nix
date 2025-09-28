@@ -12,21 +12,22 @@
   ];
   wayland.windowManager.sway = {
     enable = true;
+    xwayland = true;
     config = {
       terminal = "${pkgs.kitty}/bin/kitty";
       modifier = "Mod4";
       input = {
         "type:touchpad" = {
-	  accel_profile = "adaptive";
-	  click_method = "clickfinger";
-	  scroll_factor = "0.5";
-	};
+	        accel_profile = "adaptive";
+	        click_method = "clickfinger";
+	        scroll_factor = "0.5";
+	      };
       };
       keybindings = let
         modifier = config.wayland.windowManager.sway.config.modifier;
       in lib.mkOptionDefault {
         "${modifier}+Shift+x" = "exec ${pkgs.swaylock}/bin/swaylock";
-        "${modifier}+d" = "exec ${pkgs.rofi-wayland}/bin/rofi run -show drun -font 'Hack Nerd Font 12'";
+        "${modifier}+d" = "exec ${pkgs.rofi-wayland}/bin/rofi run -show drun -font 'Hack 12'";
       };
     };
   };
