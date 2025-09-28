@@ -13,6 +13,15 @@
       inputs.nixpkgs.follows = "nixpkgs-unstable";
       inputs.nixpkgs-stable.follows = "nixpkgs";
     };
+    agenix = {
+      url = "github:ryantm/agenix";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "home-manager";
+    };
+    gabe-backgrounder = {
+      url = "github:gabman15/gabe-backgrounder";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
   
   outputs = { nixpkgs, self, ... }@inputs : {
@@ -25,11 +34,13 @@
           home-manager.useGlobalPkgs = true;
           home-manager.users.lord_gabem = import ./modules/home;
           home-manager.extraSpecialArgs = {
+            inherit inputs;
             outputs = self;
           };
         }
       ];
       specialArgs = {
+        inherit inputs;
         outputs = self;
       };
     };
