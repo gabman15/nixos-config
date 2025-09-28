@@ -14,11 +14,11 @@
       system = "x86_64-linux";
       modules = [
         ./configuration.nix
-	inputs.home-manager.nixosModules.home-manager
-	{
-	  home-manager.useGlobalPkgs = true;
-	  home-manager.users.lord_gabem = import ./home.nix;
-	}
+	      inputs.home-manager.nixosModules.home-manager
+	      {
+	        home-manager.useGlobalPkgs = true;
+	        home-manager.users.lord_gabem = import ./home.nix;
+	      }
       ];
     };
   };
