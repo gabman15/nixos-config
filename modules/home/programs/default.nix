@@ -11,5 +11,6 @@ with lib; {
     ./direnv
     ./gnupg
     ./rofi
+    ./albumart
   ];
 }
