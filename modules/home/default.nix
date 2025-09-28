@@ -5,7 +5,8 @@
     inputs.agenix.homeManagerModules.default
     ./programs/sway
     ./programs/backgrounder
-    
+    ./programs/kitty
+    ./programs/bash
   ];
   home.packages = with pkgs; [
     fastfetch
@@ -23,6 +24,7 @@
   custom.home.programs.sway.enable = true;
   custom.home.programs.backgrounder.enable = true;
   custom.home.programs.kitty.enable = true;
+  custom.home.programs.bash.enable = true;
   
   fonts.fontconfig = {
     enable = true;
