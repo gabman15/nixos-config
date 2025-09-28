@@ -14,6 +14,9 @@
     gamemode
     gamescope
     r2modman
+    ffmpeg
+    yt-dlp
+    mullvad-browser
     (inputs.nix-gaming.packages.${pkgs.system}.osu-stable.override {
        location = "/games/pc/osu/prefix";
     })
