@@ -45,7 +45,7 @@ with lib; let
       mpd-button-script = (import ./scripts/mpd-button.nix) pkgs config;
     in {
       exec = "${mpd-button-script}";
-      on-click = "mpc toggle";
+      on-click = "${pkgs.mpc}/bin/mpc toggle";
       restart-interval = 1;
       tooltip = false;
     };

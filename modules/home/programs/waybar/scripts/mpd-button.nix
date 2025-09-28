@@ -1,7 +1,7 @@
 pkgs: config:
 
 pkgs.writeShellScript "mpd-button" ''
-  MPC_STATUS="$(mpc status %state%)"
+  MPC_STATUS="$(${pkgs.mpc}/bin/mpc status %state%)"
   if [ "$MPC_STATUS" == 'paused' ]; then
     FORMAT=""
   else
