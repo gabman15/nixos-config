@@ -10,7 +10,6 @@ in
 pkgs.emacsWithPackagesFromUsePackage {
   package = pkgs.emacs-nox;
   config = lib.concatMapStringsSep "\n" builtins.readFile emacsConfigs;
-  
   # defaultInitFile = true;
   # alwaysEnsure = true;
   override = epkgs: epkgs // {
@@ -40,8 +39,9 @@ pkgs.emacsWithPackagesFromUsePackage {
     # epkgs.all-the-icons
     pkgs.basedpyright
     pkgs.nodePackages.vscode-json-languageserver
-    pkgs.emacs-all-the-icons-fonts
     pkgs.nixd
+    pkgs.intelephense
+    pkgs.emacs-all-the-icons-fonts
     pkgs.hack-font
   ];
 }

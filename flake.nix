@@ -34,6 +34,10 @@
       pkgs = import inputs.nixpkgs-unstable {
         system = "x86_64-linux";
         overlays = [ inputs.emacs-overlay.overlays.default ];
+        config.allowUnfreePredicate = pkg:
+          builtins.elem (nixpkgs.lib.getName pkg) [
+            "intelephense"
+          ];
       };
     in
       {

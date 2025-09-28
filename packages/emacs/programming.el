@@ -1,3 +1,5 @@
+(use-package php-mode
+  :ensure t)
 (use-package markdown-mode
   :ensure t)
 (use-package nix-mode
@@ -7,6 +9,8 @@
 (use-package rust-mode
   :ensure t)
 
+(use-package flycheck
+  :ensure t)
 (use-package lsp-mode
   :ensure t)
 (use-package lsp-ui
