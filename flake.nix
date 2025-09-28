@@ -20,14 +20,14 @@
       system = "x86_64-linux";
       modules = [
         ./modules/nixos
-	      inputs.home-manager.nixosModules.home-manager
-	      {
-	        home-manager.useGlobalPkgs = true;
-	        home-manager.users.lord_gabem = import ./modules/home;
+        inputs.home-manager.nixosModules.home-manager
+        {
+          home-manager.useGlobalPkgs = true;
+          home-manager.users.lord_gabem = import ./modules/home;
           home-manager.extraSpecialArgs = {
             outputs = self;
           };
-	      }
+        }
       ];
       specialArgs = {
         outputs = self;
