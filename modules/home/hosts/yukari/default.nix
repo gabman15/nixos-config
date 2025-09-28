@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ lib, pkgs, ... }:
 
 {
   home.packages = with pkgs; [
@@ -9,6 +9,7 @@
     pass
     rsync
     gnupg
+    cantata
   ];
 
 
@@ -26,6 +27,10 @@
   # stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-hard.yaml";
   stylix.targets = {
     rofi.enable = true;
+  };
+
+  home.sessionVariables = lib.mkForce {
+    QT_QPA_PLATFORMTHEME = "gtk3";
   };
 
   age.secrets.backgrounder-config.file = ../../../../secrets/backgrounder-config.age;
