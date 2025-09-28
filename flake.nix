@@ -52,7 +52,7 @@
   };
 
   outputs = { nixpkgs, home-manager, stylix, self, ... }@inputs : let
-    nixoshosts = [ "yukari" "patchouli" "suwako" ];
+    nixoshosts = [ "yukari" "patchouli" "suwako" "koishi" ];
     homemgrhosts = [ "gensokyo" "nitori" ];
     forAllNixOsHosts = nixpkgs.lib.genAttrs nixoshosts;
     forAllHomeMgrHosts = nixpkgs.lib.genAttrs homemgrhosts;
@@ -63,6 +63,7 @@
     ];
     homeUnfreePkgs = [
       "posy-cursors"
+      "discord"
     ];
   in {
     nixosConfigurations = forAllNixOsHosts (host: nixpkgs.lib.nixosSystem {
@@ -70,20 +71,26 @@
       modules = [
         ./modules/nixos/hosts/common
         ./modules/nixos/hosts/${host}
+        ./modules/themes
+        ./modules/opts
         inputs.stylix.nixosModules.stylix
         inputs.home-manager.nixosModules.home-manager
         inputs.disko.nixosModules.disko
         {
+          stylix.homeManagerIntegration.autoImport = false;
           networking.hostName = host;
+          custom.opts.hostname = host;
           home-manager.useGlobalPkgs = true;
           home-manager.users.lord_gabem = {
             imports = [
               ./modules/home/hosts/common
               ./modules/home/hosts/${host}
+              ./modules/themes
+              ./modules/opts
               inputs.nix-index-database.homeModules.nix-index
               inputs.stylix.homeModules.stylix
             ];
-            custom.home.opts.hostname = host;
+            custom.opts.hostname = host;
             stylix.overlays.enable = false;
           };
           home-manager.extraSpecialArgs = {
@@ -111,9 +118,11 @@
           inputs.nix-index-database.homeModules.nix-index
           ./modules/home/hosts/common
           ./modules/home/hosts/${host}
+          ./modules/themes
+          ./modules/opts
           {
             home.username = "lord_gabem";
-            custom.home.opts.hostname = host;
+            custom.opts.hostname = host;
             home.homeDirectory = "/home/lord_gabem";
             nixpkgs.config.allowUnfreePredicate = pkg:
               builtins.elem (nixpkgs.lib.getName pkg) homeUnfreePkgs;

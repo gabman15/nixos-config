@@ -14,5 +14,6 @@ with lib; {
     ./albumart
     ./rmpc
     ./emacs
+    ./mpd
   ];
 }

@@ -3,7 +3,7 @@ pkgs:
 {
   enable = true;
   base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-medium.yaml";
-  image = ./../img.jpg;
+  # image = ./../img.jpg;
   fonts = {
     serif = {
       package = pkgs.hack-font;

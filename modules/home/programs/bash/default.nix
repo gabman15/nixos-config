@@ -22,7 +22,7 @@ in
         shellAliases = {
           ls = "ls -lha --color=auto";
           rb = "sudo nixos-rebuild switch";
-          hrb = "home-manager switch --flake .#${config.custom.home.opts.hostname}";
+          hrb = "home-manager switch --flake .#${config.custom.opts.hostname}";
         };
 
         initExtra = let
