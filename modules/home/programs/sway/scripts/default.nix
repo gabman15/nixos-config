@@ -1,4 +1,4 @@
-pkgs: lib: config:
+pkgs: config:
 
 rec {
   screenshot = (import ./screenshot.nix) pkgs config;
