@@ -22,6 +22,7 @@
   
   custom.home.programs.sway.enable = true;
   custom.home.programs.backgrounder.enable = true;
+  custom.home.programs.kitty.enable = true;
   
   fonts.fontconfig = {
     enable = true;
