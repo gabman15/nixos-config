@@ -2,18 +2,19 @@
 
 {
   custom.home.suites.graphical.enable = true;
-
   custom.home.programs.sway.enable = true;
   custom.home.programs.backgrounder.enable = true;
   custom.home.programs.mpv.enable = true;
   custom.home.programs.mpv.remote = true;
 
-  age.secrets.backgrounder-config.file = ../../../../secrets/backgrounder-config.age;
-
-  wayland.windowManager.sway.config = {
-    output.eDP-1 = {
-      disable = "";
+  custom.home.opts.screens = {
+    "eDP-1" = {
+      sway = {
+        disable = "";
+      };
     };
+  };
+  wayland.windowManager.sway.config = {
     seat = {
       "*" = {
         hide_cursor = "100";
