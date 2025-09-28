@@ -66,6 +66,11 @@ in
     };
 
     config = mkIf cfg.enable {
+      stylix.targets.waybar = {
+        enableLeftBackColors = false;
+        enableRightBackColors = false;
+        enableCenterBackColors = false;
+      };
       home.packages = [
         (pkgs.nerdfonts.override { fonts =  [ "Hack" ]; })
       ];

@@ -27,6 +27,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
+    stylix = {
+      url = "github:danth/stylix/release-24.11";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
   
   outputs = { nixpkgs, self, ... }@inputs : let
@@ -37,6 +41,7 @@
       modules = [
         ./modules/nixos/hosts/common
         ./modules/nixos/hosts/${host}
+        inputs.stylix.nixosModules.stylix
         inputs.home-manager.nixosModules.home-manager
         {
           networking.hostName = host;
