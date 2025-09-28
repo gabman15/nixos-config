@@ -22,18 +22,7 @@ pkgs: let
       epkgs.ht
       epkgs.lv
       epkgs.spinner
-      # epkgs.use-package
       epkgs.my-config
-      # epkgs.magit
-      # epkgs.nix-mode
-      # epkgs.flycheck
-      # epkgs.json-mode
-      # epkgs.python-mode
-      # epkgs.autothemer
-      # epkgs.lsp-mode
-      # epkgs.lsp-pyright
-      # epkgs.all-the-icons-dired
-      # epkgs.all-the-icons
       pkgs.basedpyright
       pkgs.nodePackages.vscode-json-languageserver
       pkgs.nixd
