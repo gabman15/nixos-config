@@ -26,10 +26,11 @@
       url = "github:gabman15/mpv-remote-node";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
   };
   
   outputs = { nixpkgs, self, ... }@inputs : let
-    forAllHosts = nixpkgs.lib.genAttrs [ "yukari" ];
+    forAllHosts = nixpkgs.lib.genAttrs [ "yukari" "patchouli" ];
   in {
     nixosConfigurations = forAllHosts (host: nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";

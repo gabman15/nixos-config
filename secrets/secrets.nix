@@ -2,8 +2,12 @@ let
   keys = [
     "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCzdDikp/VUciRmRRP1Ww0fuvtqVO+KKVLJJU3iKext91eDITB0wPIeLa3PxXbgBbXWnlCQYs+2+LSnxfSiOLCYdsBmE9Ui1H9KQ6lUsc8imnSAdj5NThpFCfSuItD8N8ix+vYrDwbj8G4K9kBInmQpwxWjZYBrgC8TDRjimY2jkKzata4Ab6pWFnv/kRRb8odLSv34hij4/Xe33PVSgUNAo8zCTskmJnRNC9f31Rn0FIRU+QjJK8paCGJ16PbQK9QbDdYHY1odSbvPQEyLJPPj96TSx2Ge806BQWOR2FmwKqUKfHD3xO4zS/kS3v8YQ4oDQUwhI2MK2YV2GApyGLDSoKsCFrI8kt8n8icScxWWYCyUvf8VZi8vzjuUeyHeB35+mpjSyNv1NVU5vj0C3PU69zAjzol7Za5Ju1oyciE8DiWKN7KSvegXBvNpgMwGhLj0ePcUHYIbu77UhpUwJUeewqFAv/oswkOMMMSO3a28rnEgMrwj/YHCcF+e25prn5s="
   ];
+  workkeys = [
+    "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC12Ig0vdqUScUdFNy8RKFn2NNOrM9O/TCvQ6RSbHm0q9iGziZbjYe83BBJ8rcfTYVRnW8/kCV106w570jKsQyt0OWvgqtSjfnhp/RuB6VVIsuZKJiJR7yvsNnM99BrCnMJDCTUq1MeWMdi6X1B48vS+JJPexutn8VxVsxN/cICi9hDYTXk4zp/7yAuE/NTVqnizSTRdyFAP1t1dJndVQfy8pbTTSZDl88qODixNY1s3w42ZpYwphaY31sl9tvcwL/Adbnr4N+NO5OIfUBu8COYCWayqGi0hKLE9EoeMepMqDq732EFn7n1vXGpXxfORLhJr4qAFQZueAztdeBbQGS24nUt4JRt9iI8M/VkI7e3yr6EpdMN1b3/cMSiwafVWIJemcOJoBnFWn1RgQPEHGesoezDdKRmM8SQXsos2hbILzeBuPRVLhx4qZhFIal3kPu+DOZzvHL7wl5YA5455AQTQNgAIX0u7uA/ZjB+b7nsZMTX4FbIzmEjiVmC5FWJpnk="
+  ];
 in
 {
   "backgrounder-config.age".publicKeys = keys;
   "yukari.age".publicKeys = keys;
+  "patchouli.age".publicKeys = workkeys ++ keys;
 }

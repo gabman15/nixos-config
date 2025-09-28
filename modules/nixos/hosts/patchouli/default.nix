@@ -1,0 +1,22 @@
+{ pkgs, inputs, ... }:
+
+{
+  imports = [
+    inputs.nixos-wsl.nixosModules.default
+  ];
+  # Set your time zone.
+  time.timeZone = "America/New_York";
+
+  # Define a user account. Don't forget to set a password with ‘passwd’.
+  users.users.lord_gabem = {
+    isNormalUser = true;
+    extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+  };
+
+  wsl = {
+    enable = true;
+    defaultUser = "lord_gabem";
+  };
+  
+  system.stateVersion = "24.11";
+}
