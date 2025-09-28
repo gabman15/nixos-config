@@ -80,14 +80,15 @@ in
                 }
               ];
               keybindings = let
-                screenshot-script = (import ./scripts/screenshot.nix) pkgs config;
+                scripts = (import ./scripts) pkgs config;
                 modifier = config.wayland.windowManager.sway.config.modifier;
                 swaylock = mkIfElse cfg.sys-swaylock "exec swaylock" "exec ${pkgs.swaylock}/bin/swaylock";
               in lib.mkOptionDefault {
                 "${modifier}+Shift+x" = swaylock;
                 "${modifier}+p" = "exec ${pkgs.rofi-pass-wayland}/bin/rofi-pass";
-                "${modifier}+Shift+s" = "exec ${screenshot-script}";
-                "${modifier}+Shift+t" = "exec transformers_ocr recognize";
+                "${modifier}+Shift+s" = "exec ${scripts.screenshot}";
+                "${modifier}+Shift+t" = "exec ${scripts.translate-screenshot}";
+                "${modifier}+Mod1+t" = "exec ${scripts.translate}";
                 "${modifier}+Mod1+e" = "mode \"${exit}\"";
                 "XF86AudioRaiseVolume" = "exec ${pkgs.pulseaudio}/bin/pactl set-sink-volume @DEFAULT_SINK@ +10%";
                 "XF86AudioLowerVolume" = "exec ${pkgs.pulseaudio}/bin/pactl set-sink-volume @DEFAULT_SINK@ -10%";
