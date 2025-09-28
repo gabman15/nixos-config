@@ -32,7 +32,7 @@
     rofi.enable = true;
   };
 
-  home.sessionVariables = lib.mkForce {
+  home.sessionVariables = {
     QT_QPA_PLATFORMTHEME = "gtk3";
   };
 

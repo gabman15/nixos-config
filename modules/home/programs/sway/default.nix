@@ -79,7 +79,7 @@ in
             window.titlebar = false;
             floating.criteria = [
               { app_id = "mpv"; }
-              { app_id = "feh"; }
+              { class = "feh"; }
               { window_role = "pop-up"; }
               { window_role = "bubble"; }
             ];

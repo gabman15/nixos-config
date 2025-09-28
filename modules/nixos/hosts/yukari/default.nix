@@ -32,6 +32,13 @@
     };
   };
 
+  fileSystems."/mnt/anime" = {
+    device = "nitori:/anime";
+    fsType = "nfs";
+  };
+
+  boot.supportedFilesystems = [ "nfs" ];
+
   stylix = {
     enable = true;
     base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-medium.yaml";
