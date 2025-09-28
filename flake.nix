@@ -35,22 +35,9 @@
         system = "x86_64-linux";
         overlays = [ inputs.emacs-overlay.overlays.default ];
       };
-      myEmacsConfig = ./emacs;
     in
       {
-        emacs = pkgs.emacsWithPackagesFromUsePackage {
-          config = "${myEmacsConfig}/init.el";
-          defaultInitFile = true;
-          override = epkgs: epkgs // {
-            my-config = (pkgs.runCommand "init.el" {} ''
-              mkdir -p $out/share/emacs/site-lisp
-              cp -r ${myEmacsConfig}/* $out/share/emacs/site-lisp/
-            '');
-          };
-          extraEmacsPackages = epkgs: with epkgs; [
-            my-config
-          ];
-        };
+        emacs = import ./packages/emacs.nix pkgs;
       };
   };
 }

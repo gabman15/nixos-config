@@ -105,6 +105,7 @@
     emacs # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     wget
     curl
+    tailscale
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -116,7 +117,7 @@
   # };
 
   # List services that you want to enable:
-
+  services.tailscale.enable = true;
   # Enable the OpenSSH daemon.
   custom.nixos.programs.ssh.enable = true;
 
