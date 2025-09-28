@@ -11,6 +11,7 @@
     librewolf
     signal-desktop
     pass
+    steam
   ];
 
   custom.home.suites.graphical.enable = true;
