@@ -1,3 +1,5 @@
+;; (load "lsp-java.el")
+;; (load "dap-java.el")
 (use-package flycheck
   :ensure t)
 (use-package lsp-mode
@@ -21,10 +23,20 @@
                       :activation-fn (lsp-activate-on "xml")
                       :server-id 'lemminx))
 
-(use-package ccls
-  :ensure t
-  :hook ((c-mode c++-mode objc-mode cuda-mode) .
-         (lambda () (require 'ccls) (lsp))))
+
+(use-package lsp-java
+  :ensure t)
+;; (add-hook 'java-mode-hook #'lsp)
+
+;; (setq lsp-java-jdt-ls-prefer-native-command t)
+;; (setq lsp-java-server-install-dir (f-dirname (f-dirname (executable-find lsp-java-jdt-ls-command))))
+
+
+
+;; (use-package ccls
+;;   :ensure t
+;;   :hook ((c-mode c++-mode objc-mode cuda-mode) .
+;;          (lambda () (require 'ccls) (lsp))))
 
 (use-package lsp-pyright
   :ensure t
@@ -36,12 +48,34 @@
 (use-package dap-mode
   :ensure t
   :bind*
-  (("<f5>" . dap-next)
-   ("<f6>" . dap-step-in)))
-(require 'dap-python)
+  (("<f5>" . dap-step-in)
+   ("<f6>" . dap-next)
+   ("<f7>" . dap-step-out)
+   ("<f8>" . dap-continue)
+   ("<f9>" . dap-breakpoint-toggle)))
 (setopt dap-auto-configure-mode t)
-(setq dap-python-debugger 'debugpy)
 (setq dap-ui-variable-length 200)
+
+(require 'dap-python)
+(setq dap-python-debugger 'debugpy)
+;; (require 'dap-java)
+
+;; (dap-register-debug-provider
+;;  "java"
+;;  (lambda (conf)
+;;    (plist-put conf :debugPort 9000)
+;;    (plist-put conf :host "localhost")
+;;    (plist-put conf :debugServer (with-lsp-workspace (lsp-find-workspace 'jdtls)
+;;                                  (lsp-send-execute-command "vscode.java.startDebugSession")))
+;;    conf))
+
+;; (dap-register-debug-template
+;;   "Java Attach"
+;;   (list :name "Java Attach"
+;;         :type "java"
+;;         :request "attach"
+;;         :hostName "localhost"
+;;         :port 9000))
 
 (defun my-locate-python-virtualenv ()
   "Find the Python executable based on the VIRTUAL_ENV environment variable."
