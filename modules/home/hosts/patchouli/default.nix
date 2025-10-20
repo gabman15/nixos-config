@@ -3,6 +3,7 @@
 {
   home.packages = with pkgs; [
     pulsemixer
+    cifs-utils
   ];
 
   custom.home.suites.dev.enable = true;
