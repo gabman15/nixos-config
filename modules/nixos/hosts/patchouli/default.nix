@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, ... }:
+{ lib, config, pkgs, inputs, ... }:
 
 {
   imports = [
@@ -16,6 +16,7 @@
 
   environment.systemPackages = with pkgs; [
     tailscale
+    cifs-utils
   ];
 
   services.tailscale.enable = true;
@@ -55,7 +56,7 @@
       description = "work mount 1";
       what = "\${WORK_MOUNT1_WHAT}";
       type = "cifs";
-      where = "\${WORK_MOUNT1_WHERE}";
+      where = "/mnt/work1";
       options = "credentials=${config.age.secrets.smb-work-creds.path}";
       mountConfig = {
         EnvironmentFile = config.age.secrets.smb-work-paths.path;
@@ -66,7 +67,7 @@
   systemd.automounts = [
     {
       description = "Automount for work mount 1";
-      where = "\${WORK_MOUNT1_WHERE}";
+      where = "/mnt/work1";
       wantedBy = [ "multi-user.target" ];
       automountConfig = {
         EnvironmentFile = config.age.secrets.smb-work-paths.path;
