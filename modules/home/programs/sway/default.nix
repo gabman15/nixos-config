@@ -104,6 +104,7 @@ in
           enable = true;
           package = mkIf cfg.sys-swaylock null;
         };
+        services.dunst.enable = true;
         home.packages = [
           pkgs.wl-clipboard
         ];
