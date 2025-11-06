@@ -11,7 +11,7 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.lord_gabem = {
     isNormalUser = true;
-    extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "wheel" "scanner" "lp"]; # Enable ‘sudo’ for the user.
     linger = true;
   };
 
@@ -89,6 +89,7 @@
   boot.supportedFilesystems = [ "nfs" ];
 
   hardware.opentabletdriver.enable = true;
+  hardware.sane.enable = true;
   custom.themes.enable = true;
 
   services.tailscale.enable = true;
