@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
   imports = [
@@ -42,6 +42,37 @@
   };
 
   networking.nameservers = [ "1.1.1.1" ];
+  age.secrets = {
+    smb-work-paths = {
+      file = ../../../../secrets/smb-work-paths.age;
+    };
+    smb-work-creds = {
+      file = ../../../../secrets/smb-work-creds.age;
+    };
+  };
+  systemd.mounts = [
+    {
+      description = "work mount 1";
+      what = "\${WORK_MOUNT1_WHAT}";
+      type = "cifs";
+      where = "\${WORK_MOUNT1_WHERE}";
+      options = "credentials=${config.age.secrets.smb-work-creds.path}";
+      mountConfig = {
+        EnvironmentFile = config.age.secrets.smb-work-paths.path;
+      };
+    }
+  ];
+
+  systemd.automounts = [
+    {
+      description = "Automount for work mount 1";
+      where = "\${WORK_MOUNT1_WHERE}";
+      wantedBy = [ "multi-user.target" ];
+      automountConfig = {
+        EnvironmentFile = config.age.secrets.smb-work-paths.path;
+      };
+    }
+  ];
 
   # systemd.services.resolvconf-wsl = {
   #   enable = true;
