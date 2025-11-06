@@ -14,9 +14,11 @@
     gamemode
     gamescope
     r2modman
+    prismlauncher
     ffmpeg
     yt-dlp
     mullvad-browser
+    xdg-utils
     (inputs.nix-gaming.packages.${pkgs.system}.osu-stable.override {
        location = "/games/pc/osu/prefix";
     })
@@ -53,12 +55,16 @@
       };
     };
   };
-  xdg.portal = {
-    enable = true;
-    extraPortals = [ pkgs.xdg-desktop-portal-wlr pkgs.xdg-desktop-portal-gtk ];
-    config = {
-      common = {
-        default = [ "wlr" ];
+  home.sessionVariables.DEFAULT_BROWSER = "${pkgs.librewolf}/bin/librewolf";
+  xdg = {
+    portal = {
+      enable = true;
+      extraPortals = [ pkgs.xdg-desktop-portal-wlr pkgs.xdg-desktop-portal-gtk ];
+      xdgOpenUsePortal = true;
+      config = {
+        common = {
+          default = [ "wlr" ];
+        };
       };
     };
   };
