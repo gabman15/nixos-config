@@ -10,6 +10,7 @@
   home.packages = with pkgs; [
     fastfetch
     git
+    git-crypt
     ripgrep
     fzf
     inputs.agenix.packages.${pkgs.system}.default
