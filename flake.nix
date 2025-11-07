@@ -38,6 +38,10 @@
       url = "github:jbwar22/mpv-scripts";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    mavica-scripts = {
+      url = "github:jbwar22/mavica-scripts";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
     stylix = {
       url = "github:danth/stylix/release-25.05";

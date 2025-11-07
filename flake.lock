@@ -339,6 +339,26 @@
         "type": "github"
       }
     },
+    "mavica-scripts": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1761772636,
+        "narHash": "sha256-OIY1ZuRlXf4zFn6HdAi4KENnwKR/Ihwa1MXJFKAkiGM=",
+        "owner": "jbwar22",
+        "repo": "mavica-scripts",
+        "rev": "b03bba65ee0680521a304aa3b50410527732ef74",
+        "type": "github"
+      },
+      "original": {
+        "owner": "jbwar22",
+        "repo": "mavica-scripts",
+        "type": "github"
+      }
+    },
     "mpd-albumart": {
       "inputs": {
         "nixpkgs": [
@@ -570,6 +590,7 @@
         "gensoquote": "gensoquote",
         "home-manager": "home-manager",
         "jbwar22-mpv-scripts": "jbwar22-mpv-scripts",
+        "mavica-scripts": "mavica-scripts",
         "mpd-albumart": "mpd-albumart",
         "mpv-remote-node": "mpv-remote-node",
         "nix-gaming": "nix-gaming",
