@@ -2,10 +2,6 @@
 
 with lib; let
   cfg = config.custom.home.programs.rmpc;
-  mkIfElse = p: yes: no: mkMerge [
-    (mkIf p yes)
-    (mkIf (!p) no)
-  ];
 in
   {
     options.custom.home.programs.rmpc = {

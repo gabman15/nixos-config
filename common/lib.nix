@@ -4,7 +4,8 @@ lib: with lib; rec {
   # get all files and directories in a directory matching predicates on type and name
   # example: import all directories (all must contain default.nix) except "asdf"
   # imports = filterFromDir ./. (type: type == "directory") (name: name != "asdf");
-  filterFromDir = dir: typepredicate: filepredicate: pipe (builtins.readDir dir) [
+  filterFromDir = dir: typepredicate: filepredicate: pipe dir [
+    (builtins.readDir)
     (filterAttrs (file: type:
       typepredicate type && filepredicate file
     ))
@@ -18,4 +19,11 @@ lib: with lib; rec {
   getDir = dir: mapAttrs (file: type:
     if type == "directory" then getDir (lib.path.append dir file) else type
   ) readDir dir;
+
+  # logic helpers
+
+  mkIfElse = p: yes: no: mkMerge [
+    (mkIf p yes)
+    (mkIf (!p) no)
+  ];
 }

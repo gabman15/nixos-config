@@ -74,7 +74,7 @@
       "vista-fonts"
     ];
     custom-lib = import ./common/lib.nix nixpkgs.lib;
-    lib = nixpkgs.lib.extend (_: prev: prev // custom-lib);
+    lib = nixpkgs.lib.extend (_: _: custom-lib);
   in {
     nixosConfigurations = forAllNixOsHosts (host: nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
