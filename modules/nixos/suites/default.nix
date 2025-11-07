@@ -4,5 +4,6 @@ with lib; {
   imports = [
     ./graphical
     ./nvidia
+    ./work-mounts
   ];
 }
