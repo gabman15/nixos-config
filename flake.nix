@@ -73,6 +73,8 @@
       "corefonts"
       "vista-fonts"
     ];
+    custom-lib = import ./common/lib.nix nixpkgs.lib;
+    lib = nixpkgs.lib.extend (_: prev: prev // custom-lib);
   in {
     nixosConfigurations = forAllNixOsHosts (host: nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
@@ -105,6 +107,7 @@
           };
           home-manager.extraSpecialArgs = {
             inherit inputs;
+            lib = lib.extend (_: _: inputs.home-manager.lib);
             outputs = self;
           };
           nixpkgs.config.allowUnfreePredicate = pkg:
@@ -112,7 +115,7 @@
         }
       ];
       specialArgs = {
-        inherit inputs;
+        inherit inputs lib;
         outputs = self;
       };
     });
@@ -141,6 +144,7 @@
         ];
         extraSpecialArgs = {
           inherit inputs;
+          lib = lib.extend (_: _: inputs.home-manager.lib);
           outputs = self;
         };
       });

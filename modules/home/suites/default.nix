@@ -1,9 +1,5 @@
 { lib, ... }:
 
 with lib; {
-  imports = [
-    ./mpd
-    ./dev
-    ./graphical
-  ];
+  imports = getDirs ./.;
 }

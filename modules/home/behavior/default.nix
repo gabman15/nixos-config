@@ -1,7 +1,5 @@
 { lib, ... }:
 
 with lib; {
-  imports = [
-    ./xdg
-  ];
+  imports = getDirs ./.;
 }

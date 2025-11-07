@@ -1,7 +1,5 @@
-{ ... }:
+{ lib, ... }:
 
-{
-  imports = [
-    ./hostname
-  ];
+with lib; {
+  imports = getDirs ./.;
 }
