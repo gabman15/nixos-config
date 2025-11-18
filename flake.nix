@@ -79,9 +79,14 @@
     ];
     custom-lib = import ./common/lib.nix nixpkgs.lib;
     lib = nixpkgs.lib.extend (_: _: custom-lib);
+    channels = {
+      stable = inputs.nixpkgs;
+      unstable = inputs.nixpkgs-unstable;
+    };
+    system = "x86_64-linux";
   in {
     nixosConfigurations = forAllNixOsHosts (host: nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
+      system = system;
       modules = [
         ./modules/nixos/hosts/common
         ./modules/nixos/hosts/${host}
@@ -92,6 +97,7 @@
         inputs.disko.nixosModules.disko
         inputs.agenix.nixosModules.default
         {
+          nixpkgs.overlays = import ./common/overlays inputs lib;
           stylix.homeManagerIntegration.autoImport = false;
           networking.hostName = host;
           custom.opts.hostname = host;
@@ -125,7 +131,7 @@
     });
 
     homeConfigurations = let
-      system = "x86_64-linux";
+      system = system;
       pkgs = nixpkgs.legacyPackages.${system};
     in
       forAllHomeMgrHosts (host: inputs.home-manager.lib.homeManagerConfiguration {
@@ -139,6 +145,7 @@
           ./modules/themes
           ./modules/opts
           {
+            nixpkgs.overlays = import ./common/overlays inputs lib;
             home.username = "lord_gabem";
             custom.opts.hostname = host;
             home.homeDirectory = "/home/lord_gabem";

@@ -10,7 +10,6 @@
     librewolf
     signal-desktop
     pass
-    steam
     gamemode
     gamescope
     r2modman
@@ -18,7 +17,9 @@
     ffmpeg
     yt-dlp
     mullvad-browser
-    xdg-utils
+    wineWowPackages.staging
+    winetricks
+    imv
     (inputs.nix-gaming.packages.${pkgs.system}.osu-stable.override {
        location = "/games/pc/osu/prefix";
     })
@@ -43,32 +44,23 @@
   custom.home.opts.stylix = true;
   custom.home.opts.screens = {
     "Acer Technologies XV272U 0x1121BA45" = {
-      sway = {
+      output = {
         position = "0 0";
         resolution = "2560x1440@143.999Hz";
       };
+      workspace = "1";
     };
     "Dell Inc. DELL E2414H VJH96522A4TU" = {
-      sway = {
+      output = {
         position = "2560 0";
         resolution = "1920x1080@60.000Hz";
         transform = "270";
       };
+      workspace = "5";
     };
   };
   home.sessionVariables.DEFAULT_BROWSER = "${pkgs.librewolf}/bin/librewolf";
-  xdg = {
-    portal = {
-      enable = true;
-      extraPortals = [ pkgs.xdg-desktop-portal-wlr pkgs.xdg-desktop-portal-gtk ];
-      xdgOpenUsePortal = true;
-      config = {
-        common = {
-          default = [ "wlr" ];
-        };
-      };
-    };
-  };
+
 
   home.stateVersion = "25.05";
 }

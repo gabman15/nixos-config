@@ -28,5 +28,8 @@ in
         enable = true;
         pulse.enable = true;
       };
+
+      services.udisks2.enable = true;
+      custom.nixos.behavior.locale.enable = true;
     };
   }

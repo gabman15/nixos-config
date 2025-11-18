@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ lib, inputs, config, pkgs, ... }:
 
 {
   # Set your time zone.
@@ -17,7 +17,10 @@
 
   environment.systemPackages = with pkgs; [
     tailscale
+    bottles
   ];
+
+  custom.nixos.programs.steam.enable = true;
 
   # services.greetd = {
   #   enable = true;
