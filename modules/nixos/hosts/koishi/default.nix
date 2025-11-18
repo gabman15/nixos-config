@@ -102,6 +102,43 @@
   custom.nixos.hardware.gigabyte-b650.enable = true;
   custom.nixos.suites.graphical.enable = true;
   custom.nixos.suites.nvidia.enable = true;
+  # services.xserver.videoDrivers = ["nvidia"];
+  # hardware.nvidia = with lib; let
+  #   parsedDriverAttrs = pipe inputs.nixpkgs-unstable [
+  #     (x: x + "/pkgs/os-specific/linux/nvidia-x11/default.nix")
+  #     readFile
+  #     (splitString "production = generic {")
+  #     last
+  #     (splitString "};")
+  #     head
+  #     trim
+  #     (splitString "\n")
+  #     (map (x: pipe x [
+  #       trim
+  #       (splitString " = ")
+  #       (x: {
+  #         name = head x;
+  #         value = pipe x [
+  #           last
+  #           (removePrefix "\"")
+  #           (removeSuffix "\";")
+  #         ];
+  #       })
+  #     ]))
+  #     listToAttrs
+  #   ];
+  # in {
+  #   package = config.boot.kernelPackages.nvidiaPackages.mkDriver parsedDriverAttrs;
+  #   open = false;
+
+  #   modesetting.enable = true;
+  #   powerManagement.enable = false;
+
+  #   nvidiaSettings = true;
+  # };
+  # boot = {
+  #   blacklistedKernelModules = [ "nouveau" "amdgpu" ];
+  # };
 
   system.stateVersion = "25.05";
 }
