@@ -21,6 +21,7 @@
 
   services.tailscale.enable = true;
 
+  custom.themes.enable = true;
   custom.nixos.programs.docker.enable = true;
 
   custom.nixos.suites.work-mounts.enable = true;

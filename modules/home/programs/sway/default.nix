@@ -8,6 +8,11 @@ in
       enable = mkEnableOption "sway wm";
       sys-swaylock = mkEnableOption "use system swaylock";
       sys-kitty = mkEnableOption "use system kitty";
+      modifier = mkOption {
+        description = "modifier key for sway";
+        type = with types; str;
+        default = "Mod4";
+      }; 
     };
 
     config = mkMerge [
@@ -22,7 +27,7 @@ in
             in {
               terminal = mkIfElse cfg.sys-kitty "kitty" "${pkgs.kitty}/bin/kitty";
               menu = "${pkgs.rofi-wayland}/bin/rofi run -show drun -display-drun 'drun: '";
-              modifier = "Mod4";
+              modifier = cfg.modifier;
               input = {
                 "type:touchpad" = {
                   accel_profile = "adaptive";
