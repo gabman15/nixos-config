@@ -40,14 +40,20 @@ in
               };
               # Thanks jbwar22 for the screens opt handling code
               output = foldl' (accum: screen: accum // (let
-                screen-def = screen.value.sway;
+                screen-def = screen.value.output;
               in {
                 "${screen.name}" = screen-def;
+                
               })) {
                 "*" = {
                   scale = "1";
                 };
               } (attrsToList config.custom.home.opts.screens);
+
+              workspaceOutputAssign = map (s: {
+                output = s.name;
+                workspace = s.value.workspace;
+              }) (attrsToList config.custom.home.opts.screens);
 
               window.hideEdgeBorders = "smart";
               window.border = 2;
@@ -77,10 +83,15 @@ in
                 };
               };
               bars = [];
-              startup = mkIf config.custom.home.programs.backgrounder.enable [
+              startup = (lib.optionals config.custom.home.programs.backgrounder.enable [
                 {
                   command = "${inputs.gabe-backgrounder.packages.${pkgs.system}.default}/bin/gabe-backgrounder -c ${config.age.secrets.backgrounder-config.path}";
                   always = true;
+                }
+              ]) ++
+              [
+                {
+                  command = "systemctl --user import-environment PATH && systemctl --user restart xdg-desktop-portal.service";
                 }
               ];
               keybindings = let
