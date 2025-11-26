@@ -4,15 +4,15 @@
     position = "top";
     height = 40;
     
-    modules-left = [ "pulseaudio" "memory" "cpu" "temperature" ];
+    modules-left = [ "pulseaudio" "memory" "cpu" ];
     modules-center = [ "clock" ];
-    modules-right = [ "disk" ]; # + weather + package update?
+    modules-right = [ "disk" ];
   };
   bar_bottom = {
     layer = "top";
     position = "bottom";
     height = 40;
-    modules-left = [ "battery" "network" "backgrounder" ];
+    modules-left = [ "battery" "network" ];
     modules-center = [ "sway/workspaces" ];
     modules-right = [ "sway/mode" ];
   };

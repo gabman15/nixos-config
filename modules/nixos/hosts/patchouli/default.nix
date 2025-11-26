@@ -23,6 +23,8 @@
 
   custom.themes.enable = true;
   custom.nixos.programs.docker.enable = true;
+  
+  custom.nixos.behavior.locale.enable = true;
 
   custom.nixos.suites.work-mounts.enable = true;
 
