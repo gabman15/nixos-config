@@ -83,10 +83,10 @@
       stable = inputs.nixpkgs;
       unstable = inputs.nixpkgs-unstable;
     };
-    system = "x86_64-linux";
-  in {
+    my-system = "x86_64-linux";
+  in rec {
     nixosConfigurations = forAllNixOsHosts (host: nixpkgs.lib.nixosSystem {
-      system = system;
+      system = my-system;
       modules = [
         ./modules/nixos/hosts/common
         ./modules/nixos/hosts/${host}
@@ -131,8 +131,8 @@
     });
 
     homeConfigurations = let
-      system = system;
-      pkgs = nixpkgs.legacyPackages.${system};
+      system = my-system;
+      pkgs = nixpkgs.legacyPackages.${my-system};
     in
       forAllHomeMgrHosts (host: inputs.home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
