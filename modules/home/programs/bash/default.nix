@@ -49,7 +49,7 @@ in
             fi
           '';
           footer = ''
-            QUOTE="$(${inputs.gensoquote.packages.${pkgs.system}.default}/bin/gensoquote -f '\"%q\"\n-- %c, \"%s\"' | fold -w $(($COLUMNS-6)))"
+            QUOTE="$(${inputs.gensoquote.packages.${pkgs.stdenv.hostPlatform.system}.default}/bin/gensoquote -f '\"%q\"\n-- %c, \"%s\"' | fold -w $(($COLUMNS-6)))"
             EXTRA_INFO="$(${zfsStatus})"
             printf "''${QUOTE}''${EXTRA_INFO}\n" | ${pkgs.boxes}/bin/boxes -d stone
           '';

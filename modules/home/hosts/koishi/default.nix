@@ -20,7 +20,7 @@
     wineWowPackages.staging
     winetricks
     imv
-    (inputs.nix-gaming.packages.${pkgs.system}.osu-stable.override {
+    (inputs.nix-gaming.packages.${pkgs.stdenv.hostPlatform.system}.osu-stable.override {
        location = "/games/pc/osu/prefix";
     })
   ];

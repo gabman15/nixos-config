@@ -13,8 +13,8 @@
     git-crypt
     ripgrep
     fzf
-    inputs.agenix.packages.${pkgs.system}.default
-    inputs.home-manager.packages.${pkgs.system}.default
+    inputs.agenix.packages.${pkgs.stdenv.hostPlatform.system}.default
+    inputs.home-manager.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
 
   home.sessionVariables.EDITOR = "emacs";

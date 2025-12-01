@@ -28,7 +28,7 @@ in
         };
         Service = {
           ExecStart = ''
-            ${inputs.mpd-albumart.packages.${pkgs.system}.default}/bin/mpd-albumart --host ${cfg.mpd-host}
+            ${inputs.mpd-albumart.packages.${pkgs.stdenv.hostPlatform.system}.default}/bin/mpd-albumart --host ${cfg.mpd-host}
           '';
         };
       };

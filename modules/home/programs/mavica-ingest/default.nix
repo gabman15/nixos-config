@@ -10,7 +10,7 @@ in
 
     config = mkIf cfg.enable {
       home.packages = [
-        inputs.mavica-scripts.packages.${pkgs.system}.default
+        inputs.mavica-scripts.packages.${pkgs.stdenv.hostPlatform.system}.default
       ];
       home.sessionVariables = {
         MAVICA_SCRIPTS_MAKE = "Sony";

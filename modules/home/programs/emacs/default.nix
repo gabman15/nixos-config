@@ -12,7 +12,7 @@ in
     config = mkIf cfg.enable {
       
       home.packages = mkIfElse cfg.dev
-        [ outputs.packages.${pkgs.system}.emacs-dev ]
-        [ outputs.packages.${pkgs.system}.emacs ];
+        [ outputs.packages.${pkgs.stdenv.hostPlatform.system}.emacs-dev ]
+        [ outputs.packages.${pkgs.stdenv.hostPlatform.system}.emacs ];
     };
   }

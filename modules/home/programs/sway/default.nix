@@ -26,7 +26,7 @@ in
               exit = "exit: [p]oweroff, [r]eboot, [l]ogout";
             in {
               terminal = mkIfElse cfg.sys-kitty "kitty" "${pkgs.kitty}/bin/kitty";
-              menu = "${pkgs.rofi-wayland}/bin/rofi run -show drun -display-drun 'drun: '";
+              menu = "${pkgs.rofi}/bin/rofi run -show drun -display-drun 'drun: '";
               modifier = cfg.modifier;
               input = {
                 "type:touchpad" = {
@@ -85,7 +85,7 @@ in
               bars = [];
               startup = (lib.optionals config.custom.home.programs.backgrounder.enable [
                 {
-                  command = "${inputs.gabe-backgrounder.packages.${pkgs.system}.default}/bin/gabe-backgrounder -c ${config.age.secrets.backgrounder-config.path}";
+                  command = "${inputs.gabe-backgrounder.packages.${pkgs.stdenv.hostPlatform.system}.default}/bin/gabe-backgrounder -c ${config.age.secrets.backgrounder-config.path}";
                   always = true;
                 }
               ]) ++
@@ -103,7 +103,7 @@ in
                 "${modifier}+p" = "exec ${pkgs.rofi-pass-wayland}/bin/rofi-pass";
                 "${modifier}+Shift+s" = "exec ${scripts.screenshot}";
                 "${modifier}+Shift+t" = "exec ${scripts.translate-screenshot}";
-                "${modifier}+g" = "exec ${pkgs.rofi-wayland}/bin/rofi run -show drun -drun-categories Game -show-icons -display-drun 'games: '";
+                "${modifier}+g" = "exec ${pkgs.rofi}/bin/rofi run -show drun -drun-categories Game -show-icons -display-drun 'games: '";
                 "${modifier}+Mod1+t" = "exec ${scripts.translate}";
                 "${modifier}+Mod1+e" = "mode \"${exit}\"";
                 "XF86AudioRaiseVolume" = "exec ${pkgs.pulseaudio}/bin/pactl set-sink-volume @DEFAULT_SINK@ +10%";

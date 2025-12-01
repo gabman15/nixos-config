@@ -15,10 +15,10 @@ in
 
         scripts = mkMerge [
           (mkIf cfg.remote [
-            inputs.mpv-remote-node.packages.${pkgs.system}.mpv-remote-script
+            inputs.mpv-remote-node.packages.${pkgs.stdenv.hostPlatform.system}.mpv-remote-script
           ])
           [
-            inputs.jbwar22-mpv-scripts.packages.${pkgs.system}.downmix
+            inputs.jbwar22-mpv-scripts.packages.${pkgs.stdenv.hostPlatform.system}.downmix
           ]
         ];
         config = {

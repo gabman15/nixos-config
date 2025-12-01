@@ -2,10 +2,10 @@
   description = "My Flake";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
     home-manager = {
-      url = "github:nix-community/home-manager/release-25.05";
+      url = "github:nix-community/home-manager/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     emacs-overlay = {
@@ -44,7 +44,7 @@
     };
     nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
     stylix = {
-      url = "github:danth/stylix/release-25.05";
+      url = "github:danth/stylix/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     disko = {
@@ -52,8 +52,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nix-gaming = {
-      url = "github:fufexan/nix-gaming";
-      inputs.nixpkgs.follows = "nixpkgs-unstable";
+      url = "github:fufexan/nix-gaming/c3bf5ff";
+      # inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
     nix-index-database.url = "github:nix-community/nix-index-database";
     nix-index-database.inputs.nixpkgs.follows = "nixpkgs";

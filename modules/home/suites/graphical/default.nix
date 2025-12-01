@@ -16,7 +16,7 @@ in
         noto-fonts-color-emoji
         freefont_ttf
         corefonts
-        vistafonts
+        vista-fonts
         hack-font
         pulsemixer
       ];
