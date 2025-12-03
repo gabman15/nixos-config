@@ -12,7 +12,7 @@
     layer = "top";
     position = "top";
     height = 40;
-    output = "Dell Inc. DELL E2414H VJH96522A4TU";
+    output = "BNQ BenQ RL2455 92F07277SL0";
     modules-left = [ "custom/mpd-button" "mpd" ];
     modules-right = [ "clock" ];
   };

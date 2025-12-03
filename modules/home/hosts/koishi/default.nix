@@ -50,7 +50,7 @@
       };
       workspace = "1";
     };
-    "Dell Inc. DELL E2414H VJH96522A4TU" = {
+    "BNQ BenQ RL2455 92F07277SL0" = {
       output = {
         position = "2560 0";
         resolution = "1920x1080@60.000Hz";
