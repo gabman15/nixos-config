@@ -9,7 +9,7 @@
     vesktop
   ];
 
-  custom.home.suites.graphical.enable = true;
+  custom.home.suites.fonts.enable = true;
   custom.home.suites.mpd.enable = true;
   custom.home.suites.dev.enable = true;
   custom.home.behavior.xdg.enable = lib.mkForce false;

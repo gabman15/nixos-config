@@ -1,7 +1,7 @@
 { lib, config, pkgs, ... }:
 
 {
-  custom.home.suites.graphical.enable = true;
+  custom.home.suites.fonts.enable = true;
   custom.home.programs.sway.enable = true;
   custom.home.programs.backgrounder.enable = true;
   custom.home.programs.mpv.enable = true;

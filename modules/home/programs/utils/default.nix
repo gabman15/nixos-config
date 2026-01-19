@@ -18,6 +18,7 @@ in
         p7zip
         ffmpeg
         yt-dlp
+        pulsemixer
         inputs.agenix.packages.${pkgs.stdenv.hostPlatform.system}.default
         inputs.home-manager.packages.${pkgs.stdenv.hostPlatform.system}.default
       ];

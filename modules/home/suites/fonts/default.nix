@@ -1,11 +1,11 @@
 { pkgs, lib, config, ... }:
 
 with lib; let
-  cfg = config.custom.home.suites.graphical;
+  cfg = config.custom.home.suites.fonts;
 in
   {
-    options.custom.home.suites.graphical = {
-      enable = mkEnableOption "suite of settings+programs for graphical home manager setups";
+    options.custom.home.suites.fonts = {
+      enable = mkEnableOption "fonts suite";
     };
 
     config = mkIf cfg.enable {
@@ -18,7 +18,6 @@ in
         corefonts
         vista-fonts
         hack-font
-        pulsemixer
       ];
       fonts.fontconfig = {
         enable = true;
