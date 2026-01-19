@@ -14,13 +14,10 @@
     gamescope
     r2modman
     prismlauncher
-    ffmpeg
-    yt-dlp
     mullvad-browser
     wineWowPackages.staging
     winetricks
     picard
-    p7zip
     imv
     (inputs.nix-gaming.packages.${pkgs.stdenv.hostPlatform.system}.osu-stable.override {
        location = "/games/pc/osu/prefix";
