@@ -4,7 +4,7 @@
   home.packages = with pkgs; [
     pulsemixer
     cifs-utils
-    jetbrains.idea-community
+    jetbrains.idea-oss
     librewolf
   ];
 
