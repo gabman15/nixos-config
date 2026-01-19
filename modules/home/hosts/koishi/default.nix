@@ -19,6 +19,8 @@
     mullvad-browser
     wineWowPackages.staging
     winetricks
+    picard
+    p7zip
     imv
     (inputs.nix-gaming.packages.${pkgs.stdenv.hostPlatform.system}.osu-stable.override {
        location = "/games/pc/osu/prefix";
@@ -39,6 +41,7 @@
   custom.home.programs.mpd.enable = true;
   custom.home.programs.discord.enable = true;
   custom.home.programs.mavica-ingest.enable = true;
+  custom.home.programs.gallery-dl.enable = true;
 
   custom.themes.enable = true;
   custom.home.opts.stylix = true;
