@@ -21,6 +21,7 @@
   custom.home.programs.sway.modifier = "Mod2";
   custom.home.programs.waybar.enable = true;
   custom.home.programs.kitty.enable = true;
+  custom.home.programs.winclip.enable = true;
   custom.home.opts.screens = {};
   home.stateVersion = "24.11";
 }
