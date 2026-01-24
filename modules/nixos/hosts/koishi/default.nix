@@ -97,6 +97,8 @@
 
   services.tailscale.enable = true;
 
+  programs.nix-ld.enable = true;
+
   custom.nixos.programs.vpn-namespace.enable = true;
 
   custom.nixos.hardware.gigabyte-b650.enable = true;
