@@ -15,14 +15,20 @@ in
         noto-fonts-cjk-serif
         noto-fonts-color-emoji
         freefont_ttf
+        takao
         corefonts
         vista-fonts
         hack-font
       ];
       fonts.fontconfig = {
         enable = true;
+        # defaultFonts = {
+        #   monospace = [ "Hack" ];
+        # };
         defaultFonts = {
-          monospace = [ "Hack" ];
+          serif = [ "Noto Serif" "Noto Serif CJK JP" ];
+          sansSerif = [ "Noto Sans" "Noto Sans CJK JP" ];
+          monospace = [ "Noto Sans Mono" "Noto Sans Mono CJK JP" ];
         };
       };
     };

@@ -19,11 +19,16 @@
     winetricks
     picard
     imv
+    waypipe
+    np2kai
+    dosbox-x
+    libreoffice
     (inputs.nix-gaming.packages.${pkgs.stdenv.hostPlatform.system}.osu-stable.override {
        location = "/games/pc/osu/prefix";
     })
   ];
 
+  programs.tmux.enable = true;
   custom = {
     themes.enable = true;
     home = {
