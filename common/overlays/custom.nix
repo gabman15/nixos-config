@@ -7,5 +7,8 @@ lib: final: prev: {
       })
     ];
   }));
+  dosbox-x = (prev.dosbox-x.overrideAttrs( oldAttrs: {
+    configureFlags = oldAttrs.configureFlags ++ [ "--enable-debug=heavy" ];
+  }));
 }
     
