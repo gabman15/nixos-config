@@ -6,6 +6,7 @@
     cifs-utils
     jetbrains.idea-oss
     librewolf
+    librecad
   ];
 
 
