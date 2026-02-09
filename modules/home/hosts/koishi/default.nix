@@ -28,7 +28,6 @@
     })
   ];
 
-  programs.tmux.enable = true;
   custom = {
     themes.enable = true;
     home = {
@@ -38,6 +37,7 @@
         dev.enable = true;
       };
       programs = {
+        tmux.enable = true;
         rofi.enable = true;
         backgrounder.enable = true;
         sway.enable = true;
