@@ -13,7 +13,7 @@ let
   ];
 in
 {
-  "backgrounder-config.age".publicKeys = workkeys ++ keys;
+  "backgrounder-config.age".publicKeys = keys;
   "yukari.age".publicKeys = keys;
   "gensokyo.age".publicKeys = keys;
   "koishi.age".publicKeys = keys;
