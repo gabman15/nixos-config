@@ -1,16 +1,19 @@
 { lib, config, pkgs, ... }:
 
 {
-  custom.home.suites.fonts.enable = true;
-  custom.home.programs.sway.enable = true;
-  custom.home.programs.backgrounder.enable = true;
-  custom.home.programs.mpv.enable = true;
-  custom.home.programs.mpv.remote = true;
+  custom.home = {
+    suites.fonts.enable = true;
+    programs.sway.enable = true;
+    programs.backgrounder.enable = true;
+    programs.mpv.enable = true;
+    programs.mpv.remote = true;
 
-  custom.home.opts.screens = {
-    "eDP-1" = {
-      sway = {
-        disable = "";
+    opts.screens = {
+      "eDP-1" = {
+        output = {
+          disable = "";
+        };
+        workspace = "1";
       };
     };
   };

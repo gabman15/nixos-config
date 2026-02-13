@@ -17,7 +17,7 @@
     extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
   };
 
-  services.logind.lidSwitchExternalPower = "ignore";
+  services.logind.settings.Login.HandleLidSwitchExternalPower = "ignore";
   systemd.sleep.extraConfig = ''
     AllowSuspend=no
     AllowHibernation=no
