@@ -65,7 +65,7 @@
   custom.nixos.hardware.dell-inspiron-15-7000.enable = true;
 
   custom.nixos.suites.graphical.enable = true;
-  custom.nixos.suites.nvidia.enable = true;
+  # custom.nixos.suites.nvidia.enable = true;
 
   boot = {
     kernelParams = [
@@ -73,7 +73,8 @@
     ];
   };
 
-  boot.kernelPackages = pkgs.linuxKernel.packages.linux_6_6; #BRUH
+  # boot.kernelPackages = pkgs.linuxKernel.packages.linux_6_6; #BRUH
+  boot.kernelPackages = pkgs.linuxKernel.packages.linux_zen;
 
   system.stateVersion = "24.11";
 }

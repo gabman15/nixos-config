@@ -9,7 +9,7 @@
     programs.mpv.remote = true;
 
     opts.screens = {
-      "eDP-1" = {
+      "Unknown-1" = {
         output = {
           disable = "";
         };
@@ -39,7 +39,7 @@
           runtimeInputs = with pkgs; [ busybox ];
           text =
             ''
-              ${config.programs.mpv.finalPackage}/bin/mpv --idle --fullscreen
+              ${config.programs.mpv.finalPackage}/bin/mpv --vo=wlshm --idle --fullscreen
             '';
         };
       in
