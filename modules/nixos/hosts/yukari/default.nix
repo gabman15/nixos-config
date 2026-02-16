@@ -14,7 +14,7 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.lord_gabem = {
     isNormalUser = true;
-    extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "wheel" "uinput" ]; # Enable ‘sudo’ for the user.
     linger = true;
   };
 
@@ -56,6 +56,7 @@
     }
   ];
 
+  hardware.uinput.enable = true;
   hardware.bluetooth.enable = true; # enables support for Bluetooth
   hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot
   services.blueman.enable = true;
@@ -64,6 +65,12 @@
 
   custom.themes.enable = true;
 
+  programs.captive-browser = {
+    enable = true;
+    interface = "wlp166s0";
+  };
+
+  custom.nixos.programs.vpn-namespace.enable = true;
   services.tailscale.enable = true;
   # custom.nixos.programs.gnupg.enable = true;
   custom.nixos.hardware.framework-13.enable = true;

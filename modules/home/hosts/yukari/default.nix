@@ -7,6 +7,7 @@
     vesktop
     pass
     ymuse
+    fusee-nano
   ];
 
 
@@ -28,10 +29,11 @@
   custom.home.opts.stylix = true;
   custom.home.opts.screens = {
     "BOE 0x095F Unknown" = {
-      sway = {
+      output = {
         position = "0 0";
         resolution = "2256x1504@59.999Hz";
       };
+      workspace = "1";
     };
   };
   stylix.targets = {
