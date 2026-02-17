@@ -23,6 +23,7 @@
     np2kai
     dosbox-x
     libreoffice
+    fusee-nano
     (inputs.nix-gaming.packages.${pkgs.stdenv.hostPlatform.system}.osu-stable.override {
        location = "/games/pc/osu/prefix";
     })
