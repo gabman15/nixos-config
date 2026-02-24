@@ -120,6 +120,13 @@ in
         home.packages = [
           pkgs.wl-clipboard
         ];
+
+        home.sessionVariables = {
+          MOZ_ENABLE_WAYLAND = "1";
+          XDG_SESSION_TYPE = "wayland";
+          XDG_CURRENT_DESKTOP = "sway";
+          NIXOS_OZONE_WL = "1";
+        };
       })
       (mkIf config.custom.home.opts.stylix ((import ./stylix.nix) config))
     ];

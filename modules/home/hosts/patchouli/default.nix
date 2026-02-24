@@ -15,7 +15,7 @@
   custom.home.suites.fonts.enable = true;
   custom.home.suites.dev.enable = true;
   custom.home.suites.mpd.enable = true;
-  custom.home.suites.mpd.mpd-host = "nitori";
+  custom.home.suites.mpd.mpd-host = "nitori.cow-monster.ts.net";
   custom.home.programs.rmpc.badterm = true;
   custom.home.programs.gnupg.enable = true;
   custom.home.programs.sway.enable = true;
