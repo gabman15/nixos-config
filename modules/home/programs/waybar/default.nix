@@ -95,6 +95,7 @@ in
         enableLeftBackColors = false;
         enableRightBackColors = false;
         enableCenterBackColors = false;
+        addCss = false;
       };
       home.packages = [
         (pkgs.nerd-fonts.hack)
@@ -103,7 +104,7 @@ in
         enable = true;
         systemd.enable = true;
         systemd.target = "sway-session.target";
-        style = import ./style.nix;
+        style = builtins.readFile ./style.css;
         settings = mapAttrs (name: value: value // host_modules // base_modules) host_bars;
       };
     };
