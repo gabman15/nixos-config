@@ -10,7 +10,7 @@ in
     
     config = let
       work-path-loc = ../../../../secrets/git-crypt;
-      work-mount-list = builtins.genList (x: toString (x + 1)) 5;
+      work-mount-list = builtins.genList (x: toString (x + 1)) 6;
     in mkIf cfg.enable {
       age.secrets = {
         smb-work-paths = {

@@ -7,6 +7,8 @@
     jetbrains.idea-oss
     librewolf
     librecad
+    libreoffice
+    dbeaver-bin
   ];
 
 
