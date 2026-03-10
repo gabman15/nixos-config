@@ -25,18 +25,10 @@ pkgs: profile: let
       epkgs.ht
       epkgs.lv
       epkgs.spinner
-      # epkgs.request
-      epkgs.my-config
-      pkgs.basedpyright
-      pkgs.vscode-langservers-extracted
-      pkgs.nixd
-      pkgs.intelephense
-      pkgs.lemminx
-      # pkgs.ccls
-      # pkgs.jdt-language-server
       pkgs.emacs-all-the-icons-fonts
       pkgs.hack-font
-    ];
+      epkgs.my-config
+    ] ++ (import ./emacs/pkgs-${profile}.nix pkgs);
   };
 in
 pkgs.symlinkJoin {
