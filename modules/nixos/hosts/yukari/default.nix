@@ -70,6 +70,7 @@
     interface = "wlp166s0";
   };
 
+  custom.nixos.programs.steam.enable = true;
   custom.nixos.programs.vpn-namespace.enable = true;
   services.tailscale.enable = true;
   # custom.nixos.programs.gnupg.enable = true;
