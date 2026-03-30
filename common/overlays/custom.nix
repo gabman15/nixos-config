@@ -7,6 +7,14 @@ lib: final: prev: {
       })
     ];
   }));
+  yt-dlp = (prev.yt-dlp.overrideAttrs( oldAttrs: {
+    patches = [
+      (final.fetchpatch {
+        url = "https://github.com/vpertys/yt-dlp/commit/5cba77ae324f14c02b909b2f1600e7418e91bced.diff";
+        hash = "sha256-fL4R0WVsVRewTgEWSSC8GnG8P1JYaWx3+C1su/xmETM=";
+      })
+    ];
+  }));
   dosbox-x = (prev.dosbox-x.overrideAttrs( oldAttrs: {
     configureFlags = oldAttrs.configureFlags ++ [ "--enable-debug=heavy" ];
   }));
