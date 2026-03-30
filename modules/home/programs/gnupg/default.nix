@@ -16,7 +16,7 @@ in
         pinentry.package = with pkgs; pinentry-gtk2;
         enableSshSupport = true;
         defaultCacheTtl = 86400;
-        defaultCacheTtlSsh = 86400;
+        maxCacheTtl = 86400;
       };
     };
   }
