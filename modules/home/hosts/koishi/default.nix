@@ -50,6 +50,7 @@
         discord.enable = true;
         mavica-ingest.enable = true;
         gallery-dl.enable = true;
+        scrcpy.enable = true;
       };
       opts.stylix = true;
       opts.screens = {
