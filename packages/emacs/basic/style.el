@@ -7,6 +7,7 @@
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 4)
 (setq-default c-basic-offset 4)
+(setq-default js-indent-level 2)
 (setq inhibit-startup-screen t)
 (setq vc-follow-symlinks t)
 (tool-bar-mode -1)

@@ -12,3 +12,5 @@
   :ensure t)
 (use-package dockerfile-mode
   :ensure t)
+(use-package processing-mode
+  :ensure t)
