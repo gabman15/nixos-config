@@ -20,8 +20,6 @@
     bottles
   ];
 
-  custom.nixos.programs.steam.enable = true;
-
   # services.greetd = {
   #   enable = true;
   #   settings = {
@@ -99,9 +97,14 @@
 
   programs.nix-ld.enable = true;
 
-  custom.nixos.programs.vpn-namespace.enable = true;
-
-  custom.nixos.hardware.gigabyte-b650.enable = true;
-  custom.nixos.suites.graphical.enable = true;
+  custom.nixos = {
+    programs = {
+      vpn-namespace.enable = true;
+      steam.enable = true;
+    };
+    hardware.gigabyte-b650.enable = true;
+    suites.graphical.enable = true;
+    behavior.kernel-latest.enable = true;
+  };
   system.stateVersion = "25.05";
 }
