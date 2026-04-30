@@ -7,13 +7,17 @@
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 4)
 (setq-default c-basic-offset 4)
-(setq-default js-indent-level 2)
 (setq inhibit-startup-screen t)
 (setq vc-follow-symlinks t)
 (tool-bar-mode -1)
 (menu-bar-mode -1)
 (global-display-line-numbers-mode)
 (put 'downcase-region 'disabled nil)
+(add-hook 'json-mode-hook
+          (lambda ()
+            (make-local-variable 'js-indent-level)
+            (setq tab-width 2)
+            (setq js-indent-level 2)))
 
 ;; All the icons
 
