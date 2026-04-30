@@ -10,7 +10,8 @@ in
 
     config = mkIf cfg.enable {
       home.packages = [
-        inputs.nixpkgs-unstable.legacyPackages.${pkgs.stdenv.hostPlatform.system}.gallery-dl
+        # inputs.nixpkgs-unstable.legacyPackages.${pkgs.stdenv.hostPlatform.system}.gallery-dl
+        pkgs.gallery-dl
       ];
     };
   }

@@ -3,8 +3,6 @@
 {
   home.packages = with pkgs; [
     antimicrox
-    cantata
-    ymuse
     ludusavi
     vesktop
     librewolf
