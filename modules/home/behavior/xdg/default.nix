@@ -14,6 +14,9 @@ in
     };
 
     config = mkIf cfg.enable {
+      home.packages = with pkgs; [
+        xdg-utils
+      ];
       xdg.mime.enable = true;
       xdg.enable = true;
       xdg.userDirs = {
