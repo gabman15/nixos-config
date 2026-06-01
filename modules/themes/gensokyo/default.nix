@@ -8,7 +8,7 @@ pkgs:
     popups = 12;
   };
   cursor.size = 40;
-  iconTheme = {
+  icons = {
     enable = true;
     package = pkgs.gruvbox-dark-icons-gtk;
     light = "oomox-gruvbox-dark";
