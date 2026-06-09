@@ -103,7 +103,7 @@ in
       programs.waybar = {
         enable = true;
         systemd.enable = true;
-        systemd.target = "sway-session.target";
+        systemd.targets = [ "sway-session.target" ];
         style = builtins.readFile ./style.css;
         settings = mapAttrs (name: value: value // host_modules // base_modules) host_bars;
       };
