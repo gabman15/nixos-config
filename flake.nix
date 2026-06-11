@@ -52,7 +52,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nix-gaming = {
-      url = "github:fufexan/nix-gaming/c3bf5ff";
+      url = "github:fufexan/nix-gaming/master";
       # inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
     nix-index-database.url = "github:nix-community/nix-index-database";

@@ -17,7 +17,6 @@
 
   environment.systemPackages = with pkgs; [
     tailscale
-    bottles
   ];
 
   # services.greetd = {

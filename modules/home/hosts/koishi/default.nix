@@ -13,13 +13,12 @@
     r2modman
     prismlauncher
     mullvad-browser
-    wineWowPackages.staging
+    wineWow64Packages.staging
     winetricks
     picard
     imv
     waypipe
     np2kai
-    dosbox-x
     libreoffice
     fusee-nano
     (inputs.nix-gaming.packages.${pkgs.stdenv.hostPlatform.system}.osu-stable.override {

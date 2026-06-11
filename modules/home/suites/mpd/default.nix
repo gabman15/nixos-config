@@ -23,7 +23,7 @@ in
       ];
 
       home.sessionVariables = {
-        MPD_HOST = cfg.mpd-host;
+        MPD_HOST = lib.mkForce cfg.mpd-host;
       };
 
       custom.home.programs.albumart.enable = true;
