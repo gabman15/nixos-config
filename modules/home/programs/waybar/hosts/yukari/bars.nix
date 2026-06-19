@@ -5,7 +5,7 @@
     height = 40;
     
     modules-left = [ "pulseaudio" "memory" "cpu" "temperature" ];
-    modules-center = [ "clock" ];
+    modules-center = [ "clock" "custom/weather" ];
     modules-right = [ "disk" ]; # + weather + package update?
   };
   bar_bottom = {

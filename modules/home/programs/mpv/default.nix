@@ -7,6 +7,10 @@ in
     options.custom.home.programs.mpv = {
       enable = mkEnableOption "mpv video player";
       remote = mkEnableOption "mpv remote node";
+      downmix = mkOption {
+        default = true;
+        type = lib.types.bool;
+      };
     };
 
     config = mkIf cfg.enable {
@@ -17,9 +21,10 @@ in
           (mkIf cfg.remote [
             inputs.mpv-remote-node.packages.${pkgs.stdenv.hostPlatform.system}.mpv-remote-script
           ])
-          [
+          (mkIf cfg.downmix [
             inputs.jbwar22-mpv-scripts.packages.${pkgs.stdenv.hostPlatform.system}.downmix
-          ]
+          ])
+          []
         ];
         config = {
           # script-opts = "mpvremote.";
