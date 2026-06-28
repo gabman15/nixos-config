@@ -14,7 +14,7 @@
     extraGroups = [ "wheel" "scanner" "lp"]; # Enable ‘sudo’ for the user.
     linger = true;
   };
-
+  boot.blacklistedKernelModules = ["bluetooth btusb"];
   environment.systemPackages = with pkgs; [
     tailscale
   ];

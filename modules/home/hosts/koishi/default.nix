@@ -51,16 +51,23 @@
       };
       opts.stylix = true;
       opts.screens = {
-        "Acer Technologies XV272U 0x1121BA45" = {
+        "Ancor Communications Inc VS248 H2LMQS110000" = {
           output = {
             position = "0 0";
+            resolution = "1920x1080@60.000Hz";
+          };
+          workspace = "10";
+        };
+        "Acer Technologies XV272U 0x1121BA45" = {
+          output = {
+            position = "1920 0";
             resolution = "2560x1440@143.999Hz";
           };
           workspace = "1";
         };
         "BNQ BenQ RL2455 92F07277SL0" = {
           output = {
-            position = "2560 0";
+            position = "4480 0";
             resolution = "1920x1080@60.000Hz";
             transform = "270";
           };
