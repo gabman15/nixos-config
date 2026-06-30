@@ -7,7 +7,7 @@ in
     options.custom.nixos.suites.graphical = {
       enable = mkEnableOption "nixos opts for graphical pc";
     };
-    
+
     config = mkIf cfg.enable {
       hardware.graphics = {
         enable = true;
@@ -30,6 +30,10 @@ in
       };
 
       services.udisks2.enable = true;
-      custom.nixos.behavior.locale.enable = true;
+
+      custom.nixos.behavior = {
+        locale.enable = true;
+        graphical-bootup.enable = true;
+      };
     };
   }

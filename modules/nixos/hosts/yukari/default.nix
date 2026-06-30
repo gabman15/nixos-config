@@ -22,21 +22,6 @@
     tailscale
   ];
 
-  services.greetd = {
-    enable = true;
-    settings = {
-      default_session = {
-        command = "${pkgs.sway}/bin/sway";
-        user = "lord_gabem";
-      };
-    };
-  };
-
-  # fileSystems."/mnt/anime" = {
-  #   device = "nitori:/anime";
-  #   fsType = "nfs";
-  # };
-
   systemd.mounts = [
     {
       description = "nitori anime";
@@ -75,8 +60,9 @@
   services.tailscale.enable = true;
   # custom.nixos.programs.gnupg.enable = true;
   custom.nixos.hardware.framework-13.enable = true;
-
+  programs.sway.enable = true;
   custom.nixos.suites.graphical.enable = true;
+  custom.nixos.behavior.graphical-bootup.autostart-sway = true;
 
   system.stateVersion = "24.11";
 }
