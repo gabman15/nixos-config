@@ -25,6 +25,8 @@ in
   "patchouli.age".publicKeys = workkeys ++ keys;
   "vpn-namespace-wg.age".publicKeys = keys;
   "vpn-namespace-ipv4.age".publicKeys = keys;
+  "vpn-namespace-wg-alt.age".publicKeys = keys;
+  "vpn-namespace-ipv4-alt.age".publicKeys = keys;
   "smb-work-creds.age".publicKeys = workkeys ++ keys;
   "smb-work-paths.age".publicKeys = workkeys ++ keys;
 }
