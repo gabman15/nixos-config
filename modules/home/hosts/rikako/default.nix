@@ -1,12 +1,16 @@
 { lib, config, pkgs, ... }:
 
 {
+  home.packages = with pkgs; [
+    librewolf
+  ];
   custom.home = {
     suites.fonts.enable = true;
     programs.sway.enable = true;
     programs.backgrounder.enable = true;
     programs.mpv.enable = true;
     programs.mpv.remote = true;
+    programs.mpv.downmix = false;
 
     opts.screens = {
       "DP-3" = {
