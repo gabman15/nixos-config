@@ -76,6 +76,7 @@
       "steam-unwrapped"
       "corefonts"
       "vista-fonts"
+      "idea"
     ];
     custom-lib = import ./common/lib.nix nixpkgs.lib;
     lib = nixpkgs.lib.extend (_: _: custom-lib);
