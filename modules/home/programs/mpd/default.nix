@@ -19,6 +19,7 @@ in
             name "PipeWire Sound"
           }
         '';
+        network.listenAddress = "any";
       };
     };
   }
