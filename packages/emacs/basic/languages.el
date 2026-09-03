@@ -1,3 +1,4 @@
+;; -*- lexical-binding: nil -*-
 (use-package php-mode
   :ensure t)
 (use-package markdown-mode

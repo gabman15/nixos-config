@@ -1,3 +1,4 @@
+;; -*- lexical-binding: nil -*-
 ;; (load "lsp-java.el")
 ;; (load "dap-java.el")
 (use-package flycheck
