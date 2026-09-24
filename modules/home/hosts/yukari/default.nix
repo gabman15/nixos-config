@@ -7,10 +7,11 @@
     vesktop
     pass
     ymuse
+    flatpak
     fusee-nano
   ];
 
-
+  # xdg.userDirs.setSessionVariables = true;
   custom.home.programs.sway.enable = true;
   custom.home.programs.waybar.enable = true;
   custom.home.programs.backgrounder.enable = true;
