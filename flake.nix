@@ -61,7 +61,7 @@
 
   outputs = { nixpkgs, home-manager, stylix, self, ... }@inputs : let
     nixoshosts = [ "yukari" "patchouli" "suwako" "koishi" "rikako" ];
-    homemgrhosts = [ "gensokyo" "nitori" ];
+    homemgrhosts = [ "gensokyo" "nitori" "aya" ];
     forAllNixOsHosts = nixpkgs.lib.genAttrs nixoshosts;
     forAllHomeMgrHosts = nixpkgs.lib.genAttrs homemgrhosts;
     nixosUnfreePkgs = [

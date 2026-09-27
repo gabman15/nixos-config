@@ -22,6 +22,7 @@ in
   "suwako.age".publicKeys = keys;
   "nitori.age".publicKeys = keys;
   "rikako.age".publicKeys = keys;
+  "aya.age".publicKeys = keys;
   "patchouli.age".publicKeys = workkeys ++ keys;
   "vpn-namespace-wg.age".publicKeys = keys;
   "vpn-namespace-ipv4.age".publicKeys = keys;
