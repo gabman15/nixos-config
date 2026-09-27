@@ -1,4 +1,4 @@
-{ lib, pkgs, ... }:
+{ inputs, lib, pkgs, ... }:
 
 {
   home.packages = with pkgs; [
@@ -9,6 +9,9 @@
     ymuse
     flatpak
     fusee-nano
+    (inputs.nix-gaming.packages.${pkgs.stdenv.hostPlatform.system}.osu-stable.override {
+       location = "/home/lord_gabem/games/osu/prefix";
+    })
   ];
 
   # xdg.userDirs.setSessionVariables = true;
