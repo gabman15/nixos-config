@@ -77,6 +77,7 @@
       "corefonts"
       "vista-fonts"
       "idea"
+      "makemkv"
     ];
     custom-lib = import ./common/lib.nix nixpkgs.lib;
     lib = nixpkgs.lib.extend (_: _: custom-lib);
