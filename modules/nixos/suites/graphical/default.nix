@@ -31,9 +31,12 @@ in
 
       services.udisks2.enable = true;
 
-      custom.nixos.behavior = {
-        locale.enable = true;
-        graphical-bootup.enable = true;
+      custom.nixos = {
+        suites.bootable.enable = true;
+        behavior = {
+          locale.enable = true;
+          graphical-bootup.enable = true;
+        };
       };
     };
   }

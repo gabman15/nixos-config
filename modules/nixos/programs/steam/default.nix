@@ -7,7 +7,6 @@ in
     options.custom.nixos.programs.steam = {
       enable = mkEnableOption "steam";
     };
-
     
     config = mkIf cfg.enable {
       programs.steam = {
@@ -22,6 +21,7 @@ in
         ];
         extest.enable = true;
         localNetworkGameTransfers.openFirewall = true;
+        remotePlay.openFirewall = true;
       };
     };
   }

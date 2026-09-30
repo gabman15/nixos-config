@@ -108,10 +108,7 @@
       scanner.enable = true;
     };
     behavior.kernel-latest.enable = true;
-    behavior.graphical-bootup = {
-      autostart-sway = true;
-      enable = true;
-    };
+    behavior.graphical-bootup.autostart-sway = true;
   };
   system.stateVersion = "25.05";
 }
