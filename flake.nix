@@ -70,6 +70,7 @@
       "nvidia-persistenced"
     ];
     homeUnfreePkgs = [
+      "np2kai"
       "posy-cursors"
       "discord"
       "steam"

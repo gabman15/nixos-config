@@ -28,16 +28,16 @@
   #     };
   #   };
   # };
-
-  services.greetd = {
-    enable = true;
-    settings = {
-      default_session = {
-        command = "${pkgs.sway}/bin/sway";
-        user = "lord_gabem";
-      };
-    };
-  };
+  
+  # services.greetd = {
+  #   enable = true;
+  #   settings = {
+  #     default_session = {
+  #       command = "${pkgs.sway}/bin/sway";
+  #       user = "lord_gabem";
+  #     };
+  #   };
+  # };
 
   systemd.mounts = let
     commonOpts = {
@@ -69,30 +69,28 @@
     {
       description = "Automount for nitori anime";
       where = "/mnt/anime";
-      after = [ "tailscaled.service" ];
+      after = [ "tailscale-online.service" ];
+      requires = [ "tailscale-online.service" ];
       wantedBy = [ "multi-user.target" ];
     }
     {
       description = "Automount for nitori music";
       where = "/mnt/music";
-      after = [ "tailscaled.service" ];
+      after = [ "tailscale-online.service" ];
+      requires = [ "tailscale-online.service" ];
       wantedBy = [ "multi-user.target" ];
     }
     {
       description = "Automount for nitori archive";
       where = "/mnt/archive";
-      after = [ "tailscaled.service" ];
+      after = [ "tailscale-online.service" ];
+      requires = [ "tailscale-online.service" ];
       wantedBy = [ "multi-user.target" ];
     }
   ];
 
   boot.supportedFilesystems = [ "nfs" ];
-
-  hardware.opentabletdriver.enable = true;
-  hardware.sane.enable = true;
   custom.themes.enable = true;
-
-  services.tailscale.enable = true;
 
   programs.nix-ld.enable = true;
 
@@ -100,10 +98,20 @@
     programs = {
       vpn-namespace.enable = true;
       steam.enable = true;
+      tailscale.enable = true;
     };
     hardware.gigabyte-b650.enable = true;
-    suites.graphical.enable = true;
+    suites = {
+      graphical.enable = true;
+      noise-suppression.enable = true;
+      drawing-tablet.enable = true;
+      scanner.enable = true;
+    };
     behavior.kernel-latest.enable = true;
+    behavior.graphical-bootup = {
+      autostart-sway = true;
+      enable = true;
+    };
   };
   system.stateVersion = "25.05";
 }

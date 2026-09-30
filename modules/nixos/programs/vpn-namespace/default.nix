@@ -6,17 +6,30 @@ in
   {
     options.custom.nixos.programs.vpn-namespace = {
       enable = mkEnableOption "vpn namespace service";
+      alt = mkOption {
+        description = "use alt vpn config";
+        default = false;
+        type = lib.types.bool;
+      };
     };
     config = let
       namespace = "mullvadns";
       interfaceName = "${namespace}wg0";
     in mkIf cfg.enable {
-      age.secrets.vpn-namespace-wg = {
-        file = ../../../../secrets/vpn-namespace-wg.age;
-      };
-      age.secrets.vpn-namespace-ipv4 = {
-        file = ../../../../secrets/vpn-namespace-ipv4.age;
-      };
+      age.secrets.vpn-namespace-wg = mkIfElse cfg.alt
+        {
+          file = ../../../../secrets/vpn-namespace-wg-alt.age;
+        }
+        {
+          file = ../../../../secrets/vpn-namespace-wg.age;
+        };
+      age.secrets.vpn-namespace-ipv4 = mkIfElse cfg.alt
+        {
+          file = ../../../../secrets/vpn-namespace-ipv4-alt.age;
+        }
+        {
+          file = ../../../../secrets/vpn-namespace-ipv4.age;
+        };
       systemd.services."${namespace}" = let
         configfile = config.age.secrets.vpn-namespace-wg.path;
         ipv4file = config.age.secrets.vpn-namespace-ipv4.path;
