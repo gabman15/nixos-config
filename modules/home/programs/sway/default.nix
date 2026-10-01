@@ -8,6 +8,7 @@ in
       enable = mkEnableOption "sway wm";
       sys-swaylock = mkEnableOption "use system swaylock";
       sys-kitty = mkEnableOption "use system kitty";
+      translation = mkEnableOption "enabling translation scripts";
       modifier = mkOption {
         description = "modifier key for sway";
         type = with types; str;
@@ -100,11 +101,13 @@ in
                 swaylock = mkIfElse cfg.sys-swaylock "exec swaylock" "exec ${pkgs.swaylock}/bin/swaylock";
               in lib.mkOptionDefault {
                 "${modifier}+Shift+x" = swaylock;
+                "${modifier}+y" = mkIf config.custom.home.programs.winclip.enable "exec ${scripts.winclip-get}";
+                "${modifier}+u" = mkIf config.custom.home.programs.winclip.enable "exec ${scripts.winclip-send}";
                 "${modifier}+p" = "exec ${pkgs.rofi-pass-wayland}/bin/rofi-pass";
                 "${modifier}+Shift+s" = "exec ${scripts.screenshot}";
-                "${modifier}+Shift+t" = "exec ${scripts.translate-screenshot}";
+                "${modifier}+Shift+t" = mkIf cfg.translation "exec ${scripts.translate-screenshot}";
                 "${modifier}+g" = "exec ${pkgs.rofi}/bin/rofi run -show drun -drun-categories Game -show-icons -display-drun 'games: '";
-                "${modifier}+Mod1+t" = "exec ${scripts.translate}";
+                "${modifier}+Mod1+t" = mkIf cfg.translation "exec ${scripts.translate}";
                 "${modifier}+Mod1+e" = "mode \"${exit}\"";
                 "XF86AudioRaiseVolume" = "exec ${pkgs.pulseaudio}/bin/pactl set-sink-volume @DEFAULT_SINK@ +10%";
                 "XF86AudioLowerVolume" = "exec ${pkgs.pulseaudio}/bin/pactl set-sink-volume @DEFAULT_SINK@ -10%";
