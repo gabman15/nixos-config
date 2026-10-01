@@ -4,7 +4,7 @@ with lib; let
   cfg = config.custom.nixos.suites.bootable;
 in
   {
-    options.custom.nixos.suites.graphical = {
+    options.custom.nixos.suites.bootable = {
       enable = mkEnableOption "nixos opts for bootable pc";
     };
 

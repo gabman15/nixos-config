@@ -1,4 +1,4 @@
-{ lib, config, ... }:
+{ pkgs, lib, config, ... }:
 
 with lib; let
   cfg = config.custom.nixos.suites.work-mounts;
@@ -12,6 +12,9 @@ in
       work-path-loc = ../../../../secrets/git-crypt;
       work-mount-list = builtins.genList (x: toString (x + 1)) 6;
     in mkIf cfg.enable {
+      environment.systemPackages = with pkgs; [
+        cifs-utils
+      ];
       age.secrets = {
         smb-work-paths = {
           file = ../../../../secrets/smb-work-paths.age;

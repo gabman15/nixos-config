@@ -15,9 +15,6 @@
     linger = true;
   };
   boot.blacklistedKernelModules = ["bluetooth btusb"];
-  environment.systemPackages = with pkgs; [
-    tailscale
-  ];
 
   # services.greetd = {
   #   enable = true;

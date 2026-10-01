@@ -4,13 +4,15 @@
   home.packages = with pkgs; [
     pulsemixer
     cifs-utils
-    jetbrains.idea-oss
+    jetbrains.idea
     librewolf
     librecad
     libreoffice
     dbeaver-bin
+    wireshark
   ];
 
+  home.sessionVariables.TNS_ADMIN = "/home/lord_gabem/.config/tnsnames";
 
   custom.themes.enable = true;
   custom.home.opts.stylix = true;

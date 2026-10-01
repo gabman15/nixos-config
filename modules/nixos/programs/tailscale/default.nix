@@ -9,6 +9,9 @@ in
     };
     
     config = mkIf cfg.enable {
+      environment.systemPackages = with pkgs; [
+        tailscale
+      ];
       services.tailscale.enable = true;
       systemd.services.tailscale-online = {
         description = "Wait for Tailscale interface to be bindable";

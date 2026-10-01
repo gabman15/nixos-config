@@ -31,4 +31,5 @@ in
   "vpn-namespace-ipv4-alt.age".publicKeys = keys;
   "smb-work-creds.age".publicKeys = workkeys ++ keys;
   "smb-work-paths.age".publicKeys = workkeys ++ keys;
+  "squid-work-conf.age".publicKeys = workkeys ++ keys;
 }
