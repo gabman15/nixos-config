@@ -13,13 +13,12 @@
 
   users.users.lord_gabem = {
     isNormalUser = true;
-    extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "wheel" "networkmanager" ];
     linger = true;
   };
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-  # Enable the OpenSSH daemon.
   custom.nixos.programs.ssh.enable = true;
 
   nix.settings.trusted-users = [ "@wheel" ];

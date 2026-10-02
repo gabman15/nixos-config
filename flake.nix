@@ -99,6 +99,7 @@
         inputs.home-manager.nixosModules.home-manager
         inputs.disko.nixosModules.disko
         inputs.agenix.nixosModules.default
+        inputs.nixos-wsl.nixosModules.default
         {
           nixpkgs.overlays = import ./common/overlays inputs lib;
           stylix.homeManagerIntegration.autoImport = false;

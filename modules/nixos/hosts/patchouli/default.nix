@@ -1,10 +1,6 @@
 { inputs, config, ... }:
 
 {
-  imports = [
-    inputs.nixos-wsl.nixosModules.default
-  ];
-
   custom = {
     themes.enable = true;
     nixos = {

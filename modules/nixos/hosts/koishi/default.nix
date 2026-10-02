@@ -1,40 +1,9 @@
-{ lib, inputs, config, pkgs, ... }:
+{ ... }:
 
 {
-  # Set your time zone.
-  time.timeZone = "America/New_York";
-
   # For swaylock
   security.pam.services.swaylock = { };
   security.polkit.enable = true;
-  
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.lord_gabem = {
-    isNormalUser = true;
-    extraGroups = [ "wheel" "scanner" "lp"]; # Enable ‘sudo’ for the user.
-    linger = true;
-  };
-  boot.blacklistedKernelModules = ["bluetooth btusb"];
-
-  # services.greetd = {
-  #   enable = true;
-  #   settings = {
-  #     default_session = {
-  #       command = "${pkgs.greetd.tuigreet}/bin/tuigreet --sessions ${config.services.displayManager.sessionData.desktops}/share/wayland-sessions --remember --remember-user-session";
-  #       user = "greeter";
-  #     };
-  #   };
-  # };
-  
-  # services.greetd = {
-  #   enable = true;
-  #   settings = {
-  #     default_session = {
-  #       command = "${pkgs.sway}/bin/sway";
-  #       user = "lord_gabem";
-  #     };
-  #   };
-  # };
 
   systemd.mounts = let
     commonOpts = {
@@ -42,7 +11,6 @@
       mountConfig = {
         Options = "noatime";
       };
-      after = [ "tailscaled.service" ];
     };
   in [
     (commonOpts // {
@@ -103,6 +71,7 @@
       noise-suppression.enable = true;
       drawing-tablet.enable = true;
       scanner.enable = true;
+      printer.enable = true;
     };
     behavior.kernel-latest.enable = true;
     behavior.graphical-bootup.autostart-sway = true;
