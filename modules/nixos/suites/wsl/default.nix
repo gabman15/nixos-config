@@ -11,7 +11,7 @@ in
     config = mkIf cfg.enable {
       wsl = {
         enable = true;
-        defaultUser = "lord_gabem";
+        defaultUser = config.custom.opts.username;
         wslConf = {
           network.generateHosts = false;
           network.generateResolvConf = false;

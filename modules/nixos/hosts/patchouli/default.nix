@@ -13,6 +13,7 @@
         squid.enable = true;
         docker.enable = true;
         wireshark.enable = true;
+        qemu.enable = true;
       };
       behavior.locale.enable = true;
     };

@@ -9,7 +9,7 @@ in
     };
 
     config = mkIf cfg.enable {
-      users.users.lord_gabem.extraGroups = [ "wireshark" ];
+      users.users.${config.custom.opts.username}.extraGroups = [ "wireshark" ];
       programs.wireshark = {
         enable = true;
         dumpcap.enable = true;

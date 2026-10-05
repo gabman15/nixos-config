@@ -1,4 +1,4 @@
-{ inputs, lib, pkgs, ... }:
+{ config, inputs, lib, pkgs, ... }:
 
 {
   home.packages = with pkgs; [
@@ -10,7 +10,7 @@
     flatpak
     fusee-nano
     (inputs.nix-gaming.packages.${pkgs.stdenv.hostPlatform.system}.osu-stable.override {
-       location = "/home/lord_gabem/games/osu/prefix";
+      location = "/home/${config.custom.opts.username}/games/osu/prefix";
     })
   ];
 

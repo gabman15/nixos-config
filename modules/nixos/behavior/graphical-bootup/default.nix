@@ -15,7 +15,7 @@ in
     config = mkIf cfg.enable (mkIfElse cfg.autostart-sway
       {
         services.getty = {
-          autologinUser = "lord_gabem";
+          autologinUser = config.custom.opts.username;
           autologinOnce = true;
         };
 

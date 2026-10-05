@@ -14,20 +14,16 @@ in
         enable32Bit = true;
       };
 
-      boot.loader = {
-        systemd-boot.enable = true;
-        efi = {
-          canTouchEfiVariables = true;
-          efiSysMountPoint = "/boot/efi";
-        };
-      };
-
       networking.networkmanager.enable = true;
 
       services.pipewire = {
         enable = true;
         pulse.enable = true;
       };
+
+      # For swaylock
+      security.pam.services.swaylock = { };
+      security.polkit.enable = true;
 
       services.udisks2.enable = true;
 

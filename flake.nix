@@ -60,10 +60,13 @@
   };
 
   outputs = { nixpkgs, home-manager, stylix, self, ... }@inputs : let
+    custom-lib = import ./common/lib.nix nixpkgs.lib;
+    lib = nixpkgs.lib.extend (_: _: custom-lib);
     nixoshosts = [ "yukari" "patchouli" "suwako" "koishi" "rikako" ];
     homemgrhosts = [ "gensokyo" "nitori" "aya" ];
-    forAllNixOsHosts = nixpkgs.lib.genAttrs nixoshosts;
-    forAllHomeMgrHosts = nixpkgs.lib.genAttrs homemgrhosts;
+    hosts = import ./common/hosts.nix lib;
+    forAllNixOsHosts = nixpkgs.lib.genAttrs hosts.nixoshosts;
+    forAllHomeMgrHosts = nixpkgs.lib.genAttrs hosts.homemgrhosts;
     nixosUnfreePkgs = [
       "nvidia-x11"
       "nvidia-settings"
@@ -80,8 +83,6 @@
       "idea"
       "makemkv"
     ];
-    custom-lib = import ./common/lib.nix nixpkgs.lib;
-    lib = nixpkgs.lib.extend (_: _: custom-lib);
     channels = {
       stable = inputs.nixpkgs;
       unstable = inputs.nixpkgs-unstable;
@@ -105,8 +106,9 @@
           stylix.homeManagerIntegration.autoImport = false;
           networking.hostName = host;
           custom.opts.hostname = host;
+          custom.opts.username = hosts.username host;
           home-manager.useGlobalPkgs = true;
-          home-manager.users.lord_gabem = {
+          home-manager.users.${hosts.username host} = {
             imports = [
               ./modules/home/hosts/common
               ./modules/home/hosts/${host}
@@ -117,6 +119,7 @@
               inputs.agenix.homeManagerModules.default
             ];
             custom.opts.hostname = host;
+            custom.opts.username = hosts.username host;
             stylix.overlays.enable = false;
           };
           home-manager.extraSpecialArgs = {
@@ -150,9 +153,10 @@
           ./modules/opts
           {
             nixpkgs.overlays = import ./common/overlays inputs lib;
-            home.username = "lord_gabem";
+            home.username = hosts.username host;
             custom.opts.hostname = host;
-            home.homeDirectory = "/home/lord_gabem";
+            custom.opts.username = hosts.username host;
+            home.homeDirectory = "/home/${hosts.username host}";
             nixpkgs.config.allowUnfreePredicate = pkg:
               builtins.elem (nixpkgs.lib.getName pkg) homeUnfreePkgs;
           }

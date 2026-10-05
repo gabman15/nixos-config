@@ -9,6 +9,6 @@ in
     };
 
     config = mkIf cfg.enable {
-      users.users.lord_gabem.extraGroups = [ "lp" ];
+      users.users.${config.custom.opts.username}.extraGroups = [ "lp" ];
     };
   }

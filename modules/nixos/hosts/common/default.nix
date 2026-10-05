@@ -1,4 +1,4 @@
-{ lib, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 
 {
   imports =
@@ -11,7 +11,7 @@
 
   time.timeZone = "America/New_York";
 
-  users.users.lord_gabem = {
+  users.users.${config.custom.opts.username} = {
     isNormalUser = true;
     extraGroups = [ "wheel" "networkmanager" ];
     linger = true;

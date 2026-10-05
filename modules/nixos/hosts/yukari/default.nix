@@ -1,26 +1,12 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 
 {
-  # Set your time zone.
-  time.timeZone = "America/New_York";
-
   # Enable touchpad support (enabled default in most desktopManager).
   services.libinput.enable = true;
 
-  # For swaylock
-  security.pam.services.swaylock = { };
-  security.polkit.enable = true;
-  
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.lord_gabem = {
-    isNormalUser = true;
-    extraGroups = [ "wheel" "uinput" ]; # Enable ‘sudo’ for the user.
-    linger = true;
-  };
+  users.users.${config.custom.opts.username}.extraGroups = [ "uinput" ];
 
-  environment.systemPackages = with pkgs; [
-    tailscale
-  ];
 
   systemd.mounts = [
     {
@@ -58,7 +44,7 @@
 
   custom.nixos.programs.steam.enable = true;
   custom.nixos.programs.vpn-namespace.enable = true;
-  services.tailscale.enable = true;
+  custom.nixos.programs.tailscale.enable = true;
   # custom.nixos.programs.gnupg.enable = true;
   custom.nixos.hardware.framework-13.enable = true;
   programs.sway.enable = true;

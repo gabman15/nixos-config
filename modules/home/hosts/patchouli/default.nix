@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 
 {
   home.packages = with pkgs; [
@@ -12,7 +12,7 @@
     wireshark
   ];
 
-  home.sessionVariables.TNS_ADMIN = "/home/lord_gabem/.config/tnsnames";
+  home.sessionVariables.TNS_ADMIN = "/home/${config.custom.opts.username}/.config/tnsnames";
 
   custom.themes.enable = true;
   custom.home.opts.stylix = true;

@@ -7,16 +7,6 @@
   # Enable touchpad support (enabled default in most desktopManager).
   services.libinput.enable = true;
 
-  # For swaylock
-  security.pam.services.swaylock = { };
-  security.polkit.enable = true;
-
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.lord_gabem = {
-    isNormalUser = true;
-    extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
-  };
-
   services.logind.settings.Login.HandleLidSwitchExternalPower = "ignore";
   systemd.sleep.extraConfig = ''
     AllowSuspend=no
@@ -51,7 +41,7 @@
     settings = {
       default_session = {
         command = "${pkgs.sway}/bin/sway --unsupported-gpu";
-        user = "lord_gabem";
+        user = ${config.custom.opts.username};
       };
     };
   };

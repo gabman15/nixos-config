@@ -9,7 +9,7 @@ in
     };
 
     config = mkIf cfg.enable {
-      users.users.lord_gabem.extraGroups = [ "docker" ];
+      users.users.${config.custom.opts.username}.extraGroups = [ "docker" ];
       virtualisation.docker.enable = true;
     };
   }
