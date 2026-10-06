@@ -10,6 +10,6 @@ in
 
     config = mkIf cfg.enable {
       hardware.sane.enable = true;
-      users.users.${config.opts.username}.extraGroups = [ "scanner" ];
+      users.users.${config.custom.opts.username}.extraGroups = [ "scanner" ];
     };
   }

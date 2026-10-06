@@ -1,7 +1,7 @@
 lib:
 {
   nixoshosts = [ "yukari" "patchouli" "suwako" "koishi" "rikako" ];
-  homemgrhosts = [ "gensokyo" "nitori" "aya" ];
+  homemgrhosts = [ "gensokyo" "nitori" "aya" "sekibanki" ];
   
   username = let
     username-override = {
