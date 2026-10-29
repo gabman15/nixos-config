@@ -17,29 +17,27 @@ in
       systemd.mounts = let
         common-opts = {
           type = "nfs";
-          mountConfig = {
-            Options = "noatime,noauto";
-          };
+          after = lib.mkIfElse config.custom.nixos.programs.tailscale.enable [ "tailscale-online.service" ] [ "network-online.target" ];
         };
       in map (mount-conf: common-opts // {
         what = mount-conf.what;
         where = mount-conf.where;
+        mountConfig.Options = mount-conf.options;
       }) cfg.mounts;
 
       systemd.automounts = let
         common-opts = {
-
+          
           wantedBy = [ "multi-user.target" ];
         };
-        tailscale-opts = if config.custom.nixos.programs.tailscale.enable
-                         then
-                           {
-                             after = [ "tailscale-online.service" ];
-                             requires = [ "tailscale-online.service" ];
-                           }
-                         else
-                           {};
-      in map (mount-conf: common-opts // tailscale-opts // {
+        # tailscale-opts = if config.custom.nixos.programs.tailscale.enable
+        #                  then
+        #                    {
+        #                      after = [ "tailscale-online.service" ];
+        #                    }
+        #                  else
+        #                    {};
+      in map (mount-conf: common-opts // {
         where = mount-conf.where;
       }) cfg.mounts;
     };

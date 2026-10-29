@@ -20,6 +20,16 @@ in
           }
         '';
         network.listenAddress = "any";
+        # network.startWhenNeeded = true;
+      };
+      systemd.user.services.mpd = {
+        Service = {
+          TimeoutSec=5;
+        };
+        Unit = {
+          BindsTo=["mnt-music.mount"];
+          After=["mnt-music.mount"];
+        };
       };
     };
   }

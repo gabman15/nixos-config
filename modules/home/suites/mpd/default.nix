@@ -11,6 +11,7 @@ in
         type = with types; nullOr str;
         default = "localhost";
       };
+      albumart = mkEnableOption "enable album art daemon";
     };
 
     config = mkIf cfg.enable {
@@ -26,7 +27,7 @@ in
         MPD_HOST = lib.mkForce cfg.mpd-host;
       };
 
-      custom.home.programs.albumart.enable = true;
+      custom.home.programs.albumart.enable = cfg.albumart;
       custom.home.programs.albumart.mpd-host = cfg.mpd-host;
       custom.home.programs.rmpc.enable = true;
     };

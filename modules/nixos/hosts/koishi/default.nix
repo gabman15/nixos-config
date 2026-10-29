@@ -25,14 +25,17 @@
           {
             what = "nitori:/anime";
             where = "/mnt/anime";
+            options = "noatime,noauto,nofail,_netdev";
           }
           {
             what = "nitori:/music";
             where = "/mnt/music";
+            options = "noatime,nofail,_netdev";
           }
           {
             what = "nitori:/archive";
             where = "/mnt/archive";
+            options = "noatime,noauto,nofail,_netdev";
           }
         ];
       };

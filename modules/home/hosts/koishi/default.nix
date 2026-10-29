@@ -40,7 +40,10 @@
         tmux.enable = true;
         rofi.enable = true;
         backgrounder.enable = true;
-        sway.enable = true;
+        sway = {
+          enable = true;
+          translation = true;
+        };
         waybar.enable = true;
         mpv.enable = true;
         gnupg.enable = true;
