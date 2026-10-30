@@ -16,7 +16,6 @@
     agenix = {
       url = "github:ryantm/agenix";
       inputs.nixpkgs.follows = "nixpkgs";
-      inputs.home-manager.follows = "home-manager";
     };
     gabe-backgrounder = {
       url = "github:gabman15/gabe-backgrounder";
