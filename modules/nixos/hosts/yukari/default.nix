@@ -7,33 +7,7 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.${config.custom.opts.username}.extraGroups = [ "uinput" ];
 
-
-  systemd.mounts = [
-    {
-      description = "nitori anime";
-      what = "nitori:/anime";
-      type = "nfs";
-      where = "/mnt/anime";
-      after = [ "tailscaled.service" ];
-    }
-  ];
-
-  systemd.automounts = [
-    {
-      description = "Automount for nitori anime";
-      where = "/mnt/anime";
-      after = [ "tailscaled.service" ];
-      wantedBy = [ "multi-user.target" ];
-    }
-  ];
-
   hardware.uinput.enable = true;
-  hardware.opentabletdriver.enable = true;
-  hardware.bluetooth.enable = true; # enables support for Bluetooth
-  hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot
-  services.blueman.enable = true;
-
-  boot.supportedFilesystems = [ "nfs" ];
 
   custom.themes.enable = true;
 
@@ -42,14 +16,32 @@
     interface = "wlp166s0";
   };
 
-  custom.nixos.programs.steam.enable = true;
-  custom.nixos.programs.vpn-namespace.enable = true;
-  custom.nixos.programs.tailscale.enable = true;
-  # custom.nixos.programs.gnupg.enable = true;
-  custom.nixos.hardware.framework-13.enable = true;
-  programs.sway.enable = true;
-  custom.nixos.suites.graphical.enable = true;
-  custom.nixos.behavior.graphical-bootup.autostart-sway = true;
+  custom.nixos = {
+    programs = {
+      steam.enable = true;
+      vpn-namespace.enable = true;
+      tailscale.enable = true;
+    };
+    hardware.framework-13.enable = true;
+    suites = {
+      graphical.enable = true;
+      drawing-tablet.enable = true;
+      bluetooth.enable = true;      
+      nas-mounts = {
+        enable = true;
+        mounts = [
+          {
+            what = "nitori:/anime";
+            where = "/mnt/anime";
+            options = "noatime,noauto,nofail,_netdev";
+          }
+        ];
+      };
+    };
+    behavior = {
+      graphical-bootup.autostart-sway = true;
+    };
+  };
 
   system.stateVersion = "24.11";
 }
