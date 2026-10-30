@@ -4,6 +4,8 @@ pkgs: [
       pkgs.nixd
       pkgs.intelephense
       pkgs.lemminx
+      pkgs.typescript-language-server
+      pkgs.typescript_5
       # pkgs.ccls
       # pkgs.jdt-language-server
 ]

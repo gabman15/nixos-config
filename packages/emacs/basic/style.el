@@ -53,3 +53,5 @@
   :ensure t)
 (use-package rg
   :ensure t)
+(use-package sudo-edit
+  :ensure t)

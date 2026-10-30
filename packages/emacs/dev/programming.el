@@ -11,6 +11,9 @@
   :ensure t)
 (use-package ob-restclient
   :ensure t)
+(use-package corfu
+  :ensure t)
+
 
 (org-babel-do-load-languages
  'org-babel-load-languages
@@ -20,16 +23,17 @@
 (add-hook 'json-mode-hook #'lsp)
 (add-hook 'php-mode-hook #'lsp)
 (add-hook 'nxml-mode-hook #'lsp)
+(add-hook 'js-mode-hook #'lsp)
 
 (add-to-list 'auto-mode-alist '("\\.xaml\\'" . xml-mode))
 (add-to-list 'auto-mode-alist '("\\.axaml\\'" . xml-mode))
 (add-to-list 'auto-mode-alist '("\\.dashboard\\'" . json-mode))
+(add-to-list 'auto-mode-alist '("\\.jsp\\'" . js-mode))
 
 (lsp-register-client (make-lsp-client
                       :new-connection (lsp-stdio-connection "lemminx")
                       :activation-fn (lsp-activate-on "xml")
                       :server-id 'lemminx))
-
 
 (use-package lsp-java
   :ensure t)
@@ -37,8 +41,6 @@
 
 ;; (setq lsp-java-jdt-ls-prefer-native-command t)
 ;; (setq lsp-java-server-install-dir (f-dirname (f-dirname (executable-find lsp-java-jdt-ls-command))))
-
-
 
 ;; (use-package ccls
 ;;   :ensure t
